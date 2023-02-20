@@ -1,7 +1,6 @@
 local options = {
   -- Set options
   opt = {
-    fileencoding = "utf-8",
     ignorecase = true,
     undofile = true
   },
@@ -32,8 +31,4 @@ local options = {
   }
 }
 
-for opt, variables in pairs(options) do
-  for key, value in pairs(variables) do
-    vim[opt][key] = value
-  end
-end
+return options

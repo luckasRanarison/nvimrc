@@ -2,7 +2,7 @@ local mappings = {
   -- Normal mode
   n = {
     ["<leader>p"] = "\"+p", -- paste from system clipboard
-    ["<leader>s"] = ":nohlsearch<cr>", -- CLear seach highlighting
+    ["<leader>s"] = ":nohlsearch<cr>", -- Clear seach highlighting
     ["<leader>r"] = ":registers<cr>", -- Show registers
     ["<leader>j"] = ":jumps<cr>", -- Show jumps
     ["<leader>é"] = "g~l", -- Toggle letter casing
@@ -27,9 +27,4 @@ local mappings = {
   },
 }
 
-for mode, maps in pairs(mappings) do
-  for key, map in pairs(maps) do
-    local opts = { noremap = true, silent = true }
-    vim.api.nvim_set_keymap(mode, key, map, opts)
-  end
-end
+return mappings

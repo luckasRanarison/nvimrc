@@ -1,21 +1,6 @@
-vim.cmd [[packadd packer.nvim]]
+local plugins = {
+  "ggandor/leap.nvim",
+  "kylechui/nvim-surround"
+}
 
-return require('packer').startup(function(use)
-  use { "wbthomason/packer.nvim" }
-
-  use({
-    "ggandor/leap.nvim",
-    config = function()
-      require("leap").add_default_mappings()
-    end
-  })
-
-  use({
-    "kylechui/nvim-surround",
-    tag = "*",
-    config = function()
-      require("nvim-surround").setup({})
-    end
-  })
-end
-)
+return plugins
