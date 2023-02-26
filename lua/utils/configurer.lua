@@ -46,16 +46,10 @@ M.setup_plugins = function(plugins)
       use(plugin_data)
     end
   end)
-end
 
----Fetch plugins config
----@param plugins table<string> list of configured plugins
----@param host "neovim" | "vscode" neovim host
-M.configure_plugins = function(plugins, host)
-  local path = host .. ".plugins.config."
-  for _, plugin_name in ipairs(plugins) do
-    require(path .. plugin_name)
-  end
+  --Run all config scripts
+  local host = vim.g.vscode and "vscode" or "neovim"
+  vim.cmd("runtime! lua/" .. host .. "/plugins/config/*.lua")
 end
 
 return M
