@@ -31,15 +31,13 @@ M.set_mappings = function(mappings)
   end
 end
 
--- --- Initialize autocmd
--- --- @param autocmd table<string, table>
--- M.set_autocmd = function(autocmd)
---   local cmd = vim.api.nvim_create_autocmd
-
---   for triggers, settings in pairs(autocmd) do
---     cmd(triggers, settings)
---   end
--- end
+--- Initialize autocmd
+--- @param autocmd table<any>
+M.set_autocmd = function(autocmd)
+  for _, cmd in ipairs(autocmd) do
+    vim.api.nvim_create_autocmd(cmd)
+  end
+end
 
 --- Setup packer plugins
 --- @param plugins any plugin data
