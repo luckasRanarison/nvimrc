@@ -1,4 +1,6 @@
 local plugins = {
+  "fedepujol/move.nvim",
+
   ["ggandor/leap.nvim"] = {
     config = function()
       require("leap").add_default_mappings()
