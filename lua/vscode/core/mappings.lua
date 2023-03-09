@@ -3,17 +3,16 @@ local vscode = require "utils.vscode"
 local mappings = {
   -- normal mode
   n = {
+    ["<leader>d"] = "\"+dd", -- cut line to system clipboard
     ["<leader>p"] = "\"+p", -- paste from system clipboard
     ["<leader>P"] = "\"+P", -- on the top
     ["<leader>s"] = ":nohlsearch<cr>", -- Clear seach highlighting
     ["<leader>r"] = ":registers<cr>", -- Show registers
     ["<leader>j"] = ":jumps<cr>", -- Show jumps
-    ["<leader>u"] = "m`O<Esc>``", -- add space up
-    ["<leader>d"] = "m`o<Esc>``", -- add space down
+    ["<leader><leader>k"] = "m`O<Esc>``", -- add space up
+    ["<leader><leader>j"] = "m`o<Esc>``", -- add space down
 
     -- Quick replace mappings
-    ["<leader>i"] = "ciw",
-    ["<leader>I"] = "ciW",
     ["<leader>("] = "ci(",
     ["<leader>\""] = "ci\"",
     ["<leader>'"] = "ci'",
@@ -31,6 +30,7 @@ local mappings = {
     ["<leader>c"] = vscode.cmd("editor.action.commentLine"), -- Comment line
     ["<leader>t"] = vscode.cmd("workbench.action.togglePanel"), -- Toggle panel
     ["<leader>f"] = vscode.cmd("petsView.focus"), -- Focus pets
+    ["<leader>i"] = vscode.cmd("editor.action.formatDocument"), -- format file
     ["<leader>o"] = vscode.cmd("outline.focus"), -- Focus outline
     ["<leader>T"] = vscode.cmd("timeline.focus"), -- Focus timeline
     ["<leader>n"] = vscode.cmd("notification.clear"), -- Focus outline
@@ -46,6 +46,7 @@ local mappings = {
     ["<leader>y"] = "\"+y", -- Yank to system clipboard
     ["<leader>p"] = "\"+p", -- Paste from system clipboard
     ["<leader>P"] = "\"+P", -- on the top
+    ["<leader>d"] = "\"+d", -- cut selection to system clipboard
 
     -- move.nvim
     ["<A-j>"] = ":MoveBlock(1)<cr>",
