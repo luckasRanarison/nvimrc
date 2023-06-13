@@ -81,10 +81,34 @@ return {
     },
 
     -- gitsigns
-    ["<leader>gd"] = { value = ":Gitsigns diffthis<CR>", desc = format("GitDiff", "Git dif") },
+    ["<leader>gb"] = {
+      value = ":Gitsigns toggle_current_line_blame<CR>",
+      desc = format("GitDiff", "Toggle line blame"),
+    },
+    ["<leader>gd"] = { value = ":Gitsigns diffthis<CR>", desc = format("GitDiff", "Show diff") },
+    ["<leader>gD"] = {
+      value = ":Gitsigns toggle_deleted<CR>",
+      desc = format("Delete", "Toggle deleted"),
+    },
     ["<leader>gp"] = {
       value = ":Gitsigns preview_hunk<CR>",
-      desc = format("Popup", "Git preview hunk"),
+      desc = format("Popup", "Preview hunk"),
+    },
+    ["<leader>gP"] = {
+      value = ":Gitsigns preview_hunk_inline<CR>",
+      desc = format("Popup", "Preview hunk inline"),
+    },
+    ["<leader>gn"] = {
+      value = ":Gitsigns next_hunk<CR>",
+      desc = format("Down", "Next hunk"),
+    },
+    ["<leader>gN"] = {
+      value = ":Gitsigns prev_hunk<CR>",
+      desc = format("Up", "Next hunk"),
+    },
+    ["<leader>gv"] = {
+      value = ":Gitsigns select_hunk<CR>",
+      desc = format("Visual", "Select hunk"),
     },
 
     -- toggleterm
@@ -145,6 +169,10 @@ return {
     ["<leader>fB"] = {
       value = ":Telescope git_branches<CR>",
       desc = format("GitBranch", "Find git branch"),
+    },
+    ["<leader>f:"] = {
+      value = ":Telescope command_history<CR>",
+      desc = format("History", "Command history"),
     },
 
     -- packages
@@ -222,8 +250,11 @@ return {
     },
     ["<leader>SD"] = {
       value = ":SessionManager load_current_dir_session<CR>",
-      desc = "Load current directory session",
+      desc = format("FolderClock", "Load current directory session"),
     },
+
+    -- Twilight
+    ["<leader>T"] = { value = ":Twilight<CR>", desc = format("Twilight", "Toggle twilight") },
   },
 
   v = {

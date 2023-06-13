@@ -82,6 +82,7 @@ M.icons = {
   Format = "󰉣",
   Edit = "󰤌",
   Fix = "",
+  Twilight = "󰖚",
 }
 
 M.format = function(icon, text) return M.icons[icon] .. " " .. text end
