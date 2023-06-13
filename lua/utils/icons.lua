@@ -82,6 +82,7 @@ M.icons = {
   Format = "󰉣",
   Edit = "󰤌",
   Fix = "",
+  Run = "",
   Twilight = "󰖚",
 }
 

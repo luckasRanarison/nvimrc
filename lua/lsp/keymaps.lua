@@ -51,4 +51,20 @@ return {
   ["textDocument/typeDefinition"] = {
     ["gT"] = { value = ":lua vim.lsp.buf.type_definition()<CR>", desc = "Go to type definition" },
   },
+  ["textDocument/codeLens"] = {
+    ["<leader>ll"] = {
+      value = ":lua vim.lsp.codelens.run()<CR>",
+      desc = format("Run", "Run codelens"),
+    },
+    ["<leader>lL"] = {
+      value = ":lua vim.lsp.codelens.refresh()<CR>",
+      desc = format("Restart", "Refresh codelens"),
+    },
+  },
+  ["workspace/symbol"] = {
+    ["<leader>ls"] = {
+      value = ":lua vim.lsp.buf.workspace_symbol()<CR>",
+      desc = format("Variable", "Workspace symbols"),
+    },
+  },
 }

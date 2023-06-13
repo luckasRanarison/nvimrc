@@ -11,7 +11,7 @@ return {
   opts = {
     enable_git_status = true,
     close_if_last_window = true,
-    auto_clean_after_session_restore = true,
+    auto_clean_after_session_restore = false,
     window = {
       width = 30,
       mappings = {
