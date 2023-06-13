@@ -8,6 +8,7 @@ return {
   },
   event = { "BufReadPost", "BufNewFile" },
   opts = {
+    theme = "tokyonight",
     show_basename = false,
   },
 }

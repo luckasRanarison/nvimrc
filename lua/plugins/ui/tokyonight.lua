@@ -15,7 +15,6 @@ return {
       return colors
     end,
     on_highlights = function(hl, c)
-      hl.BufferLineFill = { bg = c.bg }
       hl.WinSeparator = { fg = c.bg }
       hl.DiagnosticSignError = { fg = c.red }
       hl.DiagnosticSignWarn = { fg = c.yellow }
@@ -27,6 +26,10 @@ return {
       hl.DiagnosticInfo = { fg = c.blue }
       hl.CursorLineNr = { fg = c.blue }
       hl.Breakpoint = { fg = c.orange }
+      hl.BufferLineFill = { bg = c.bg }
+      hl.BufferLineCloseButtonSelected = { fg = c.red }
+      hl.NeoTreeDirectoryName = { fg = c.fg }
+      hl.ToggleTerm = { fg = c.fg, bg = c.bg_dark }
     end,
   },
 }

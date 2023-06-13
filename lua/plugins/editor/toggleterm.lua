@@ -10,10 +10,10 @@ return {
     },
     highlights = {
       Normal = {
-        guibg = "#16161e"
+        link = "ToggleTerm",
       },
       NormalFloat = {
-        guibg = "#16161e",
+        link = "ToggleTerm",
       },
     },
   },

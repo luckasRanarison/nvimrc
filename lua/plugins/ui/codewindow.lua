@@ -19,6 +19,8 @@ return {
         "neogitstatus",
         "neo-tree",
         "Trouble",
+        "noice",
+        "qf",
       },
       relative = "editor",
       width_multiplier = 3,

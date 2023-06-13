@@ -4,8 +4,12 @@ local sources = require("plugins.utils.lualine_sources")
 
 return {
   "nvim-lualine/lualine.nvim",
-  event = { "BufReadPost", "BufNewFile", "InsertEnter" },
+  event = { "BufReadPost", "BufNewFile" },
   dependencies = { "nvim-tree/nvim-web-devicons" },
+  config = function(_, opts)
+    vim.opt.laststatus = 3
+    require("lualine").setup(opts)
+  end,
   opts = {
     options = {
       component_separators = { left = "", right = "" },
@@ -24,6 +28,7 @@ return {
               ["V-LINE"] = icons.Visual,
               ["V-BLOCK"] = icons.Visual,
               COMMAND = icons.Command,
+              REPLACE = icons.Edit,
             }
             return map[name] or name
           end,

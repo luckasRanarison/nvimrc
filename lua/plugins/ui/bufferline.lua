@@ -2,7 +2,7 @@ local format = require("utils.icons").format
 
 return {
   "akinsho/bufferline.nvim",
-  event = { "BufReadPost", "BufNewFile", "InsertEnter" },
+  event = { "BufReadPost", "BufNewFile" },
   dependencies = "nvim-tree/nvim-web-devicons",
   opts = {
     options = {
@@ -19,4 +19,8 @@ return {
       },
     },
   },
+  config = function(_, opts)
+    vim.opt.showtabline = 2
+    require("bufferline").setup(opts)
+  end,
 }
