@@ -84,6 +84,9 @@ M.icons = {
   Fix = "",
   Run = "",
   Twilight = "󰖚",
+  Recording = "󰑋",
+  TopLeftTriangle = "◤",
+  DownRightTriangle = "◢",
 }
 
 M.format = function(icon, text) return M.icons[icon] .. " " .. text end
