@@ -18,7 +18,7 @@ return {
       lualine_b = { sources.branch, sources.diff },
       lualine_c = {
         sources.filetype,
-        sources.filname,
+        sources.filename,
         sources.macro,
       },
       lualine_x = {

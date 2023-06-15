@@ -96,20 +96,24 @@ M.location = {
   end,
 }
 
-M.macro = function()
-  local key = vim.fn.reg_recording()
-  return key == "" and "" or format("Recording", key)
-end
+M.macro = {
+  function() return vim.fn.reg_recording() end,
+  icon = icons.Recording,
+  color = function()
+    local colors = require("tokyonight.colors")
+    return { fg = colors.default.red }
+  end,
+}
 
-M.lsp = function()
-  local bufnr = vim.api.nvim_get_current_buf()
-  local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
-
-  if next(clients) == nil then return "" end
-
-  local attached_clients = vim.tbl_map(function(client) return client.name end, clients)
-
-  return format("Braces", table.concat(attached_clients, ", "))
-end
+M.lsp = {
+  function()
+    local bufnr = vim.api.nvim_get_current_buf()
+    local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
+    if next(clients) == nil then return "" end
+    local attached_clients = vim.tbl_map(function(client) return client.name end, clients)
+    return table.concat(attached_clients, ", ")
+  end,
+  icon = icons.Braces,
+}
 
 return M
