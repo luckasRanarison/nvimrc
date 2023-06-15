@@ -11,11 +11,15 @@ return {
   opts = {
     enable_git_status = true,
     close_if_last_window = true,
-    auto_clean_after_session_restore = false,
+    auto_clean_after_session_restore = true,
     window = {
       width = 30,
       mappings = {
         ["<space>"] = false,
+        ["A"] = "git_add_all",
+        ["ga"] = "git_add_file",
+        ["gu"] = "git_unstage_file",
+        ["gr"] = "git_revert_file",
       },
     },
     filesystem = {
@@ -28,7 +32,10 @@ return {
         folder_empty = icons.EmptyFolder,
         default = icons.DefaultFile,
       },
-      indent = { padding = 0, indent_size = 1 },
+      indent = {
+        padding = 0,
+        indent_size = 1,
+      },
       modified = {
         symbol = icons.SmallDot,
       },

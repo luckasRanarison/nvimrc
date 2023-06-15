@@ -26,7 +26,16 @@ return {
     })
   end,
 
-  ["rust_analyzer"] = function() require("rust-tools").setup({}) end,
+  ["rust_analyzer"] = function()
+    require("rust-tools").setup({
+      dap = {
+        adapter = require("rust-tools.dap").get_codelldb_adapter(
+          "/home/luckas/.local/share/nvim/mason/packages/codelldb/extension/adapter/codelldb",
+          "/home/luckas/.local/share/nvim/mason/packages/codelldb/extension/lldb/lib/liblldb.so"
+        ),
+      },
+    })
+  end,
 
   ["lua_ls"] = function()
     lspconfig.lua_ls.setup({

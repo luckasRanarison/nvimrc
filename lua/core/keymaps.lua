@@ -5,6 +5,7 @@ return {
     -- utils
     ["<leader>w"] = { value = ":w<CR>", desc = format("Save", "Save file") },
     ["<leader>q"] = { value = ":q<CR>", desc = format("Exit", "Exit window") },
+    ["<leader>Q"] = { value = ":q!<CR>", desc = format("Exit", "Exit window!") },
     ["<leader>s"] = { value = ":nohlsearch<CR>", desc = format("Clear", "Clear search highlights") },
     ["<leader>p"] = { value = '"+p', desc = format("Clipboard", "Paste from clipboard") },
     ["<leader>P"] = { value = '"+P', desc = format("Clipboard", "Paste from clipboard") },
@@ -41,14 +42,25 @@ return {
     },
 
     -- buffer utils
-    ["<leader>bq"] = { value = ":Bdelete 0<CR>", desc = format("Close", "Close current buffer") },
+    ["<leader>bq"] = {
+      value = ":BufDel<CR>",
+      desc = format("Close", "Close current buffer"),
+    },
+    ["<leader>bQ"] = {
+      value = ":BufDel!<CR>",
+      desc = format("Close", "close current buffer!"),
+    },
     ["<leader>bb"] = { value = ":BufferLinePick<CR>", desc = format("Open", "Pick to open buffer") },
     ["<leader>bd"] = {
       value = ":BufferLinePickClose<CR>",
       desc = format("Close", "Pick to close buffer"),
     },
+    ["<leader>bc"] = {
+      value = ":BufDelOthers<CR>",
+      desc = format("CloseMultiple", "Close other buffers"),
+    },
     ["<leader>bC"] = {
-      value = ":BufferLineGroupClose ungrouped<CR>",
+      value = ":BufDelAll<CR>",
       desc = format("CloseMultiple", "Close all buffers"),
     },
     ["<leader>bl"] = {
@@ -255,8 +267,25 @@ return {
 
     -- Twilight
     ["<leader>T"] = { value = ":Twilight<CR>", desc = format("Twilight", "Toggle twilight") },
-  },
 
+    -- Codewindow
+    ["<leader>mm"] = {
+      value = ":lua require('codewindow').toggle_minimap()<CR>",
+      desc = format("Toggle", "Toggle minimap"),
+    },
+    ["<leader>mo"] = {
+      value = ":lua require('codewindow').open_minimap()<CR>",
+      desc = format("Open", "Open minimap"),
+    },
+    ["<leader>mc"] = {
+      value = ":lua require('codewindow').close_minimap()<CR>",
+      desc = format("Close", "Close minimap"),
+    },
+    ["<leader>mf"] = {
+      value = ":lua require('codewindow').toggle_focus()<CR>",
+      desc = format("Popup", "Focus minimap"),
+    },
+  },
   v = {
     -- move.nvim
     ["<A-j>"] = { value = ":MoveBlock(1)<CR>", desc = "Move line down" },

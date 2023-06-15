@@ -10,10 +10,12 @@ return {
       "jay-babu/mason-nvim-dap.nvim",
       dependencies = { "nvim-dap" },
       cmd = { "DapInstall", "DapUninstall" },
-      opts = { handlers = {} },
-      ensure_installed = {
-        "codelldb",
-        "node-debug2-adapter",
+      opts = {
+        handlers = {},
+        ensure_installed = {
+          "codelldb",
+          "node-debug2-adapter",
+        },
       },
     },
   },

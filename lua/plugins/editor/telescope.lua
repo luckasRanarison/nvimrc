@@ -1,3 +1,5 @@
+local format = require("utils.icons").format
+
 return {
   {
     "nvim-telescope/telescope.nvim",
@@ -13,12 +15,17 @@ return {
       },
       "nvim-telescope/telescope-dap.nvim",
     },
-    config = function()
-      local telescope = require("telescope")
-      telescope.load_extension("fzf")
-      telescope.load_extension("aerial")
-      telescope.load_extension("dap")
-    end,
-    opts = {},
+    opts = {
+      defaults = {
+        border = false,
+        prompt_prefix = format("Search", ""),
+        selection_caret = format("Right", ""),
+      },
+      extensions = {
+        fzf = {},
+        aerial = {},
+        dap = {},
+      },
+    },
   },
 }
