@@ -289,11 +289,11 @@ return {
     -- notify
     ["<leader>nn"] = {
       value = ":lua require('notify').dismiss()<CR>",
-      desc = "Dismiss notifications",
+      desc = format("NotificationDismiss", "Dismiss notifications"),
     },
     ["<leader>nl"] = {
       value = ":Notifications<CR>",
-      desc = "Show logs",
+      desc = format("NotificationLog", "Show logs"),
     },
   },
   v = {

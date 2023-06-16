@@ -14,7 +14,7 @@ return {
       f = { name = format("Search", "Telescope") },
       l = { name = format("Braces", "LSP") },
       d = { name = format("Debugger", "Debugger") },
-      n = { name = "Notification" },
+      n = { name = format("Notification", "Notification") },
       S = { name = format("FolderClock", "Session") },
     }, { prefix = "<leader>" })
   end,

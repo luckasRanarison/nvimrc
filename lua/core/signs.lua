@@ -1,6 +1,5 @@
 local icons = require("utils.icons").icons
 
--- stylua: skip
 return {
   { name = "DiagnosticSignError", text = icons.Error, texthl = "DiagnosticError" },
   { name = "DiagnosticSignHint", text = icons.Hint, texthl = "DiagnosticHint" },

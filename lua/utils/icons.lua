@@ -87,6 +87,9 @@ M.icons = {
   Recording = "󰑋",
   TopLeftTriangle = "◤",
   DownRightTriangle = "◢",
+  Notification = "󰍢",
+  NotificationDismiss = "󱙍",
+  NotificationLog = "󰍩",
 }
 
 M.format = function(icon, text) return M.icons[icon] .. " " .. text end

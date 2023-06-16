@@ -18,7 +18,7 @@ end
 
 M.set_autocmd = function(autocmd)
   for _, cmd in ipairs(autocmd) do
-    vim.api.nvim_create_autocmd(cmd[1], cmd[2])
+    vim.api.nvim_create_autocmd(cmd.event, cmd.opts)
   end
 end
 
