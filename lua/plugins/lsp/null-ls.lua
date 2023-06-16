@@ -13,7 +13,6 @@ return {
 
     return {
       debug = false,
-      on_attach = require("lsp.setup").setup_formatting,
       ensure_installed = {
         "clang-format",
         "prettierd",

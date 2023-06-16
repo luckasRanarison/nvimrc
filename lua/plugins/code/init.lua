@@ -9,7 +9,7 @@ return {
     "numToStr/Comment.nvim",
     keys = {
       { "gcc", mode = { "n" }, desc = "Comment line" },
-      { "gc", mode = { "v" }, desc = "Comment selection" },
+      { "gc",  mode = { "v" }, desc = "Comment selection" },
     },
     opts = {},
   },
@@ -24,15 +24,15 @@ return {
 
   {
     "ojroques/nvim-bufdel",
-    cmd = { "BufDel", "BufDelALl", "BufDelOthers" },
+    cmd = { "BufDel", "BufDelAll", "BufDelOthers" },
     opts = {},
   },
 
   {
     "ggandor/leap.nvim",
     keys = {
-      { "s", mode = { "n" }, desc = "Leap forwards" },
-      { "S", mode = { "n" }, desc = "Leap backwards" },
+      { "s",  mode = { "n" }, desc = "Leap forwards" },
+      { "S",  mode = { "n" }, desc = "Leap backwards" },
       { "gs", mode = { "n" }, desc = "Leap from window" },
     },
     config = function() require("leap").add_default_mappings() end,
@@ -60,7 +60,7 @@ return {
       { "cs", mode = { "n" }, desc = "Change surrounding pair" },
       { "ds", mode = { "n" }, desc = "Delete surrounding pair" },
       { "ys", mode = { "n" }, desc = "Add surrounding pair" },
-      { "S", mode = { "v" }, desc = "Add surrounding pair" },
+      { "S",  mode = { "v" }, desc = "Add surrounding pair" },
     },
     config = function() require("nvim-surround").setup() end,
   },

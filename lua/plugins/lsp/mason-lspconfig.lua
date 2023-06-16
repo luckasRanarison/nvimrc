@@ -15,6 +15,7 @@ return {
       "emmet_ls",
       "tailwindcss",
       "clangd",
+      "vimls",
     },
   },
 }

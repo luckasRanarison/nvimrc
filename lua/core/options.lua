@@ -21,6 +21,7 @@ local options = {
     writebackup = false,
     laststatus = 0,
     updatetime = 200,
+    fillchars = "eob: "
   },
 
   g = {

@@ -285,6 +285,16 @@ return {
       value = ":lua require('codewindow').toggle_focus()<CR>",
       desc = format("Popup", "Focus minimap"),
     },
+
+    -- notify
+    ["<leader>nn"] = {
+      value = ":lua require('notify').dismiss()<CR>",
+      desc = "Dismiss notifications",
+    },
+    ["<leader>nl"] = {
+      value = ":Notifications<CR>",
+      desc = "Show logs",
+    },
   },
   v = {
     -- move.nvim

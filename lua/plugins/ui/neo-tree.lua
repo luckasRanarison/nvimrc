@@ -16,7 +16,7 @@ return {
       width = 30,
       mappings = {
         ["<space>"] = false,
-        ["A"] = "git_add_all",
+        ["gA"] = "git_add_all",
         ["ga"] = "git_add_file",
         ["gu"] = "git_unstage_file",
         ["gr"] = "git_revert_file",
