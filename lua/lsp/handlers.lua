@@ -5,11 +5,10 @@ local disabled = { "tailwindcss" }
 
 return {
   function(server_name)
-    for _, name in ipairs(disabled) do
-      if server_name == name then return end
-    end
+    local autostart = not vim.tbl_contains(disabled, server_name)
 
     lspconfig[server_name].setup({
+      autostart = autostart,
       capabilities = capabilities,
     })
   end,
