@@ -16,6 +16,7 @@ return {
       d = { name = format("Debugger", "Debugger") },
       n = { name = format("Notification", "Notification") },
       S = { name = format("FolderClock", "Session") },
+      r = { name = format("Code", "SnipRun") },
     }, { prefix = "<leader>" })
   end,
   opts = {

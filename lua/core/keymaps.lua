@@ -314,6 +314,12 @@ return {
     ["<leader>lS"] = { value = ":LspStart ", desc = format("Run", "Start server") },
     ["<leader>lq"] = { value = ":LspStop ", desc = format("Stop", "Stop server") },
     ["<leader>lR"] = { value = ":LspRestart<CR>", desc = format("Restart", "Restart server") },
+
+    -- sniprun
+    ["<leader>rr"] = { value = ":SnipRun<CR>", desc = format("Run", "Run code") },
+    ["<leader>rR"] = { value = ":SnipReset<CR>", desc = format("Restart", "Reset sniprun") },
+    ["<leader>ri"] = { value = ":SnipInfo<CR>", desc = format("Info", "Show info") },
+    ["<leader>rq"] = { value = ":SnipClose<CR>", desc = format("Close", "Clear output") },
   },
   v = {
     -- move.nvim
@@ -330,6 +336,9 @@ return {
       value = "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
       desc = format("Comment", "Comment selection"),
     },
+
+    -- sniprun
+    ["<leader>rr"] = { value = ":SnipRun<CR>", desc = format("Run", "Run code") },
   },
 
   t = {

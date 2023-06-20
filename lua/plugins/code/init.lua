@@ -9,7 +9,7 @@ return {
     "numToStr/Comment.nvim",
     keys = {
       { "gcc", mode = { "n" }, desc = "Comment line" },
-      { "gc",  mode = { "v" }, desc = "Comment selection" },
+      { "gc", mode = { "v" }, desc = "Comment selection" },
     },
     opts = {},
   },
@@ -31,8 +31,8 @@ return {
   {
     "ggandor/leap.nvim",
     keys = {
-      { "s",  mode = { "n" }, desc = "Leap forwards" },
-      { "S",  mode = { "n" }, desc = "Leap backwards" },
+      { "s", mode = { "n" }, desc = "Leap forwards" },
+      { "S", mode = { "n" }, desc = "Leap backwards" },
       { "gs", mode = { "n" }, desc = "Leap from window" },
     },
     config = function() require("leap").add_default_mappings() end,
@@ -60,7 +60,7 @@ return {
       { "cs", mode = { "n" }, desc = "Change surrounding pair" },
       { "ds", mode = { "n" }, desc = "Delete surrounding pair" },
       { "ys", mode = { "n" }, desc = "Add surrounding pair" },
-      { "S",  mode = { "v" }, desc = "Add surrounding pair" },
+      { "S", mode = { "v" }, desc = "Add surrounding pair" },
     },
     config = function() require("nvim-surround").setup() end,
   },
@@ -94,5 +94,20 @@ return {
   {
     "RRethy/vim-illuminate",
     event = { "BufReadPost", "BufNewFile" },
+  },
+
+  {
+    "michaelb/sniprun",
+    build = "sh install.sh",
+    cmd = { "SnipRun", "SnipInfo" },
+    config = function()
+      local colors = require("tokyonight.colors")
+      require("sniprun").setup({
+        snipruncolors = {
+          SniprunVirtualTextOk = { bg = colors.night.bg, fg = colors.default.comment },
+          SniprunVirtualTextErr = { bg = colors.night.bg, fg = colors.default.red },
+        },
+      })
+    end,
   },
 }

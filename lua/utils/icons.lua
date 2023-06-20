@@ -90,6 +90,7 @@ M.icons = {
   Notification = "󰍢",
   NotificationDismiss = "󱙍",
   NotificationLog = "󰍩",
+  Code = "",
 }
 
 M.format = function(icon, text) return M.icons[icon] .. " " .. text end
