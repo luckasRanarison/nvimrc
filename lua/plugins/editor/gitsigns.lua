@@ -8,5 +8,8 @@ return {
       topdelete = { hl = "GitSignsDelete", text = "┃" },
       changedelete = { hl = "GitSignsChange", text = "┃" },
     },
+    preview_config = {
+      border = "none",
+    },
   },
 }

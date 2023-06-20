@@ -1,7 +1,6 @@
 local icons = require("utils.icons").icons
 local format = require("utils.icons").format
-
-M = {}
+local M = {}
 
 M.mode = {
   "mode",
