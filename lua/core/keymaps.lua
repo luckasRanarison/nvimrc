@@ -170,21 +170,34 @@ return {
       value = ":lua require('telescope').extensions.aerial.aerial()<CR>",
       desc = format("Braces", "Find document symbol"),
     },
-    ["<leader>fc"] = {
-      value = ":Telescope git_bcommits<CR>",
-      desc = format("GitCommit", "Find branch commit"),
+    ["<leader>fr"] = {
+      value = ":Telescope resume<CR>",
+      desc = format("Run", "Resume search"),
     },
-    ["<leader>fC"] = {
-      value = ":Telescope git_commits<CR>",
-      desc = format("GitCommit", "Find commit"),
+    ["<leader>fn"] = {
+      value = ":Telescope notify<CR>",
+      desc = format("Notification", "Show notifications"),
     },
-    ["<leader>fB"] = {
-      value = ":Telescope git_branches<CR>",
-      desc = format("GitBranch", "Find git branch"),
+    ["<leader>fo"] = {
+      value = ":Telescope vim_options<CR>",
+      desc = format("Config", "Vim options"),
     },
     ["<leader>f:"] = {
       value = ":Telescope command_history<CR>",
       desc = format("History", "Command history"),
+    },
+
+    ["<leader>gc"] = {
+      value = ":Telescope git_bcommits<CR>",
+      desc = format("GitCommit", "Find branch commit"),
+    },
+    ["<leader>gC"] = {
+      value = ":Telescope git_commits<CR>",
+      desc = format("GitCommit", "Find commit"),
+    },
+    ["<leader>gB"] = {
+      value = ":Telescope git_branches<CR>",
+      desc = format("GitBranch", "Find git branch"),
     },
 
     -- packages
@@ -295,6 +308,12 @@ return {
       value = ":Notifications<CR>",
       desc = format("NotificationLog", "Show logs"),
     },
+
+    -- lspconfig
+    ["<leader>li"] = { value = ":LspInfo<CR>", desc = format("Info", "Server info") },
+    ["<leader>lS"] = { value = ":LspStart ", desc = format("Run", "Start server") },
+    ["<leader>lq"] = { value = ":LspStop ", desc = format("Stop", "Stop server") },
+    ["<leader>lR"] = { value = ":LspRestart<CR>", desc = format("Restart", "Restart server") },
   },
   v = {
     -- move.nvim

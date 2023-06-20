@@ -31,10 +31,10 @@ return {
     ["K"] = { value = ":lua vim.lsp.buf.hover()<CR>", desc = "Hover info" },
   },
   ["textDocument/implementation"] = {
-    ["gI"] = { value = ":lua vim.lsp.buf.implementation()<CR>", desc = "Symbol implementation" },
+    ["gI"] = { value = ":Telescope lsp_implementations<CR>", desc = "Symbol implementation" },
   },
   ["textDocument/references"] = {
-    ["gr"] = { value = ":lua vim.lsp.buf.references()<CR>", desc = "Go to reference" },
+    ["gr"] = { value = ":Telescope lsp_references<CR>", desc = "Go to reference" },
   },
   ["textDocument/rename"] = {
     ["<leader>lr"] = {
