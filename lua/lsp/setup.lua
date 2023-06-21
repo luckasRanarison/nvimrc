@@ -4,10 +4,10 @@ M.setup_autocmd = function(client, bufnr)
   local capability_map = require("lsp.autocmd")
 
   for capability, map in pairs(capability_map) do
-    local augroup = vim.api.nvim_create_augroup(map.group, {})
-    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
     if client.supports_method(capability) then
-      map.opts.group = augroup
+      if capability == "textDocument/formatting" and client.name ~= "null-ls" then return end
+      vim.api.nvim_clear_autocmds({ group = map.opts.group, buffer = bufnr })
+      map.opts.buffer = bufnr
       vim.api.nvim_create_autocmd(map.event, map.opts)
     end
   end

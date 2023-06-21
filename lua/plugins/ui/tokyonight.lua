@@ -30,6 +30,7 @@ return {
       hl.BufferLineCloseButtonSelected = { fg = c.red }
       hl.NeoTreeDirectoryName = { fg = c.fg }
       hl.ToggleTerm = { fg = c.fg, bg = c.bg_dark }
+      hl.LspInlayHint = { fg = c.comment }
     end,
   },
 }

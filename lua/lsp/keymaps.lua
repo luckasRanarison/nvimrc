@@ -2,7 +2,7 @@ local format = require("utils.icons").format
 
 return {
   ["textDocument/formatting"] = {
-    ["<leader>bf"] = {
+    ["<leader>lf"] = {
       value = ":lua vim.lsp.buf.format()<CR>",
       desc = format("Format", "Format buffer"),
     },
@@ -43,7 +43,7 @@ return {
     },
   },
   ["textDocument/signatureHelp"] = {
-    ["<leader>lh"] = {
+    ["<leader>lH"] = {
       value = ":lua vim.lsp.buf.signature_help()<CR>",
       desc = format("Help", "Signature help"),
     },
@@ -65,6 +65,12 @@ return {
     ["<leader>ls"] = {
       value = ":lua vim.lsp.buf.workspace_symbol()<CR>",
       desc = format("Variable", "Workspace symbols"),
+    },
+  },
+  ["workspace/inlayHint"] = {
+    ["<leader>lh"] = {
+      value = ":lua vim.lsp.buf.inlay_hint(0, nil)<CR>",
+      desc = format("Toggle", "Toggle inlay hint"),
     },
   },
 }

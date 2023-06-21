@@ -27,6 +27,11 @@ return {
 
   ["rust_analyzer"] = function()
     require("rust-tools").setup({
+      tools = {
+        inlay_hints = {
+          auto = false
+        }
+      },
       dap = {
         adapter = require("rust-tools.dap").get_codelldb_adapter(
           "/home/luckas/.local/share/nvim/mason/packages/codelldb/extension/adapter/codelldb",
@@ -40,6 +45,9 @@ return {
     lspconfig.lua_ls.setup({
       settings = {
         Lua = {
+          hint = {
+            enable = true
+          },
           diagnostics = {
             globals = { "vim" },
           },
@@ -61,4 +69,11 @@ return {
       },
     })
   end,
+
+  ["clangd"] = function()
+    capabilities.offsetEncoding = "utf-16"
+    lspconfig.clangd.setup({
+      capabilities = capabilities,
+    })
+  end
 }
