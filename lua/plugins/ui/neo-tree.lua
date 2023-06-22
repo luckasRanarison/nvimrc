@@ -16,6 +16,8 @@ return {
       width = 30,
       mappings = {
         ["<space>"] = false,
+        ["s"] = false,
+        ["v"] = "open_vsplit",
         ["gA"] = "git_add_all",
         ["ga"] = "git_add_file",
         ["gu"] = "git_unstage_file",

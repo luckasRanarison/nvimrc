@@ -31,6 +31,8 @@ return {
       hl.NeoTreeDirectoryName = { fg = c.fg }
       hl.ToggleTerm = { fg = c.fg, bg = c.bg_dark }
       hl.LspInlayHint = { fg = c.comment }
+      hl.FlashLabel = { fg = c.red, bg = c.bg }
+      hl.FlashCurrent = { bg = c.fg }
     end,
   },
 }
