@@ -3,10 +3,6 @@ return {
   event = { "BufReadPost", "BufNewFile" },
   dependencies = {
     {
-      "rcarriga/nvim-dap-ui",
-      opts = {},
-    },
-    {
       "jay-babu/mason-nvim-dap.nvim",
       dependencies = { "nvim-dap" },
       cmd = { "DapInstall", "DapUninstall" },
@@ -18,5 +14,9 @@ return {
         },
       },
     },
+    { "rcarriga/nvim-dap-ui", opts = {} },
+    { "theHamsta/nvim-dap-virtual-text", opts = {
+      virt_text_pos = "eol",
+    } },
   },
 }
