@@ -5,10 +5,11 @@ M.set_autocmd = function(client, bufnr)
 
   for capability, map in pairs(capability_map) do
     if client.supports_method(capability) then
-      if capability == "textDocument/formatting" and client.name ~= "null-ls" then return end
-      vim.api.nvim_clear_autocmds({ group = map.opts.group, buffer = bufnr })
-      map.opts.buffer = bufnr
-      vim.api.nvim_create_autocmd(map.event, map.opts)
+      if not (capability == "textDocument/formatting" and client.name ~= "null-ls") then
+        vim.api.nvim_clear_autocmds({ group = map.opts.group, buffer = bufnr })
+        map.opts.buffer = bufnr
+        vim.api.nvim_create_autocmd(map.event, map.opts)
+      end
     end
   end
 end
