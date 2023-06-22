@@ -3,7 +3,7 @@ local format = require("utils.icons").format
 return {
   ["textDocument/formatting"] = {
     ["<leader>lf"] = {
-      value = ":lua vim.lsp.buf.format()<CR>",
+      value = ":lua require('lsp.utils').format_async(0)<CR>",
       desc = format("Format", "Format buffer"),
     },
   },

@@ -10,7 +10,7 @@ return {
     event = "BufWritePost",
     opts = {
       group = vim.api.nvim_create_augroup("LspFormatting", {}),
-      callback = function(opts) require("lsp.formatting").async_formatting(opts.buf) end,
+      callback = function(opts) require("lsp.utils").format_async(opts.buf) end,
     },
   },
   ["textDocument/inlayHint"] = {
