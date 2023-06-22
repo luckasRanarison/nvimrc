@@ -21,7 +21,6 @@ return {
 
     -- Neotree
     ["<leader>e"] = { value = ":Neotree toggle<CR>", desc = format("FileTree", "Toggle Neotree") },
-    ["<leader>o"] = { value = ":Neotree focus<CR>", desc = format("FileTree", "Focus Neotree") },
 
     -- move.nvim
     ["<A-j>"] = { value = ":MoveLine(1)<CR>", desc = "Move line down" },
@@ -320,6 +319,12 @@ return {
     ["<leader>rR"] = { value = ":SnipReset<CR>", desc = format("Restart", "Reset sniprun") },
     ["<leader>ri"] = { value = ":SnipInfo<CR>", desc = format("Info", "Show info") },
     ["<leader>rq"] = { value = ":SnipClose<CR>", desc = format("Close", "Clear output") },
+
+    -- dropbar
+    ["<leader>oo"] = {
+      value = ":lua require('dropbar.api').pick()<CR>",
+      desc = format("Check", "Pick node"),
+    },
   },
   v = {
     -- move.nvim
@@ -329,6 +334,8 @@ return {
     ["<A-l>"] = { value = ":MoveHBlock(1)<CR>", desc = "Move character right" },
 
     -- utils
+
+    ["q"] = { value = "<esc>" },
     ["<leader>y"] = { value = '"+y', desc = format("Clipboard", "yank to clipboard") },
     ["<leader>p"] = { value = '"+p', desc = format("Clipboard", "Paste from clipboard") },
     ["<leader>P"] = { value = '"+P', desc = format("Clipboard", "Paste from clipboard") },

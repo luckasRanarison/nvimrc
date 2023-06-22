@@ -91,6 +91,7 @@ M.icons = {
   NotificationDismiss = "󱙍",
   NotificationLog = "󰍩",
   Code = "",
+  DropDown = "󰁊"
 }
 
 M.format = function(icon, text) return M.icons[icon] .. " " .. text end
