@@ -16,11 +16,7 @@ return {
     sections = {
       lualine_a = { sources.mode },
       lualine_b = { sources.branch, sources.diff },
-      lualine_c = {
-        sources.filetype,
-        sources.filename,
-        sources.macro,
-      },
+      lualine_c = { sources.filetype, sources.macro },
       lualine_x = {
         sources.diagnostics,
         sources.lsp,

@@ -22,6 +22,7 @@ local options = {
     laststatus = 0,
     updatetime = 200,
     fillchars = "eob: ",
+    mouse = "",
   },
 
   g = {

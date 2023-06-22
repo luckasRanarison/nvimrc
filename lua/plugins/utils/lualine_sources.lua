@@ -43,17 +43,7 @@ M.diff = {
   end,
 }
 
-M.filetype = { "filetype", icon_only = true }
-
-M.filename = {
-  "filename",
-  symbols = {
-    modified = icons.NotSaved,
-    readonly = "-",
-    unnamed = "No Name",
-    newfile = "New",
-  },
-}
+M.filetype = { "filetype" }
 
 M.diagnostics = { "diagnostics" }
 

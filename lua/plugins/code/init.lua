@@ -30,7 +30,6 @@ return {
 
   {
     "folke/flash.nvim",
-    event = "VeryLazy",
     opts = {},
     keys = {
       {
@@ -99,20 +98,20 @@ return {
   {
     "RRethy/vim-illuminate",
     event = { "BufReadPost", "BufNewFile" },
+    config = function()
+      require("illuminate").configure({
+        filetypes_denylist = {
+          "neo-tree",
+          "dropbar_menu",
+        },
+      })
+    end,
   },
 
   {
     "michaelb/sniprun",
     build = "sh install.sh",
     cmd = { "SnipRun", "SnipInfo" },
-    config = function()
-      local colors = require("tokyonight.colors")
-      require("sniprun").setup({
-        snipruncolors = {
-          SniprunVirtualTextOk = { bg = colors.night.bg, fg = colors.default.comment },
-          SniprunVirtualTextErr = { bg = colors.night.bg, fg = colors.default.red },
-        },
-      })
-    end,
+    opts = {},
   },
 }

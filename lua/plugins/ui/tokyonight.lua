@@ -33,6 +33,8 @@ return {
       hl.LspInlayHint = { fg = c.comment }
       hl.FlashLabel = { fg = c.red, bg = c.bg }
       hl.FlashCurrent = { bg = c.fg }
+      hl.SniprunVirtualTextOk = { link = "Comment" }
+      hl.SniprunVirtualTextErr = { link = "Error" }
       hl.DropBarSeparator = { fg = c.dark3 }
       hl.DropBarPick = { fg = c.red, bold = true, italic = true }
       hl.DropBarKind = { fg = c.fg }
