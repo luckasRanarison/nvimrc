@@ -17,6 +17,7 @@ return {
       mappings = {
         ["<space>"] = false,
         ["s"] = false,
+        ["l"] = "open",
         ["v"] = "open_vsplit",
         ["gA"] = "git_add_all",
         ["ga"] = "git_add_file",

@@ -16,6 +16,9 @@ return {
       "tailwindcss",
       "clangd",
       "vimls",
+      "sqlls",
+      "jsonls",
+      "taplo",
     },
   },
 }

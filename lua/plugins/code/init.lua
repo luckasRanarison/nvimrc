@@ -9,7 +9,7 @@ return {
     "numToStr/Comment.nvim",
     keys = {
       { "gcc", mode = { "n" }, desc = "Comment line" },
-      { "gc",  mode = { "v" }, desc = "Comment selection" },
+      { "gc", mode = { "v" }, desc = "Comment selection" },
     },
     opts = {},
   },
@@ -32,13 +32,17 @@ return {
     "folke/flash.nvim",
     opts = {},
     keys = {
+      { "f", mode = { "n", "v" } },
+      { "F", mode = { "n", "v" } },
+      { "t", mode = { "n", "v" } },
+      { "T", mode = { "n", "v" } },
       {
         "ß",
         mode = { "n" },
         function() require("flash").jump({ pattern = vim.fn.expand("<cword>") }) end,
       },
       { "s", mode = { "n", "v" }, function() require("flash").jump() end },
-      { "S", mode = { "n" },      function() require("flash").treesitter() end },
+      { "S", mode = { "n" }, function() require("flash").treesitter() end },
     },
   },
 
@@ -64,7 +68,7 @@ return {
       { "cs", mode = { "n" }, desc = "Change surrounding pair" },
       { "ds", mode = { "n" }, desc = "Delete surrounding pair" },
       { "ys", mode = { "n" }, desc = "Add surrounding pair" },
-      { "S",  mode = { "v" }, desc = "Add surrounding pair" },
+      { "S", mode = { "v" }, desc = "Add surrounding pair" },
     },
     config = function() require("nvim-surround").setup() end,
   },

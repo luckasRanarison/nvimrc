@@ -14,6 +14,10 @@ return {
       value = ":lua vim.wo.wrap = not vim.wo.wrap<CR>",
       desc = format("LineWrap", "Toggle wrap"),
     },
+    ["<leader>:"] = {
+      value = ":lua ",
+      desc = format("Lua", "Lua prompt"),
+    },
     ["<leader>;"] = {
       value = ":lua require('Comment.api').toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1)<CR>",
       desc = format("Comment", "Comment line"),
