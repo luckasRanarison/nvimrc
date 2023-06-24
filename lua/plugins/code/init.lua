@@ -1,3 +1,5 @@
+local format = require("utils.icons").format
+
 return {
   {
     "max397574/better-escape.nvim",
@@ -9,7 +11,7 @@ return {
     "numToStr/Comment.nvim",
     keys = {
       { "gcc", mode = { "n" }, desc = "Comment line" },
-      { "gc", mode = { "v" }, desc = "Comment selection" },
+      { "gc",  mode = { "v" }, desc = "Comment selection" },
     },
     opts = {},
   },
@@ -25,12 +27,11 @@ return {
   {
     "ojroques/nvim-bufdel",
     cmd = { "BufDel", "BufDelAll", "BufDelOthers" },
-    opts = {},
+    opts = { quit = false },
   },
 
   {
     "folke/flash.nvim",
-    opts = {},
     keys = {
       { "f", mode = { "n", "v" } },
       { "F", mode = { "n", "v" } },
@@ -42,8 +43,21 @@ return {
         function() require("flash").jump({ pattern = vim.fn.expand("<cword>") }) end,
       },
       { "s", mode = { "n", "v" }, function() require("flash").jump() end },
-      { "S", mode = { "n" }, function() require("flash").treesitter() end },
+      { "S", mode = { "n" },      function() require("flash").treesitter() end },
+      {
+        "o",
+        mode = { "o" },
+        function() require("flash").jump() end,
+        desc = "Search jump",
+      },
+      {
+        "O",
+        mode = { "o" },
+        function() require("flash").treesitter() end,
+        desc = "Tresitter jump",
+      },
     },
+    opts = {},
   },
 
   {
@@ -68,7 +82,7 @@ return {
       { "cs", mode = { "n" }, desc = "Change surrounding pair" },
       { "ds", mode = { "n" }, desc = "Delete surrounding pair" },
       { "ys", mode = { "n" }, desc = "Add surrounding pair" },
-      { "S", mode = { "v" }, desc = "Add surrounding pair" },
+      { "S",  mode = { "v" }, desc = "Add surrounding pair" },
     },
     config = function() require("nvim-surround").setup() end,
   },
@@ -117,5 +131,17 @@ return {
     build = "sh install.sh",
     cmd = { "SnipRun", "SnipInfo" },
     opts = {},
+  },
+
+  {
+    "Wansmer/treesj",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    keys = {
+      { "<leader>j", mode = { "n" }, ":TSJSplit<CR>", desc = format("Down", "Split node") },
+      { "<leader>J", mode = { "n" }, ":TSJJoin<CR>",  desc = format("Up", "Join node") },
+    },
+    opts = {
+      use_default_keymaps = false,
+    },
   },
 }

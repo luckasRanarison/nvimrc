@@ -47,6 +47,8 @@ return {
       },
       git_status = {
         symbols = {
+          deleted = "D",
+          renamed = "R",
           modified = "M",
           added = "A",
           untracked = "U",

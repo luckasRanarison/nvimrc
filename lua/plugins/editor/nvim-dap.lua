@@ -1,6 +1,9 @@
 return {
   "mfussenegger/nvim-dap",
-  event = { "BufReadPost", "BufNewFile" },
+  keys = {
+    { "<leader>d", mode = { "n" } },
+  },
+  cmd = { "DapContinue", "DapToggleBreakpoint" },
   dependencies = {
     {
       "jay-babu/mason-nvim-dap.nvim",
@@ -15,8 +18,11 @@ return {
       },
     },
     { "rcarriga/nvim-dap-ui", opts = {} },
-    { "theHamsta/nvim-dap-virtual-text", opts = {
-      virt_text_pos = "eol",
-    } },
+    {
+      "theHamsta/nvim-dap-virtual-text",
+      opts = {
+        virt_text_pos = "eol",
+      },
+    },
   },
 }

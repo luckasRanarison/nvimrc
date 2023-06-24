@@ -12,6 +12,7 @@ M.mode = {
       VISUAL = icons.Visual,
       ["V-LINE"] = icons.Visual,
       ["V-BLOCK"] = icons.Visual,
+      ["O-PENDING"] = icons.Ellipsis,
       COMMAND = icons.Command,
       REPLACE = icons.Edit,
     }
