@@ -4,11 +4,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 return {
   function(server_name)
-    local disabled = { "tailwindcss" }
-    local autostart = not vim.tbl_contains(disabled, server_name)
-
     lspconfig[server_name].setup({
-      autostart = autostart,
       capabilities = capabilities,
     })
   end,
@@ -51,6 +47,17 @@ return {
           },
         },
       },
+    })
+  end,
+
+  ["tailwindcss"] = function()
+    capabilities.textDocument.colorProvider = { dynamicRegistration = true }
+    lspconfig.tailwindcss.setup({
+      on_attach = function()
+        local bufnr = vim.api.nvim_get_current_buf()
+        require("document-color").buf_attach(bufnr)
+      end,
+      capabilities = capabilities,
     })
   end,
 

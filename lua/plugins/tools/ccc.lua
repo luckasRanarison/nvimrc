@@ -7,4 +7,7 @@ return {
     "CccHighlighterDisable",
     "CccHighlighterToggle",
   },
+  opts = {
+    alpha_show = "show"
+  },
 }
