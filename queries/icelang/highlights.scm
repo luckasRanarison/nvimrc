@@ -62,13 +62,13 @@
 
 (stmt_func_decl
   args: (args
-    (expr_identifier) @variable.parameter
+    (expr_identifier) @parameter
   )
 )
 
 (expr_lambda
   args: (args
-    (expr_identifier) @variable.parameter
+    (expr_identifier) @parameter
   )
 )
 
@@ -97,4 +97,16 @@
   func: (expr_field
     field: (expr_identifier) @method.call
   )
+)
+
+(expr_binary
+  lhs: (expr_identifier) @function
+  rhs: (expr_lambda)
+)
+
+(expr_binary
+  lhs: (expr_field
+    field: (expr_identifier) @method
+  )
+  rhs: (expr_lambda)
 )
