@@ -13,6 +13,7 @@ M.icons = {
   Trash = "",
   Fedora = "",
   Lua = "",
+  Github = "",
   Git = "󰊢",
   GitDiff = "",
   GitBranch = "",
@@ -93,6 +94,9 @@ M.icons = {
   NotificationLog = "󰍩",
   Code = "",
   DropDown = "󰁊",
+  Web = "󰖟",
+  Dependencies = "",
+  Update = "󰚰",
 }
 
 M.format = function(icon, text) return M.icons[icon] .. " " .. text end

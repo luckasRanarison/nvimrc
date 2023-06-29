@@ -314,6 +314,7 @@ return {
 
     -- lspconfig
     ["<leader>li"] = { value = ":LspInfo<CR>", desc = format("Info", "Server info") },
+    ["<leader>lI"] = { value = ":LspLog<CR>", desc = format("DefaultFile", "Server logs") },
     ["<leader>lS"] = { value = ":LspStart ", desc = format("Run", "Start server") },
     ["<leader>lq"] = { value = ":LspStop ", desc = format("Stop", "Stop server") },
     ["<leader>lR"] = { value = ":LspRestart<CR>", desc = format("Restart", "Restart server") },

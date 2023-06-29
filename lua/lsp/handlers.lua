@@ -1,10 +1,10 @@
-local lspconfig = require("lspconfig")
+local lspconfig = require("lsp.custom")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-local disabled = { "tailwindcss" }
 
 return {
   function(server_name)
+    local disabled = { "tailwindcss" }
     local autostart = not vim.tbl_contains(disabled, server_name)
 
     lspconfig[server_name].setup({
@@ -25,28 +25,12 @@ return {
     })
   end,
 
-  ["rust_analyzer"] = function()
-    require("rust-tools").setup({
-      tools = {
-        inlay_hints = {
-          auto = false
-        }
-      },
-      dap = {
-        adapter = require("rust-tools.dap").get_codelldb_adapter(
-          "/home/luckas/.local/share/nvim/mason/packages/codelldb/extension/adapter/codelldb",
-          "/home/luckas/.local/share/nvim/mason/packages/codelldb/extension/lldb/lib/liblldb.so"
-        ),
-      },
-    })
-  end,
-
   ["lua_ls"] = function()
     lspconfig.lua_ls.setup({
       settings = {
         Lua = {
           hint = {
-            enable = true
+            enable = true,
           },
           diagnostics = {
             globals = { "vim" },
@@ -75,5 +59,5 @@ return {
     lspconfig.clangd.setup({
       capabilities = capabilities,
     })
-  end
+  end,
 }

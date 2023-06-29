@@ -18,6 +18,7 @@ return {
       S = { name = format("FolderClock", "Session") },
       r = { name = format("Code", "SnipRun") },
       o = { name = format("DropDown", "Dropbar") },
+      C = { name = format("Package", "Crates") },
     }, { prefix = "<leader>" })
   end,
   opts = {
