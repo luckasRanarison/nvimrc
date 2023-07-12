@@ -17,7 +17,7 @@ return {
     event = "BufEnter",
     opts = {
       group = vim.api.nvim_create_augroup("LspInlayHint", {}),
-      callback = function(opts) vim.lsp.buf.inlay_hint(opts.buf, true) end,
+      callback = function(opts) vim.lsp.inlay_hint(opts.buf, true) end,
     },
   },
 }
