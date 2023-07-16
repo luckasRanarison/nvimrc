@@ -68,7 +68,7 @@ return {
   dependencies = { "nvim-lua/plenary.nvim" },
   opts = {
     null_ls = {
-      enabled = false,
+      enabled = true,
       name = "Crates",
     },
   },
