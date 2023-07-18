@@ -18,16 +18,15 @@ M.mode = {
     }
     return map[name] or name
   end,
-  separator = { right = icons.TopLeftTriangle },
+  separator = { right = icons.RightSeparator },
 }
 
 M.branch = {
   "branch",
   icon = icons.GitBranch,
-  separator = nil,
   color = function()
     local colors = require("tokyonight.colors")
-    return { bg = colors.night.bg_dark }
+    return { bg = colors.night.bg }
   end,
 }
 
@@ -40,7 +39,7 @@ M.diff = {
   },
   color = function()
     local colors = require("tokyonight.colors")
-    return { bg = colors.night.bg_dark }
+    return { bg = colors.night.bg }
   end,
 }
 
@@ -48,42 +47,46 @@ M.filetype = { "filetype" }
 
 M.diagnostics = { "diagnostics" }
 
-M.encoding = { "encoding" }
-
-M.hostname = {
-  "hostname",
+M.encoding = {
+  "encoding",
   color = function()
     local colors = require("tokyonight.colors")
-    return { fg = colors.default.blue }
+    return { fg = colors.default.blue, bg = colors.default.bg_highlight }
   end,
+  separator = { left = icons.LeftSeparator },
 }
 
 M.fileformat = {
   "fileformat",
   color = function()
     local colors = require("tokyonight.colors")
-    return { fg = colors.default.blue }
+    return { fg = colors.default.bg, bg = colors.default.blue }
   end,
-  symbols = {
-    unix = icons.Fedora,
-  },
+  separator = { right = icons.RightSeparator },
 }
 
 M.progress = {
   "progress",
+  fmt = function(location)
+    return vim.trim(location)
+  end,
   color = function()
     local colors = require("tokyonight.colors")
-    return { fg = colors.default.orange, bg = colors.night.bg_dark }
+    return { fg = colors.default.purple, bg = colors.default.bg_highlight }
   end,
+  separator = { left = icons.LeftSeparator },
 }
 
 M.location = {
   "location",
-  separator = { left = icons.DownRightTriangle },
+  fmt = function(location)
+    return vim.trim(location)
+  end,
   color = function()
     local colors = require("tokyonight.colors")
-    return { fg = colors.night.bg_dark, bg = colors.default.orange }
+    return { fg = colors.default.bg, bg = colors.default.purple }
   end,
+  separator = { right = icons.RightSeparator },
 }
 
 M.macro = {
@@ -104,6 +107,20 @@ M.lsp = {
     return table.concat(attached_clients, ", ")
   end,
   icon = icons.Braces,
+  color = function()
+    local colors = require("tokyonight.colors")
+    return { bg = colors.default.bg_highlight }
+  end,
+  separator = { left = icons.LeftSeparator, right = icons.RightSeparator },
+}
+
+M.gap = {
+  function() return " " end,
+  color = function()
+    local colors = require("tokyonight.colors")
+    return { bg = colors.night.bg }
+  end,
+  padding = 0,
 }
 
 return M

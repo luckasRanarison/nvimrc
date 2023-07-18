@@ -15,12 +15,40 @@ return {
           filetype = "neo-tree",
           text = format("Folder", "NeoTree"),
           text_align = "left",
+          separator = "│",
+        },
+        {
+          filetype = "dapui_watches",
+          text = format("Debugger", "DapUI"),
+          text_align = "left",
+          separator = "│",
         },
       },
     },
   },
   config = function(_, opts)
+    local colors = require("tokyonight.colors")
+
     vim.opt.showtabline = 2
+    opts.highlights = {
+      background = {
+        bg = colors.night.bg,
+      },
+      close_button = {
+        bg = colors.night.bg,
+      },
+      separator = {
+        fg = colors.night.bg,
+        bg = colors.night.bg,
+      },
+      offset_separator = {
+        bg = colors.night.bg,
+      },
+      pick = {
+        bg = colors.night.bg,
+      },
+    }
+
     require("bufferline").setup(opts)
   end,
 }

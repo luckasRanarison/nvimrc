@@ -5,15 +5,12 @@ return {
     shade_terminals = false,
     direction = "float",
     float_opts = {
-      border = "",
+      border = "rounded",
       width = 80,
     },
     highlights = {
-      Normal = {
-        link = "ToggleTerm",
-      },
-      NormalFloat = {
-        link = "ToggleTerm",
+      FloatBorder = {
+        link = "FloatBorder",
       },
     },
   },

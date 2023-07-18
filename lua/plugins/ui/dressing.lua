@@ -10,13 +10,12 @@ return {
     select = {
       backend = { "telescope" },
       telescope = {
-        border = false,
-        layout_strategy = "center",
+        border = true,
         sorting_strategy = "ascending",
         results_title = false,
         layout_config = {
-          width = 50,
-          height = 10,
+          height = 24,
+          width = 75,
         },
         prompt_prefix = format("Search", ""),
         selection_caret = format("Right", ""),

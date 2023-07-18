@@ -25,5 +25,8 @@ return {
     icons = {
       group = "",
     },
+    window = {
+      border = "rounded",
+    },
   },
 }

@@ -5,7 +5,13 @@ return {
   event = { "BufReadPost", "BufNewFile" },
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function(_, opts)
+    local colors = require("tokyonight.colors")
+    local tokyonight = require("lualine.themes.tokyonight")
+
     vim.opt.laststatus = 3
+    tokyonight.normal.c.bg = colors.night.bg
+    opts.options.theme = tokyonight
+
     require("lualine").setup(opts)
   end,
   opts = {
@@ -15,14 +21,15 @@ return {
     },
     sections = {
       lualine_a = { sources.mode },
-      lualine_b = { sources.branch, sources.diff },
+      lualine_b = { sources.gap, sources.branch, sources.diff },
       lualine_c = { sources.filetype, sources.macro },
       lualine_x = {
         sources.diagnostics,
         sources.lsp,
+        sources.gap,
         sources.encoding,
-        sources.hostname,
         sources.fileformat,
+        sources.gap,
       },
       lualine_y = { sources.progress },
       lualine_z = { sources.location },

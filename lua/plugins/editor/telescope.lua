@@ -17,7 +17,7 @@ return {
     },
     opts = {
       defaults = {
-        border = false,
+        border = true,
         prompt_prefix = format("Search", ""),
         selection_caret = format("Right", ""),
       },

@@ -15,7 +15,7 @@ return {
       return colors
     end,
     on_highlights = function(hl, c)
-      hl.WinSeparator = { fg = c.bg }
+      hl.WinSeparator = { fg = c.terminal_black }
       hl.DiagnosticSignError = { fg = c.red }
       hl.DiagnosticSignWarn = { fg = c.yellow }
       hl.DiagnosticSignHint = { fg = c.blue }
@@ -29,12 +29,19 @@ return {
       hl.BufferLineFill = { bg = c.bg }
       hl.BufferLineCloseButtonSelected = { fg = c.red }
       hl.NeoTreeDirectoryName = { fg = c.fg }
-      hl.ToggleTerm = { fg = c.fg, bg = c.bg_dark }
+      hl.NeoTreeNormalNC = { bg = c.bg }
+      hl.NeoTreeNormal = { bg = c.bg }
       hl.LspInlayHint = { fg = c.comment }
       hl.FlashLabel = { fg = c.red, bg = c.bg }
       hl.FlashCurrent = { bg = c.fg }
       hl.SniprunVirtualTextOk = { link = "Comment" }
       hl.SniprunVirtualTextErr = { link = "Error" }
+      hl.FloatBorder = { fg = c.dark3, bg = c.bg }
+      hl.NormalFloat = { bg = c.bg }
+      hl.TelescopeNormal = { bg = c.bg }
+      hl.TelescopeBorder = { link = "FloatBorder" }
+      hl.WhichKeyFloat = { bg = c.bg }
+
       hl.DropBarSeparator = { fg = c.dark3 }
       hl.DropBarPick = { fg = c.red, bold = true, italic = true }
       hl.DropBarKind = { fg = c.fg }

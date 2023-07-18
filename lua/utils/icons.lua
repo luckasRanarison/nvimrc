@@ -87,8 +87,8 @@ M.icons = {
   Run = "󰐍",
   Twilight = "󰖚",
   Recording = "󰑋",
-  TopLeftTriangle = "◤",
-  DownRightTriangle = "◢",
+  LeftSeparator = "",
+  RightSeparator = "",
   Notification = "󰍢",
   NotificationDismiss = "󱙍",
   NotificationLog = "󰍩",
@@ -97,6 +97,7 @@ M.icons = {
   Web = "󰖟",
   Dependencies = "",
   Update = "󰚰",
+  Database = "",
 }
 
 M.format = function(icon, text) return M.icons[icon] .. " " .. text end
