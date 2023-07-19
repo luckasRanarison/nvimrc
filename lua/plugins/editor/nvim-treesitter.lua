@@ -1,10 +1,7 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = {
-      "windwp/nvim-ts-autotag",
-      "JoosepAlviste/nvim-ts-context-commentstring",
-    },
+    dependencies = { "windwp/nvim-ts-autotag" },
     event = { "BufReadPost", "BufNewFile" },
     cmd = {
       "TSBufDisable",
@@ -30,7 +27,10 @@ return {
       incremental_selection = { enable = true },
       indent = { enable = true },
       autotag = { enable = true },
-      context_commentstring = { enable = true, enable_autocmd = false },
+      context_commentstring = {
+        enable = true,
+        enable_autocmd = false,
+      },
       ensure_installed = {
         "bash",
         "c",
@@ -54,12 +54,13 @@ return {
         "sql",
         "query",
         "icelang",
+        "java",
       },
       playground = {
         enable = true,
         disable = {},
-        updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
-        persist_queries = false, -- Whether the query persists across vim sessions
+        updatetime = 25,
+        persist_queries = false,
         keybindings = {
           toggle_query_editor = "o",
           toggle_hl_groups = "i",
@@ -74,20 +75,7 @@ return {
         },
       },
     },
-    config = function(_, opts)
-      local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-
-      parser_config.icelang = {
-        install_info = {
-          url = "https://github.com/luckasRanarison/tree-sitter-icelang",
-          files = { "src/parser.c" },
-          branch = "master",
-        },
-        filetype = "icelang",
-      }
-
-      require("nvim-treesitter.configs").setup(opts)
-    end,
+    config = function(_, opts) require("nvim-treesitter.configs").setup(opts) end,
   },
   { "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" },
 }

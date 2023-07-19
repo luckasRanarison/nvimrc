@@ -69,7 +69,7 @@ return {
   },
   ["workspace/inlayHint"] = {
     ["<leader>lh"] = {
-      value = ":lua vim.lsp.buf.inlay_hint(0, nil)<CR>",
+      value = ":lua vim.lsp.inlay_hint(0, nil)<CR>",
       desc = format("Toggle", "Toggle inlay hint"),
     },
   },
