@@ -1,8 +1,9 @@
 local M = {}
 
 M.icons = {
+  Vim = "",
   Config = "",
-  Normal = "♜",
+  Normal = "󰁁",
   Insert = "󰌌",
   Terminal = "",
   Visual = "󰉸",

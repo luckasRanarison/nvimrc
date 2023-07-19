@@ -28,10 +28,18 @@ return {
       local lspkind_status_ok, lspkind = pcall(require, "lspkind")
       local snip_status_ok, luasnip = pcall(require, "luasnip")
       if not snip_status_ok then return end
+      local win_conf = cmp.config.window.bordered({
+        winhighlight = "FloatBorder:FloatBorder",
+        scrollbar = false,
+      })
 
       return {
         snippet = {
           expand = function(args) luasnip.lsp_expand(args.body) end,
+        },
+        window = {
+          completion = win_conf,
+          documentation = win_conf,
         },
         sources = cmp.config.sources({
           { name = "nvim_lsp", priority = 1000 },

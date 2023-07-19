@@ -5,6 +5,7 @@ return {
   build = ":MasonUpdate",
   opts = {
     ui = {
+      border = "rounded",
       icons = {
         package_installed = icons.Check,
         package_pending = icons.Dots,

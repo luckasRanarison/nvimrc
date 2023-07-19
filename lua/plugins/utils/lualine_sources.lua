@@ -16,9 +16,26 @@ M.mode = {
       COMMAND = icons.Command,
       REPLACE = icons.Edit,
     }
-    return map[name] or name
+    return map[name] .. " (" .. name .. ")" or name
   end,
-  separator = { right = icons.RightSeparator },
+  color = function()
+    local colors = require("tokyonight.colors")
+    local mode = vim.fn.mode()
+    local map = {
+      n = colors.default.blue,
+      i = colors.default.green,
+      c = colors.default.orange,
+      t = colors.default.cyan,
+      R = colors.default.red,
+      v = colors.default.magenta,
+      V = colors.default.magenta,
+      ["CTRL-V"] = colors.default.magenta,
+    }
+    return {
+      fg = map[mode] or colors.default.fg,
+      bg = colors.night.bg,
+    }
+  end,
 }
 
 M.branch = {
@@ -45,48 +62,46 @@ M.diff = {
 
 M.filetype = { "filetype" }
 
-M.diagnostics = { "diagnostics" }
+M.diagnostics = {
+  "diagnostics",
+  color = function()
+    local colors = require("tokyonight.colors")
+    return { bg = colors.night.bg }
+  end,
+}
 
 M.encoding = {
   "encoding",
   color = function()
     local colors = require("tokyonight.colors")
-    return { fg = colors.default.blue, bg = colors.default.bg_highlight }
+    return { fg = colors.default.blue, bg = colors.night.bg }
   end,
-  separator = { left = icons.LeftSeparator },
 }
 
 M.fileformat = {
   "fileformat",
   color = function()
     local colors = require("tokyonight.colors")
-    return { fg = colors.default.bg, bg = colors.default.blue }
+    return { fg = colors.default.blue }
   end,
-  separator = { right = icons.RightSeparator },
 }
 
 M.progress = {
   "progress",
-  fmt = function(location)
-    return vim.trim(location)
-  end,
+  fmt = function(location) return vim.trim(location) end,
   color = function()
     local colors = require("tokyonight.colors")
-    return { fg = colors.default.purple, bg = colors.default.bg_highlight }
+    return { fg = colors.default.purple, bg = colors.night.bg }
   end,
-  separator = { left = icons.LeftSeparator },
 }
 
 M.location = {
   "location",
-  fmt = function(location)
-    return vim.trim(location)
-  end,
+  fmt = function(location) return vim.trim(location) end,
   color = function()
     local colors = require("tokyonight.colors")
-    return { fg = colors.default.bg, bg = colors.default.purple }
+    return { fg = colors.default.purple, bg = colors.night.bg }
   end,
-  separator = { right = icons.RightSeparator },
 }
 
 M.macro = {
@@ -109,9 +124,8 @@ M.lsp = {
   icon = icons.Braces,
   color = function()
     local colors = require("tokyonight.colors")
-    return { bg = colors.default.bg_highlight }
+    return { fg = colors.default.comment, bg = colors.night.bg }
   end,
-  separator = { left = icons.LeftSeparator, right = icons.RightSeparator },
 }
 
 M.gap = {

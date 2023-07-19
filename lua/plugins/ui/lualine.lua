@@ -21,11 +21,11 @@ return {
     },
     sections = {
       lualine_a = { sources.mode },
-      lualine_b = { sources.gap, sources.branch, sources.diff },
+      lualine_b = { sources.branch, sources.diff },
       lualine_c = { sources.filetype, sources.macro },
       lualine_x = {
-        sources.diagnostics,
         sources.lsp,
+        sources.diagnostics,
         sources.gap,
         sources.encoding,
         sources.fileformat,
