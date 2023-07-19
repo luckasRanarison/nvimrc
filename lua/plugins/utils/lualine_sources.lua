@@ -15,8 +15,10 @@ M.mode = {
       ["O-PENDING"] = icons.Ellipsis,
       COMMAND = icons.Command,
       REPLACE = icons.Edit,
+      SELECT = icons.Visual,
     }
-    return map[name] .. " (" .. name .. ")" or name
+    local icon = map[name] and map[name] or icons.Vim
+    return string.format("%s (%s)", icon, name)
   end,
   color = function()
     local colors = require("tokyonight.colors")
@@ -29,10 +31,12 @@ M.mode = {
       R = colors.default.red,
       v = colors.default.magenta,
       V = colors.default.magenta,
+      s = colors.default.magenta,
+      S = colors.default.magenta,
       ["CTRL-V"] = colors.default.magenta,
     }
     return {
-      fg = map[mode] or colors.default.fg,
+      fg = map[mode],
       bg = colors.night.bg,
     }
   end,
