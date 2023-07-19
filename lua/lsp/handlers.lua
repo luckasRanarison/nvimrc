@@ -61,6 +61,13 @@ return {
     })
   end,
 
+  ["bashls"] = function()
+    lspconfig.bashls.setup({
+      capabilities = capabilities,
+      filetypes = { "sh", "zsh" },
+    })
+  end,
+
   ["clangd"] = function()
     capabilities.offsetEncoding = "utf-16"
     lspconfig.clangd.setup({

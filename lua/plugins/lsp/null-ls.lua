@@ -22,6 +22,9 @@ return {
         "sqlfmt",
       },
       sources = {
+        null_ls.builtins.formatting.shfmt.with({
+          filetypes = { "sh", "zsh" },
+        }),
         null_ls.builtins.formatting.clang_format.with({
           extra_args = { "-style={IndentWidth: 4}" },
         }),
