@@ -28,6 +28,13 @@ return {
       hl.Breakpoint = { fg = c.orange }
       hl.BufferLineFill = { bg = c.bg }
       hl.BufferLineCloseButtonSelected = { fg = c.red }
+      hl.BufferLineError = { fg = c.red, bg = c.bg, bold = true }
+      hl.BufferLineWarning = { fg = c.yellow, bg = c.bg, bold = true }
+      hl.BufferLineHint = { fg = c.blue, bg = c.bg, bold = true }
+      hl.BufferLineInfo = { fg = c.blue, bg = c.bg, bold = true }
+      hl.BufferLineModified = { fg = c.green, bg = c.bg }
+      hl.BufferLineDuplicate = { fg = c.comment, bg = c.bg, bold = true }
+      hl.BufferLineDuplicateSelected = { fg = c.fg, bg = c.bg, bold = true, italic = true }
       hl.NeoTreeDirectoryName = { fg = c.fg }
       hl.NeoTreeNormalNC = { bg = c.bg }
       hl.NeoTreeNormal = { bg = c.bg }
