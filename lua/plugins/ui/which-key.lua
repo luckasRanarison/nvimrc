@@ -19,6 +19,7 @@ return {
       r = { name = format("Code", "SnipRun") },
       o = { name = format("DropDown", "Dropbar") },
       C = { name = format("Package", "Crates") },
+      D = { name = format("Database", "DbUI") },
     }, { prefix = "<leader>" })
   end,
   opts = {

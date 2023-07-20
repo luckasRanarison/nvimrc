@@ -23,6 +23,12 @@ return {
           text_align = "left",
           separator = "│",
         },
+        {
+          filetype = "dbui",
+          text = format("Database", "DbUI"),
+          text_align = "left",
+          separator = "│",
+        },
       },
     },
   },

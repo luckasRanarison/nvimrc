@@ -189,6 +189,10 @@ return {
       value = ":Telescope command_history<CR>",
       desc = format("History", "Command history"),
     },
+    ["<leader>fm"] = {
+      value = ":Telescope man_pages<CR>",
+      desc = format("Info", "Search man"),
+    },
 
     ["<leader>gc"] = {
       value = ":Telescope git_bcommits<CR>",
@@ -329,6 +333,16 @@ return {
     ["<leader>oo"] = {
       value = ":lua require('dropbar.api').pick()<CR>",
       desc = format("Check", "Pick node"),
+    },
+
+    -- DbUI
+    ["<leader>Dd"] = {
+      value = ":DBUIToggle<CR>",
+      desc = format("Toggle", "Toggle DbUI"),
+    },
+    ["<leader>Da"] = {
+      value = ":DBUIAddConnection<CR>",
+      desc = format("Add", "Add connection"),
     },
   },
   v = {
