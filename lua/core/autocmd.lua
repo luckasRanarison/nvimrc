@@ -11,4 +11,15 @@ return {
       end,
     },
   },
+  {
+    event = { "WinEnter", "BufEnter" },
+    opts = {
+      group = vim.api.nvim_create_augroup("CodewindowAutoOpen", {clear = true}),
+      callback = function()
+        if vim.bo.buftype == "terminal" then return end
+        local codewindow = require("codewindow")
+        vim.schedule(codewindow.open_minimap)
+      end
+    }
+  },
 }

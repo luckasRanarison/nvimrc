@@ -2,7 +2,6 @@ return {
   "gorbit99/codewindow.nvim",
   event = { "BufReadPost", "BufNewFile" },
   opts = {
-    auto_enable = true,
     exclude_filetypes = {
       "help",
       "startify",

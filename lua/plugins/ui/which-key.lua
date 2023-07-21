@@ -8,7 +8,7 @@ return {
       c = { name = format("Color", "Color") },
       m = { name = format("Minimap", "Minimap") },
       b = { name = format("Windows", "Buffers") },
-      u = { name = format("Ellipsis", "Fold") },
+      u = { name = format("Window", "UI") },
       g = { name = format("Git", "Git") },
       t = { name = format("Terminal", "Terminal") },
       f = { name = format("Search", "Telescope") },

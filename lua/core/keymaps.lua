@@ -10,10 +10,6 @@ return {
     ["<leader>p"] = { value = '"+p', desc = format("Clipboard", "Paste from clipboard") },
     ["<leader>P"] = { value = '"+P', desc = format("Clipboard", "Paste from clipboard") },
     ["<leader>G"] = { value = ":GuessIndent<CR>", desc = format("Indent", "Guess indent") },
-    ["<leader>W"] = {
-      value = ":lua vim.wo.wrap = not vim.wo.wrap<CR>",
-      desc = format("LineWrap", "Toggle wrap"),
-    },
     ["<leader>:"] = {
       value = ":lua ",
       desc = format("Lua", "Lua prompt"),
@@ -21,6 +17,16 @@ return {
     ["<leader>;"] = {
       value = ":lua require('Comment.api').toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1)<CR>",
       desc = format("Comment", "Comment line"),
+    },
+
+    -- UI utils
+    ["<leader>uw"] = {
+      value = ":lua vim.wo.wrap = not vim.wo.wrap<CR>",
+      desc = format("LineWrap", "Toggle wrap"),
+    },
+    ["<leader>um"] = {
+      value = ":lua require('plugins.utils.toggle').toggle_minimap_auto()<CR>",
+      desc = format("Minimap", "Toggle minimap auto"),
     },
 
     -- Neotree
@@ -82,17 +88,7 @@ return {
       value = ":BufferLineCyclePrev<CR>",
       desc = format("PrevBuffer", "Move to previous buffer"),
     },
-
-    -- ufo
-    ["<leader>uc"] = { value = ":foldclose<CR>", desc = format("FoldClose", "Close fold") },
-    ["<leader>uC"] = {
-      value = ":lua require('ufo').closeAllFolds()<CR>",
-      desc = format("FoldClose", "Close all folds"),
     },
-    ["<leader>uo"] = { value = ":foldopen<CR>", desc = format("FoldOpen", "Open fold") },
-    ["<leader>uO"] = {
-      value = ":lua require('ufo').openAllFolds()<CR>",
-      desc = format("FoldOpen", "Open all folds"),
     },
 
     -- gitsigns
