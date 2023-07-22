@@ -73,8 +73,8 @@ M.icons = {
   FoldClose = "",
   FoldOpen = "",
   Popup = "󰕛",
-  Horizontal = "",
-  Vertical = "",
+  Vertical = "",
+  Horizontal = "",
   Markdown = "󰽛",
   Up = "",
   Down = "",
@@ -99,6 +99,7 @@ M.icons = {
   Dependencies = "",
   Update = "󰚰",
   Database = "",
+  Pin = "",
 }
 
 M.format = function(icon, text) return M.icons[icon] .. " " .. text end

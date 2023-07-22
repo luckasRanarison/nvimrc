@@ -88,7 +88,33 @@ return {
       value = ":BufferLineCyclePrev<CR>",
       desc = format("PrevBuffer", "Move to previous buffer"),
     },
+    ["<leader>bi"] = {
+      value = ":BufferLineTogglePin<CR>",
+      desc = format("Pin", "Pin buffer"),
     },
+    ["<leader>bg"] = {
+      value = ":lua require('bufferline').go_to(1)<CR>",
+      desc = format("PrevBuffer", "Move to first buffer"),
+    },
+    ["<leader>bG"] = {
+      value = ":lua require('bufferline').go_to(-1)<CR>",
+      desc = format("NextBuffer", "Move to last buffer"),
+    },
+    ["<leader>bv"] = {
+      value = ":lua require('plugins.utils.buffer').pick_to_split('vertical')<CR>",
+      desc = format("Vertical", "Vertical split"),
+    },
+    ["<leader>bh"] = {
+      value = ":lua require('plugins.utils.buffer').pick_to_split('horizontal')<CR>",
+      desc = format("Horizontal", "Horizontal split"),
+    },
+    ["<leader>bN"] = {
+      value = ":lua require('plugins.utils.buffer').move_to('right')<CR>",
+      desc = format("NextBuffer", "Move to right"),
+    },
+    ["<leader>bP"] = {
+      value = ":lua require('plugins.utils.buffer').move_to('left')<CR>",
+      desc = format("PrevBuffer", "Move to left"),
     },
 
     -- gitsigns
