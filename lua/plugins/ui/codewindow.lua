@@ -19,6 +19,7 @@ return {
       "",
     },
     relative = "editor",
+    screen_bounds = "background",
     width_multiplier = 3,
     window_border = "",
   },
