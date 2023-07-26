@@ -9,7 +9,7 @@ return {
 
   {
     "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
+    event = { "InsertEnter", "CmdLineEnter" },
     dependencies = {
       "neovim/nvim-lspconfig",
       "hrsh7th/cmp-nvim-lsp",
@@ -24,10 +24,23 @@ return {
     opts = function()
       local cmp = require("cmp")
       local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+
       cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+
+      cmp.setup.cmdline(":", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = "path" },
+        }, {
+          { name = "cmdline" },
+        }),
+      })
+
       local lspkind_status_ok, lspkind = pcall(require, "lspkind")
       local snip_status_ok, luasnip = pcall(require, "luasnip")
+
       if not snip_status_ok then return end
+
       local win_conf = cmp.config.window.bordered({
         winhighlight = "FloatBorder:FloatBorder",
         scrollbar = false,
@@ -42,12 +55,12 @@ return {
           documentation = win_conf,
         },
         sources = cmp.config.sources({
-          { name = "nvim_lsp",              priority = 1000 },
-          { name = "crates",                priority = 1000 },
+          { name = "nvim_lsp", priority = 1000 },
+          { name = "crates", priority = 1000 },
           { name = "vim-dadbod-completion", priority = 1000 },
-          { name = "luasnip",               priority = 750 },
-          { name = "buffer",                priority = 500 },
-          { name = "path",                  priority = 250 },
+          { name = "luasnip", priority = 750 },
+          { name = "buffer", priority = 500 },
+          { name = "path", priority = 250 },
         }),
         mapping = {
           ["<Up>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
@@ -83,29 +96,29 @@ return {
         },
         formatting = {
           format = lspkind_status_ok
-              and lspkind.cmp_format({
-                mode = "symbol",
-                maxwidth = 25,
-                ellipsis_char = "...",
-                before = function(entry, vim_item)
-                  if vim_item.kind == "Color" and entry.completion_item.documentation then
-                    local _, _, r, g, b =
-                        string.find(entry.completion_item.documentation, "^rgb%((%d+), (%d+), (%d+)")
-                    if r then
-                      local color = string.format("%02x", r)
-                          .. string.format("%02x", g)
-                          .. string.format("%02x", b)
-                      local group = "Tw_" .. color
-                      if vim.fn.hlID(group) < 1 then
-                        vim.api.nvim_set_hl(0, group, { fg = "#" .. color })
-                      end
-                      vim_item.kind_hl_group = group
-                      return vim_item
+            and lspkind.cmp_format({
+              mode = "symbol",
+              maxwidth = 25,
+              ellipsis_char = "...",
+              before = function(entry, vim_item)
+                if vim_item.kind == "Color" and entry.completion_item.documentation then
+                  local _, _, r, g, b =
+                    string.find(entry.completion_item.documentation, "^rgb%((%d+), (%d+), (%d+)")
+                  if r then
+                    local color = string.format("%02x", r)
+                      .. string.format("%02x", g)
+                      .. string.format("%02x", b)
+                    local group = "Tw_" .. color
+                    if vim.fn.hlID(group) < 1 then
+                      vim.api.nvim_set_hl(0, group, { fg = "#" .. color })
                     end
+                    vim_item.kind_hl_group = group
+                    return vim_item
                   end
-                  return vim_item
-                end,
-              }),
+                end
+                return vim_item
+              end,
+            }),
         },
       }
     end,
