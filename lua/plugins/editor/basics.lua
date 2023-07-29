@@ -17,13 +17,13 @@ return {
     dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
     keys = {
       { "gcc", mode = { "n" }, desc = "Comment line" },
-      { "gc",  mode = { "v" }, desc = "Comment selection" },
+      { "gc", mode = { "v" }, desc = "Comment selection" },
     },
     config = function()
       require("Comment").setup({
-        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook()
+        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
       })
-    end
+    end,
   },
 
   {
@@ -53,7 +53,7 @@ return {
         function() require("flash").jump({ pattern = vim.fn.expand("<cword>") }) end,
       },
       { "s", mode = { "n", "v" }, function() require("flash").jump() end },
-      { "S", mode = { "n" },      function() require("flash").treesitter() end },
+      { "S", mode = { "n" }, function() require("flash").treesitter() end },
       {
         "o",
         mode = { "o" },
@@ -92,7 +92,7 @@ return {
       { "cs", mode = { "n" }, desc = "Change surrounding pair" },
       { "ds", mode = { "n" }, desc = "Delete surrounding pair" },
       { "ys", mode = { "n" }, desc = "Add surrounding pair" },
-      { "S",  mode = { "v" }, desc = "Add surrounding pair" },
+      { "S", mode = { "v" }, desc = "Add surrounding pair" },
     },
     config = function() require("nvim-surround").setup() end,
   },
@@ -130,7 +130,7 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     keys = {
       { "<leader>j", mode = { "n" }, ":TSJSplit<CR>", desc = format("Down", "Split node") },
-      { "<leader>J", mode = { "n" }, ":TSJJoin<CR>",  desc = format("Up", "Join node") },
+      { "<leader>J", mode = { "n" }, ":TSJJoin<CR>", desc = format("Up", "Join node") },
     },
     opts = {
       use_default_keymaps = false,

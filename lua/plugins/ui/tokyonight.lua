@@ -35,9 +35,12 @@ return {
       hl.BufferLineModified = { fg = c.green, bg = c.bg }
       hl.BufferLineDuplicate = { fg = c.comment, bg = c.bg, bold = true }
       hl.BufferLineDuplicateSelected = { fg = c.fg, bg = c.bg, bold = true, italic = true }
+      hl.BufferLineTruncMarker = { bg = c.bg }
       hl.NeoTreeDirectoryName = { fg = c.fg }
       hl.NeoTreeNormalNC = { bg = c.bg }
       hl.NeoTreeNormal = { bg = c.bg }
+      hl.NeoTreeGitUntracked = { fg = c.orange }
+      hl.NeoTreeGitUnstaged = { fg = c.cyan }
       hl.LspInlayHint = { fg = c.comment }
       hl.FlashLabel = { fg = c.red, bg = c.bg }
       hl.FlashCurrent = { bg = c.fg }

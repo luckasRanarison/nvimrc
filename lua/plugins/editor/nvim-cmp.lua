@@ -9,7 +9,7 @@ return {
 
   {
     "hrsh7th/nvim-cmp",
-    event = { "InsertEnter", "CmdLineEnter" },
+    event = { "InsertEnter" },
     dependencies = {
       "neovim/nvim-lspconfig",
       "hrsh7th/cmp-nvim-lsp",

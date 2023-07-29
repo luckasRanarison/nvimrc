@@ -13,4 +13,8 @@ return {
     "DBUIRenameBuffer",
     "DBUILastQueryInfo",
   },
+  config = function()
+    vim.g.db_ui_notification_width = 1
+    vim.g.db_ui_debug = 1
+  end,
 }

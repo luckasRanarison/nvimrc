@@ -3,10 +3,12 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   opts = {
     signs = {
-      untracked = { hl = "GitSignsAdd", text = "┃" },
-      delete = { hl = "GitSignsDelete", text = "┃" },
-      topdelete = { hl = "GitSignsDelete", text = "┃" },
-      changedelete = { hl = "GitSignsChange", text = "┃" },
+      add = { hl = "GitSignsAdd", text = "▎" },
+      change = { hl = "GitSignsChange", text = "▎" },
+      untracked = { hl = "GitSignsAdd", text = "▎" },
+      delete = { hl = "GitSignsDelete", text = "▎" },
+      topdelete = { hl = "GitSignsDelete", text = "▎" },
+      changedelete = { hl = "GitSignsChange", text = "▎" },
     },
     preview_config = {
       border = "none",
