@@ -8,6 +8,11 @@ return {
   },
 
   {
+    "psliwka/vim-smoothie",
+    keys = { "<C-u>", "<C-d>", "zz" },
+  },
+
+  {
     "numToStr/Comment.nvim",
     dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
     keys = {
