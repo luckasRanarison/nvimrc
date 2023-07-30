@@ -55,6 +55,7 @@ return {
         "query",
         "icelang",
         "java",
+        "rasi",
       },
       playground = {
         enable = true,
