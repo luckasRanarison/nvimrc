@@ -18,8 +18,10 @@ return {
       S = { name = format("FolderClock", "Session") },
       r = { name = format("Code", "SnipRun") },
       o = { name = format("DropDown", "Dropbar") },
+      v = { name = format("Book", "DevDocs") },
       C = { name = format("Package", "Crates") },
       D = { name = format("Database", "DbUI") },
+      R = { name = format("Web", "RestNvim") },
     }, { prefix = "<leader>" })
   end,
   opts = {

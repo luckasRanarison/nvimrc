@@ -98,6 +98,9 @@ M.icons = {
   Update = "󰚰",
   Database = "",
   Pin = "",
+  Book = "󰂽",
+  BookmarkSearch = "󰺄",
+  Download = "󰇚",
 }
 
 M.format = function(icon, text) return M.icons[icon] .. " " .. text end

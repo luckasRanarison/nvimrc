@@ -366,6 +366,28 @@ return {
       value = ":DBUIAddConnection<CR>",
       desc = format("Add", "Add connection"),
     },
+
+    -- nvim-devdocs
+    ["<leader>vv"] = {
+      value = ":DevdocsOpenFloat<CR>",
+      desc = format("BookmarkSearch", "Open in floating window"),
+    },
+    ["<leader>vV"] = {
+      value = ":DevdocsOpen<CR>",
+      desc = format("BookmarkSearch", "Open in a normal buffer"),
+    },
+    ["<leader>vf"] = {
+      value = ":DevdocsOpenFloat ",
+      desc = format("BookmarkSearch", "Open documentation"),
+    },
+    ["<leader>vi"] = {
+      value = ":DevdocsInstall ",
+      desc = format("Install", "Install documentation"),
+    },
+    ["<leader>vu"] = {
+      value = ":DevdocsUninstall ",
+      desc = format("Trash", "Install documentation"),
+    },
   },
   v = {
     -- move.nvim
