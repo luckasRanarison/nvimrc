@@ -4,6 +4,7 @@ return {
   n = {
     -- utils
     ["<leader>w"] = { value = ":w<CR>", desc = format("Save", "Save file") },
+    ["<leader>W"] = { value = ":w!<CR>", desc = format("Save", "Save file!") },
     ["<leader>q"] = { value = ":q<CR>", desc = format("Exit", "Exit window") },
     ["<leader>Q"] = { value = ":q!<CR>", desc = format("Exit", "Exit window!") },
     ["<leader>s"] = { value = ":nohlsearch<CR>", desc = format("Clear", "Clear search highlights") },
@@ -141,11 +142,23 @@ return {
     },
     ["<leader>gN"] = {
       value = ":Gitsigns prev_hunk<CR>",
-      desc = format("Up", "Next hunk"),
+      desc = format("Up", "Previous hunk"),
+    },
+    ["<leader>gr"] = {
+      value = ":Gitsigns reset_hunk<CR>",
+      desc = format("Restore", "Revert hunk"),
+    },
+    ["<leader>gs"] = {
+      value = ":Gitsigns stage_hunk<CR>",
+      desc = format("Save", "Stage hunk"),
     },
     ["<leader>gv"] = {
       value = ":Gitsigns select_hunk<CR>",
       desc = format("Visual", "Select hunk"),
+    },
+    ["<leader>gw"] = {
+      value = ":Gitsigns toggle_word_diff<CR>",
+      desc = format("GitDiff", "Toggle word diff"),
     },
 
     -- toggleterm
@@ -397,7 +410,6 @@ return {
     ["<A-l>"] = { value = ":MoveHBlock(1)<CR>", desc = "Move character right" },
 
     -- utils
-
     ["q"] = { value = "<esc>" },
     ["<leader>y"] = { value = '"+y', desc = format("Clipboard", "yank to clipboard") },
     ["<leader>p"] = { value = '"+p', desc = format("Clipboard", "Paste from clipboard") },
