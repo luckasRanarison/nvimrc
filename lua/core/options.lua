@@ -4,7 +4,6 @@ local options = {
     cmdheight = 0,
     number = true,
     relativenumber = true,
-    undofile = true,
     history = 100,
     termguicolors = true,
     filetype = "on",
