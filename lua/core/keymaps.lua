@@ -1,7 +1,7 @@
 local format = require("utils.icons").format
 
-local cmd = function(name) return ":" .. name .. "<CR>" end
-local lua = function(code) return ":lua " .. code .. "<CR>" end
+local cmd = function(name) return "<cmd>" .. name .. "<CR>" end
+local lua = function(code) return "<cmd>lua " .. code .. "<CR>" end
 
 return {
   n = {
