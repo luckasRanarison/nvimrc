@@ -21,7 +21,6 @@ return {
       v = { name = format("Book", "DevDocs") },
       C = { name = format("Package", "Crates") },
       D = { name = format("Database", "DbUI") },
-      R = { name = format("Web", "RestNvim") },
     }, { prefix = "<leader>" })
   end,
   opts = {
