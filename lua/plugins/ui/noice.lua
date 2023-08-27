@@ -20,8 +20,8 @@ return {
         ["cmp.entry.get_documentation"] = true,
       },
       hover = {
-        silent = true
-      }
+        silent = true,
+      },
     },
     presets = {
       bottom_search = false,
