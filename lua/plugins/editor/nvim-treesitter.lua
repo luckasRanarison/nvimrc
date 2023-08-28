@@ -55,6 +55,7 @@ return {
         "query",
         "icelang",
         "java",
+        "http",
         "rasi",
       },
       playground = {
@@ -76,7 +77,31 @@ return {
         },
       },
     },
-    config = function(_, opts) require("nvim-treesitter.configs").setup(opts) end,
+    config = function(_, opts)
+      local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+
+      parser_config.icelang = {
+        install_info = {
+          url = "https://github.com/luckasranarison/tree-sitter-icelang",
+          files = { "src/parser.c" },
+          branch = "master",
+        },
+        filetype = "icelang",
+      }
+
+      parser_config.hypr = {
+        install_info = {
+          url = "https//github/luckasranarison/tree-sitter-hypr",
+          files = { "src/parser.c" },
+          branch = "master",
+        },
+        filetype = "hypr",
+      }
+
+      require("nvim-treesitter.configs").setup(opts)
+    end,
   },
+  { "luckasRanarison/tree-sitter-hypr", ft = "hypr" },
+  { "luckasRanarison/tree-sitter-icelang", ft = "icelang" },
   { "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" },
 }

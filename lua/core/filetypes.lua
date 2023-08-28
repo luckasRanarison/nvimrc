@@ -3,4 +3,7 @@ return {
     ic = "icelang",
     rasi = "rasi",
   },
+  pattern = {
+    ["~/.config/hypr/.*"] = "hypr",
+  },
 }
