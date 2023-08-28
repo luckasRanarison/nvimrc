@@ -26,6 +26,32 @@ M.set_keymaps = function(client, bufnr)
   end
 end
 
+M.get_handlers = function()
+  local configs = require("lsp.config")
+  local lspconfig = require("lspconfig")
+  local capabilities = require("lsp.capabilities")
+
+  local setup = function(server_name, custom)
+    local default = { capabilities = capabilities }
+    local config = vim.tbl_extend("force", default, custom or {})
+    local callback = function() lspconfig[server_name].setup(config) end
+
+    if custom then
+      return callback
+    else
+      callback()
+    end
+  end
+
+  local handlers = { setup }
+
+  for server, config in pairs(configs.handlers) do
+    handlers[server] = setup(server, config)
+  end
+
+  return handlers
+end
+
 M.format_async = function(bufnr)
   local handler = function(err, res, ctx)
     if err then
@@ -42,6 +68,7 @@ M.format_async = function(bufnr)
     if res then
       local client = vim.lsp.get_client_by_id(ctx.client_id)
       local offset_encoding = client and client.offset_encoding or "utf-16"
+
       vim.lsp.util.apply_text_edits(res, bufnr, offset_encoding)
       vim.api.nvim_buf_call(bufnr, function() vim.cmd("silent noautocmd update") end)
     end

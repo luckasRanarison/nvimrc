@@ -1,10 +1,10 @@
-local handlers = require("lsp.handlers")
+local lsp_utils = require("lsp.utils")
 
 return {
   "williamboman/mason-lspconfig.nvim",
   event = { "BufReadPost", "BufNewFile" },
   opts = {
-    handlers = handlers,
+    handlers = lsp_utils.get_handlers(),
     ensure_installed = {
       "rust_analyzer",
       "tsserver",
@@ -16,9 +16,9 @@ return {
       "tailwindcss",
       "clangd",
       "vimls",
-      "sqlls",
       "jsonls",
       "taplo",
+      "jdtls",
     },
   },
 }
