@@ -46,7 +46,9 @@ return {
       hl.FlashCurrent = { bg = c.fg }
       hl.SniprunVirtualTextOk = { link = "Comment" }
       hl.SniprunVirtualTextErr = { link = "Error" }
-      hl.FloatBorder = { fg = c.dark3, bg = c.bg }
+      hl.FloatBorder = { fg = c.dark3 }
+      hl.FloatTitle = { fg = c.dark3 }
+      hl.NormalSB = { bg = c.bg }
       hl.NormalFloat = { bg = c.bg }
       hl.TelescopeNormal = { bg = c.bg }
       hl.TelescopeBorder = { link = "FloatBorder" }

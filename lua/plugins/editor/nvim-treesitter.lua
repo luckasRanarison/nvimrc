@@ -57,6 +57,8 @@ return {
         "java",
         "http",
         "rasi",
+        "haskell",
+        "ebnf",
       },
       playground = {
         enable = true,

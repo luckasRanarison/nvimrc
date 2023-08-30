@@ -23,7 +23,7 @@ return {
 
     -- UI utils
     ["<leader>uw"] = {
-      value = lua("vim.wo.wrap = not vim.wo.wrap"),
+      value = lua("vim.wo.wrap = not vim.wo.wrap vim.wo.linebreak = not vim.wo.linebreak"),
       desc = format("LineWrap", "Toggle wrap"),
     },
     ["<leader>um"] = {

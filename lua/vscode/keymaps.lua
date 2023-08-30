@@ -17,6 +17,8 @@ return {
     ["<leader>bn"] = { value = notify("workbench.action.nextEditorInGroup") },
     ["<leader>bp"] = { value = notify("workbench.action.previousEditorInGroup") },
     ["<leader>um"] = { value = notify("editor.action.toggleMinimap") },
+    ["<leader>ff"] = { value = notify("workbench.action.quickOpen") },
+    ["<leader>fs"] = { value = notify("workbench.action.gotoSymbol") },
     ["<leader>nn"] = { value = notify("notifications.clearAll") },
     ["<leader>nl"] = { value = notify("notifications.showList") },
 

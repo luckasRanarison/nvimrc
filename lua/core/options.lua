@@ -1,4 +1,4 @@
-local options = {
+return {
   opt = {
     fileencoding = "utf-8",
     cmdheight = 0,
@@ -34,5 +34,3 @@ local options = {
     timeoutlen = 200,
   },
 }
-
-return options
