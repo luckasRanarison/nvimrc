@@ -23,4 +23,11 @@ return {
       end,
     },
   },
+  {
+    event = { "FileType" },
+    opts = {
+      pattern = { "help" },
+      callback = function() require("utils.scripts").open_help_float() end,
+    },
+  },
 }
