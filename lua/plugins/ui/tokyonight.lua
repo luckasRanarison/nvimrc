@@ -52,7 +52,18 @@ return {
       hl.NormalFloat = { bg = c.bg }
       hl.TelescopeNormal = { bg = c.bg }
       hl.TelescopeBorder = { link = "FloatBorder" }
+      hl.TelescopePromptPrefix = { fg = c.dark3 }
       hl.WhichKeyFloat = { bg = c.bg }
+      hl.NotifyINFOBorder = { fg = c.blue }
+      hl.NotifyINFOTitle = { fg = c.blue }
+      hl.NotifyINFOIcon = { fg = c.blue }
+      hl.NotifyERRORBorder = { fg = c.red }
+      hl.NotifyERRORTitle = { fg = c.red }
+      hl.NotifyERRORIcon = { fg = c.red }
+      hl.NotifyWARNBorder = { fg = c.yellow }
+      hl.NotifyWARNTitle = { fg = c.yellow }
+      hl.NotifyWARNIcon = { fg = c.yellow }
+      hl.ErrorMsg = { fg = c.red }
 
       hl.DropBarSeparator = { fg = c.dark3 }
       hl.DropBarPick = { fg = c.red, bold = true, italic = true }

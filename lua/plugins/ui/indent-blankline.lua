@@ -16,6 +16,8 @@ return {
       "neogitstatus",
       "neo-tree",
       "Trouble",
+      "dbout",
+      "TelescopePrompt",
     },
     context_patterns = {
       "class",

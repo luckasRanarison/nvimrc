@@ -18,7 +18,7 @@ return {
     opts = {
       defaults = {
         border = true,
-        prompt_prefix = format("Search", ""),
+        prompt_prefix = " ",
         selection_caret = format("Right", ""),
       },
       extensions = {

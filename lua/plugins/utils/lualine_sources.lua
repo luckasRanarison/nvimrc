@@ -86,7 +86,20 @@ M.fileformat = {
   "fileformat",
   color = function()
     local colors = require("tokyonight.colors")
-    return { fg = colors.default.blue }
+    return { fg = colors.default.blue, bg = colors.night.bg }
+  end,
+}
+
+M.indentation = {
+  "indentation",
+  fmt = function()
+    local type = vim.bo[0].expandtab and "spaces" or "tabs"
+    local value = vim.bo[0].shiftwidth
+    return type .. ": " .. value
+  end,
+  color = function()
+    local colors = require("tokyonight.colors")
+    return { fg = colors.default.blue, bg = colors.night.bg }
   end,
 }
 
