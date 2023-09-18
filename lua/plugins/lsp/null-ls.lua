@@ -19,14 +19,14 @@ return {
         "rustfmt",
         "shfmt",
         "stylua",
-        "sqlfmt",
       },
       sources = {
         null_ls.builtins.formatting.shfmt.with({
           filetypes = { "sh", "zsh" },
+          extra_args = { "--indent-type Spaces" },
         }),
         null_ls.builtins.formatting.clang_format.with({
-          extra_args = { "-style={IndentWidth: 4}" },
+          extra_args = { "-style={IndentWidth: 4, AllowShortFunctionsOnASingleLine: Empty}" },
         }),
       },
     })
