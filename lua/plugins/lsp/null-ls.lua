@@ -21,6 +21,9 @@ return {
         "stylua",
       },
       sources = {
+        null_ls.builtins.formatting.rustfmt.with({
+          extra_args = { "--edition=2021" },
+        }),
         null_ls.builtins.formatting.shfmt.with({
           filetypes = { "sh", "zsh" },
           extra_args = { "--indent-type Spaces" },
