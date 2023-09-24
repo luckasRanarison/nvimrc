@@ -14,13 +14,45 @@ return {
       value = lua("vim.diagnostic.open_float()"),
       desc = format("Warn", "Hover diagnostic"),
     },
-    ["<F8>"] = { value = lua("vim.diagnostic.goto_next()"), desc = "Next diagnostic" },
-    ["[<F8>"] = { value = lua("vim.diagnostic.goto_prev()"), desc = "Previous diagnostic" },
+    ["<A-i>"] = { value = lua("vim.diagnostic.goto_next()"), desc = "Next diagnostic" },
+    ["<A-o>"] = { value = lua("vim.diagnostic.goto_prev()"), desc = "Previous diagnostic" },
   },
   ["textDocument/codeAction"] = {
     ["<leader>la"] = {
       value = lua("vim.lsp.buf.code_action()"),
       desc = format("Fix", "Code action"),
+    },
+    ["<leader>aq"] = {
+      value = lua("require('utils.actions').quickfix()"),
+      desc = format("Fix", "Quickfix"),
+    },
+    ["<leader>ar"] = {
+      value = lua("require('utils.actions').refactor()"),
+      desc = format("Fix", "Refactor"),
+    },
+    ["<leader>as"] = {
+      value = lua("require('utils.actions').source()"),
+      desc = format("Fix", "Source"),
+    },
+    ["<leader>an"] = {
+      value = lua("require('utils.actions').quickfix_next()"),
+      desc = format("Fix", "Fix next"),
+    },
+    ["<leader>ap"] = {
+      value = lua("require('utils.actions').quickfix_prev()"),
+      desc = format("Fix", "Fix previous"),
+    },
+    ["<leader>ai"] = {
+      value = lua("require('utils.actions').apply('Import')"),
+      desc = format("Fix", "Import"),
+    },
+    ["<leader>am"] = {
+      value = lua("require('utils.actions').apply('Replace if with match')"),
+      desc = format("Fix", "Replace with match"),
+    },
+    ["<leader>af"] = {
+      value = lua("require('utils.actions').apply('Fill match arms')"),
+      desc = format("Fix", "Fill match arms"),
     },
   },
   ["textDocument/definition"] = {
@@ -55,7 +87,7 @@ return {
   },
   ["textDocument/codeLens"] = {
     ["<leader>ll"] = {
-      value = lua("vim.lsp.codelens.run()"),
+      value = lua("vim.lsp.codelens.refresh() vim.lsp.codelens.run()"),
       desc = format("Run", "Run codelens"),
     },
     ["<leader>lL"] = {
