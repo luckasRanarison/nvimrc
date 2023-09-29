@@ -14,11 +14,19 @@ return {
     ["<leader>p"] = { value = '"+p', desc = format("Clipboard", "Paste from clipboard") },
     ["<leader>P"] = { value = '"+P', desc = format("Clipboard", "Paste from clipboard") },
     ["<leader>:"] = { value = ":lua ", desc = format("Lua", "Lua prompt") },
+    ["<leader>."] = {
+      value = lua("require('utils.scripts').append_semicolon()"),
+      desc = "; " .. "Append semicolon",
+    },
     ["<leader>;"] = {
       value = lua(
         "require('Comment.api').toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1)"
       ),
       desc = format("Comment", "Comment line"),
+    },
+    ["<leader> "] = {
+      value = cmd("wincmd w"),
+      desc = format("Window", "Switch window"),
     },
 
     -- UI utils
@@ -35,6 +43,10 @@ return {
     ["<leader>ui"] = {
       value = lua("require('utils.scripts').set_indent_input()"),
       desc = format("Indent", "Set indentation"),
+    },
+    ["<leader>uI"] = {
+      value = lua("require('utils.scripts').set_indent_type()"),
+      desc = format("Indent", "Set indentation type"),
     },
 
     -- Neotree
@@ -201,6 +213,10 @@ return {
       value = cmd("Telescope find_files"),
       desc = format("FileSearch", "Find file"),
     },
+    ["<leader>fF"] = {
+      value = cmd("Telescope find_files hidden=true"),
+      desc = format("FileSearch", "Find file (hidden)"),
+    },
     ["<leader>fg"] = {
       value = cmd("Telescope live_grep"),
       desc = format("TextSearch", "Live grep"),
@@ -234,6 +250,26 @@ return {
     ["<leader>fm"] = {
       value = cmd("Telescope man_pages"),
       desc = format("Info", "Search man"),
+    },
+    ["<leader>fR"] = {
+      value = cmd("Telescope reloader"),
+      desc = format("Restore", "Reload module"),
+    },
+    ["<leader>fH"] = {
+      value = cmd("Telescope highlights"),
+      desc = format("Color", "Highlight group"),
+    },
+    ["<leader>ft"] = {
+      value = cmd("Telescope treesitter"),
+      desc = format("Variable", "Treesitter"),
+    },
+    ["<leader>fz"] = {
+      value = cmd("Telescope current_buffer_fuzzy_find"),
+      desc = format("Search", "Buffer fuzzy find"),
+    },
+    ["<leader>fp"] = {
+      value = cmd("Telescope registers"),
+      desc = format("Clipboard", "Registers"),
     },
 
     ["<leader>gc"] = {
@@ -408,8 +444,8 @@ return {
   },
   v = {
     -- move.nvim
-    ["<A-j>"] = { value = cmd("MoveBlock(1)"), desc = "Move line down" },
     ["<A-k>"] = { value = cmd("MoveBlock(-1)"), desc = "Move line up" },
+    ["<A-j>"] = { value = cmd("MoveBlock(1)"), desc = "Move line down" },
     ["<A-h>"] = { value = cmd("MoveHBlock(-1)"), desc = "Move character left" },
     ["<A-l>"] = { value = cmd("MoveHBlock(1)"), desc = "Move character right" },
 

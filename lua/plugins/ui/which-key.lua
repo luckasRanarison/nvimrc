@@ -5,6 +5,7 @@ return {
   event = "VeryLazy",
   init = function()
     require("which-key").register({
+      a = { name = format("Fix", "Actions") },
       c = { name = format("Color", "Color") },
       m = { name = format("Minimap", "Minimap") },
       b = { name = format("Windows", "Buffers") },
@@ -24,6 +25,9 @@ return {
     }, { prefix = "<leader>" })
   end,
   opts = {
+    key_labels = {
+      ["<space>"] = " ",
+    },
     icons = {
       group = "",
     },
