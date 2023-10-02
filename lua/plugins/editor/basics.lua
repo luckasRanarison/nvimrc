@@ -125,6 +125,7 @@ return {
         filetypes_denylist = {
           "neo-tree",
           "dropbar_menu",
+          "CodeAction",
         },
       })
     end,

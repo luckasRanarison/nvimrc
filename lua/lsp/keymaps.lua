@@ -19,13 +19,9 @@ return {
     ["<A-o>"] = { value = lua("vim.diagnostic.goto_prev()"), desc = "Previous diagnostic" },
   },
   ["textDocument/codeAction"] = {
-    ["<leader>aa"] = {
+    ["<leader>a "] = {
       value = cmd("CodeActionToggleLabel"),
       desc = format("Toggle", "Toggle label"),
-    },
-    ["<leader>la"] = {
-      value = lua("vim.lsp.buf.code_action()"),
-      desc = format("Fix", "Code action"),
     },
   },
   ["textDocument/definition"] = {

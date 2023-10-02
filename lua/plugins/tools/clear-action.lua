@@ -10,6 +10,8 @@ return {
       combine = true,
     },
     mappings = {
+      code_action = { "<leader>la", format("Fix", "Code action") },
+      apply_first = { "<leader>aa", format("Fix", "Apply") },
       quickfix = { "<leader>aq", format("Fix", "Quickfix") },
       quickfix_next = { "<leader>an", format("Fix", "Quickfix next") },
       quickfix_prev = { "<leader>ap", format("Fix", "Quickfix prev") },
