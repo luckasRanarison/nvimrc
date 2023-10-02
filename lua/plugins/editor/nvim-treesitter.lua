@@ -59,6 +59,7 @@ return {
         "rasi",
         "haskell",
         "ebnf",
+        "hypr",
       },
       playground = {
         enable = true,
@@ -93,7 +94,7 @@ return {
 
       parser_config.hypr = {
         install_info = {
-          url = "https//github/luckasranarison/tree-sitter-hypr",
+          url = "https://github.com/luckasranarison/tree-sitter-hypr",
           files = { "src/parser.c" },
           branch = "master",
         },
