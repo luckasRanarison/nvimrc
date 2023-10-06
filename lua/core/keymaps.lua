@@ -363,24 +363,6 @@ return {
       desc = format("FolderClock", "Load current directory session"),
     },
 
-    -- Codewindow
-    ["<leader>mm"] = {
-      value = lua("require('codewindow').toggle_minimap()"),
-      desc = format("Toggle", "Toggle minimap"),
-    },
-    ["<leader>mo"] = {
-      value = lua("require('codewindow').open_minimap()"),
-      desc = format("Open", "Open minimap"),
-    },
-    ["<leader>mc"] = {
-      value = lua("require('codewindow').close_minimap()"),
-      desc = format("Close", "Close minimap"),
-    },
-    ["<leader>mf"] = {
-      value = lua("require('codewindow').toggle_focus()"),
-      desc = format("Popup", "Focus minimap"),
-    },
-
     -- notify
     ["<leader>nn"] = {
       value = lua("require('notify').dismiss()"),
