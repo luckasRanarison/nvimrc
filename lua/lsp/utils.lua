@@ -71,6 +71,7 @@ M.format_async = function(bufnr)
 
       vim.lsp.util.apply_text_edits(res, bufnr, offset_encoding)
       vim.api.nvim_buf_call(bufnr, function() vim.cmd("silent noautocmd update") end)
+      pcall(vim.diagnostic.show)
     end
   end
 
