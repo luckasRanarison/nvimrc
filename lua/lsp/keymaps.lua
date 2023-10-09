@@ -1,78 +1,100 @@
+local map = require("utils.mappings")
 local format = require("utils.icons").format
-
-local cmd = function(code) return "<cmd>" .. code .. "<CR>" end
-local lua = function(code) return "<cmd>lua " .. code .. "<CR>" end
 
 return {
   ["textDocument/formatting"] = {
     ["<leader>lf"] = {
-      value = lua("require('lsp.utils').format_async(0)"),
+      value = map.lua("require('lsp.utils').format_async(0)"),
       desc = format("Format", "Format buffer"),
     },
   },
   ["textDocument/publishDiagnostics"] = {
     ["<leader>ld"] = {
-      value = lua("require('utils.scripts').diagnostics_float()"),
+      value = map.lua("require('utils.scripts').diagnostics_float()"),
       desc = format("Warn", "Hover diagnostic"),
     },
-    ["<A-i>"] = { value = lua("vim.diagnostic.goto_next()"), desc = "Next diagnostic" },
-    ["<A-o>"] = { value = lua("vim.diagnostic.goto_prev()"), desc = "Previous diagnostic" },
+    ["<A-i>"] = {
+      value = map.lua("vim.diagnostic.goto_next()"),
+      desc = "Next diagnostic",
+    },
+    ["<A-o>"] = {
+      value = map.lua("vim.diagnostic.goto_prev()"),
+      desc = "Previous diagnostic",
+    },
   },
   ["textDocument/codeAction"] = {
     ["<leader>a "] = {
-      value = cmd("CodeActionToggleLabel"),
+      value = map.cmd("CodeActionToggleLabel"),
       desc = format("Toggle", "Toggle label"),
     },
   },
   ["textDocument/definition"] = {
-    ["gd"] = { value = lua("vim.lsp.buf.definition()"), desc = "Go to definition" },
+    ["gd"] = {
+      value = map.lua("vim.lsp.buf.definition()"),
+      desc = "Go to definition",
+    },
   },
   ["textDocument/declaration"] = {
-    ["gD"] = { value = lua("vim.lsp.buf.declaration()"), desc = "Go to declaration" },
+    ["gD"] = {
+      value = map.lua("vim.lsp.buf.declaration()"),
+      desc = "Go to declaration",
+    },
   },
   ["textDocument/hover"] = {
-    ["K"] = { value = lua("vim.lsp.buf.hover()"), desc = "Hover info" },
+    ["K"] = {
+      value = map.lua("vim.lsp.buf.hover()"),
+      desc = "Hover info",
+    },
   },
   ["textDocument/implementation"] = {
-    ["gI"] = { value = ":Telescope lsp_implementations<CR>", desc = "Symbol implementation" },
+    ["gI"] = {
+      value = ":Telescope lsp_implementations<CR>",
+      desc = "Symbol implementation",
+    },
   },
   ["textDocument/references"] = {
-    ["gr"] = { value = ":Telescope lsp_references<CR>", desc = "Go to reference" },
+    ["gr"] = {
+      value = ":Telescope lsp_references<CR>",
+      desc = "Go to reference",
+    },
   },
   ["textDocument/rename"] = {
     ["<leader>lr"] = {
-      value = lua("vim.lsp.buf.rename()"),
+      value = map.lua("vim.lsp.buf.rename()"),
       desc = format("Edit", "Rename symbol"),
     },
   },
   ["textDocument/signatureHelp"] = {
     ["<leader>lH"] = {
-      value = lua("vim.lsp.buf.signature_help()"),
+      value = map.lua("vim.lsp.buf.signature_help()"),
       desc = format("Help", "Signature help"),
     },
   },
   ["textDocument/typeDefinition"] = {
-    ["gT"] = { value = lua("vim.lsp.buf.type_definition()"), desc = "Go to type definition" },
+    ["gT"] = {
+      value = map.lua("vim.lsp.buf.type_definition()"),
+      desc = "Go to type definition",
+    },
   },
   ["textDocument/codeLens"] = {
     ["<leader>ll"] = {
-      value = lua("vim.lsp.codelens.refresh() vim.lsp.codelens.run()"),
+      value = map.lua("vim.lsp.codelens.refresh() vim.lsp.codelens.run()"),
       desc = format("Run", "Run codelens"),
     },
     ["<leader>lL"] = {
-      value = lua("vim.lsp.codelens.refresh()"),
+      value = map.lua("vim.lsp.codelens.refresh()"),
       desc = format("Restart", "Refresh codelens"),
     },
   },
   ["workspace/symbol"] = {
     ["<leader>ls"] = {
-      value = lua("vim.lsp.buf.workspace_symbol()"),
+      value = map.lua("vim.lsp.buf.workspace_symbol()"),
       desc = format("Variable", "Workspace symbols"),
     },
   },
   ["workspace/inlayHint"] = {
     ["<leader>lh"] = {
-      value = lua("vim.lsp.inlay_hint(0, nil)"),
+      value = map.lua("vim.lsp.inlay_hint(0, nil)"),
       desc = format("Toggle", "Toggle inlay hint"),
     },
   },

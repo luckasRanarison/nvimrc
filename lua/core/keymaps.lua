@@ -1,414 +1,532 @@
+local map = require("utils.mappings")
 local format = require("utils.icons").format
-
-local cmd = function(name) return "<cmd>" .. name .. "<CR>" end
-local lua = function(code) return "<cmd>lua " .. code .. "<CR>" end
 
 return {
   n = {
     -- utils
-    ["<leader>w"] = { value = cmd("w"), desc = format("Save", "Save file") },
-    ["<leader>W"] = { value = cmd("w!"), desc = format("Save", "Save file!") },
-    ["<leader>q"] = { value = cmd("q"), desc = format("Exit", "Exit window") },
-    ["<leader>Q"] = { value = cmd("q!"), desc = format("Exit", "Exit window!") },
-    ["<leader>s"] = { value = cmd("nohlsearch"), desc = format("Clear", "Clear search highlights") },
-    ["<leader>p"] = { value = '"+p', desc = format("Clipboard", "Paste from clipboard") },
-    ["<leader>P"] = { value = '"+P', desc = format("Clipboard", "Paste from clipboard") },
-    ["<leader>:"] = { value = ":lua ", desc = format("Lua", "Lua prompt") },
+    ["<leader>w"] = {
+      value = map.cmd("w"),
+      desc = format("Save", "Save file"),
+    },
+    ["<leader>W"] = {
+      value = map.cmd("w!"),
+      desc = format("Save", "Save file!"),
+    },
+    ["<leader>q"] = {
+      value = map.cmd("q"),
+      desc = format("Exit", "Exit window"),
+    },
+    ["<leader>Q"] = {
+      value = map.cmd("q!"),
+      desc = format("Exit", "Exit window!"),
+    },
+    ["<leader>p"] = {
+      value = '"+p',
+      desc = format("Clipboard", "Paste from clipboard"),
+    },
+    ["<leader>P"] = {
+      value = '"+P',
+      desc = format("Clipboard", "Paste from clipboard"),
+    },
+    ["<leader>:"] = {
+      value = ":lua ",
+      desc = format("Lua", "Lua prompt"),
+    },
+    ["<leader>%"] = {
+      value = map.cmd("luafile %"),
+      desc = format("Lua", "Luafile"),
+    },
     ["<leader>."] = {
-      value = lua("require('utils.scripts').append_semicolon()"),
+      value = map.lua("require('utils.scripts').append_semicolon()"),
       desc = "; " .. "Append semicolon",
     },
     ["<leader>;"] = {
-      value = lua(
+      value = map.lua(
         "require('Comment.api').toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1)"
       ),
       desc = format("Comment", "Comment line"),
     },
     ["<leader> "] = {
-      value = cmd("wincmd w"),
+      value = map.cmd("wincmd w"),
       desc = format("Window", "Switch window"),
     },
 
     -- UI utils
     ["<leader>uw"] = {
-      value = lua("vim.wo.wrap = not vim.wo.wrap vim.wo.linebreak = not vim.wo.linebreak"),
+      value = map.lua("vim.wo.wrap = not vim.wo.wrap vim.wo.linebreak = not vim.wo.linebreak"),
       desc = format("LineWrap", "Toggle wrap"),
     },
-    ["<leader>um"] = {
-      value = lua("require('plugins.utils.toggle').toggle_minimap_auto()"),
-      desc = format("Minimap", "Toggle minimap auto"),
+    ["<leader>ut"] = {
+      value = map.cmd("Twilight"),
+      desc = format("Twilight", "Toggle twilight"),
     },
-    ["<leader>ut"] = { value = cmd("Twilight"), desc = format("Twilight", "Toggle twilight") },
-    ["<leader>ug"] = { value = cmd("GuessIndent"), desc = format("Indent", "Guess indent") },
+    ["<leader>ug"] = {
+      value = map.cmd("GuessIndent"),
+      desc = format("Indent", "Guess indent"),
+    },
     ["<leader>ui"] = {
-      value = lua("require('utils.scripts').set_indent_input()"),
+      value = map.lua("require('utils.scripts').set_indent_input()"),
       desc = format("Indent", "Set indentation"),
     },
     ["<leader>uI"] = {
-      value = lua("require('utils.scripts').set_indent_type()"),
+      value = map.lua("require('utils.scripts').set_indent_type()"),
       desc = format("Indent", "Set indentation type"),
+    },
+    ["<leader>us"] = {
+      value = map.cmd("nohlsearch"),
+      desc = format("Clear", "Clear search highlights"),
     },
 
     -- Neotree
-    ["<leader>e"] = { value = cmd("Neotree toggle"), desc = format("FileTree", "Toggle Neotree") },
+    ["<leader>e"] = {
+      value = map.cmd("Neotree toggle"),
+      desc = format("FileTree", "Toggle Neotree"),
+    },
 
     -- move.nvim
-    ["<A-j>"] = { value = cmd("MoveLine(1)"), desc = "Move line down" },
-    ["<A-k>"] = { value = cmd("MoveLine(-1)"), desc = "Move line up" },
-    ["<A-h>"] = { value = cmd("MoveHChar(-1)"), desc = "Move character left" },
-    ["<A-l>"] = { value = cmd("MoveHChar(1)"), desc = "Move character right" },
+    ["<A-j>"] = {
+      value = map.cmd("MoveLine(1)"),
+      desc = "Move line down",
+    },
+    ["<A-k>"] = {
+      value = map.cmd("MoveLine(-1)"),
+      desc = "Move line up",
+    },
+    ["<A-h>"] = {
+      value = map.cmd("MoveHChar(-1)"),
+      desc = "Move character left",
+    },
+    ["<A-l>"] = {
+      value = map.cmd("MoveHChar(1)"),
+      desc = "Move character right",
+    },
 
     -- ccc
-    ["<leader>cp"] = { value = cmd("CccPick"), desc = format("ColorPicker", "Pick color") },
-    ["<leader>cc"] = { value = cmd("CccConvert"), desc = format("Swap", "Convert color") },
+    ["<leader>cp"] = {
+      value = map.cmd("CccPick"),
+      desc = format("ColorPicker", "Pick color"),
+    },
+    ["<leader>cc"] = {
+      value = map.cmd("CccConvert"),
+      desc = format("Swap", "Convert color"),
+    },
     ["<leader>ce"] = {
-      value = cmd("CccHighlighterEnable"),
+      value = map.cmd("CccHighlighterEnable"),
       desc = format("ColorOn", "Enable highlights"),
     },
     ["<leader>cd"] = {
-      value = cmd("CccHighlighterDisable"),
+      value = map.cmd("CccHighlighterDisable"),
       desc = format("ColorOff", "Disable highlights"),
     },
 
     -- buffer utils
     ["<leader>bq"] = {
-      value = cmd("BufDel"),
+      value = map.cmd("BufDel"),
       desc = format("Close", "Close current buffer"),
     },
     ["<leader>bQ"] = {
-      value = cmd("BufDel!"),
+      value = map.cmd("BufDel!"),
       desc = format("Close", "close current buffer!"),
     },
-    ["<leader>bb"] = { value = cmd("BufferLinePick"), desc = format("Open", "Pick to open buffer") },
+    ["<leader>bb"] = {
+      value = map.cmd("BufferLinePick"),
+      desc = format("Open", "Pick to open buffer"),
+    },
     ["<leader>bd"] = {
-      value = cmd("BufferLinePickClose"),
+      value = map.cmd("BufferLinePickClose"),
       desc = format("Close", "Pick to close buffer"),
     },
     ["<leader>bc"] = {
-      value = cmd("BufDelOthers"),
+      value = map.cmd("BufDelOthers"),
       desc = format("CloseMultiple", "Close other buffers"),
     },
     ["<leader>bC"] = {
-      value = cmd("BufDelAll"),
+      value = map.cmd("BufDelAll"),
       desc = format("CloseMultiple", "Close all buffers"),
     },
     ["<leader>bl"] = {
-      value = cmd("BufferLineCloseLeft"),
+      value = map.cmd("BufferLineCloseLeft"),
       desc = format("CloseMultiple", "Close buffers to the left"),
     },
     ["<leader>br"] = {
-      value = cmd("BufferLineCloseRight"),
+      value = map.cmd("BufferLineCloseRight"),
       desc = format("CloseMultiple", "Close buffers to the right"),
     },
     ["<leader>bn"] = {
-      value = cmd("BufferLineCycleNext"),
+      value = map.cmd("BufferLineCycleNext"),
       desc = format("NextBuffer", "Move to next buffer"),
     },
     ["<leader>bp"] = {
-      value = cmd("BufferLineCyclePrev"),
+      value = map.cmd("BufferLineCyclePrev"),
       desc = format("PrevBuffer", "Move to previous buffer"),
     },
     ["<leader>bi"] = {
-      value = cmd("BufferLineTogglePin"),
+      value = map.cmd("BufferLineTogglePin"),
       desc = format("Pin", "Pin buffer"),
     },
     ["<leader>bg"] = {
-      value = lua("require('bufferline').go_to(1)"),
+      value = map.lua("require('bufferline').go_to(1)"),
       desc = format("PrevBuffer", "Move to first buffer"),
     },
     ["<leader>bG"] = {
-      value = lua("require('bufferline').go_to(-1)"),
+      value = map.lua("require('bufferline').go_to(-1)"),
       desc = format("NextBuffer", "Move to last buffer"),
     },
     ["<leader>bv"] = {
-      value = lua("require('plugins.utils.buffer').pick_to_split('vertical')"),
+      value = map.lua("require('plugins.utils.buffer').pick_to_split('vertical')"),
       desc = format("Vertical", "Vertical split"),
     },
     ["<leader>bh"] = {
-      value = lua("require('plugins.utils.buffer').pick_to_split('horizontal')"),
+      value = map.lua("require('plugins.utils.buffer').pick_to_split('horizontal')"),
       desc = format("Horizontal", "Horizontal split"),
     },
     ["<leader>bN"] = {
-      value = lua("require('plugins.utils.buffer').move_to('right')"),
+      value = map.lua("require('plugins.utils.buffer').move_to('right')"),
       desc = format("NextBuffer", "Move to right"),
     },
     ["<leader>bP"] = {
-      value = lua("require('plugins.utils.buffer').move_to('left')"),
+      value = map.lua("require('plugins.utils.buffer').move_to('left')"),
       desc = format("PrevBuffer", "Move to left"),
     },
 
     -- gitsigns
     ["<leader>gb"] = {
-      value = cmd("Gitsigns toggle_current_line_blame"),
+      value = map.cmd("Gitsigns toggle_current_line_blame"),
       desc = format("GitDiff", "Toggle line blame"),
     },
-    ["<leader>gd"] = { value = cmd("Gitsigns diffthis"), desc = format("GitDiff", "Show diff") },
+    ["<leader>gd"] = {
+      value = map.cmd("Gitsigns diffthis"),
+      desc = format("GitDiff", "Show diff"),
+    },
     ["<leader>gD"] = {
-      value = cmd("Gitsigns toggle_deleted"),
-      desc = format("Delete", "Toggle deleted"),
+      value = map.cmd("Gitsigns toggle_deleted"),
+      desc = format("DiffRemoved", "Toggle deleted"),
     },
     ["<leader>gp"] = {
-      value = cmd("Gitsigns preview_hunk"),
+      value = map.cmd("Gitsigns preview_hunk"),
       desc = format("Popup", "Preview hunk"),
     },
     ["<leader>gP"] = {
-      value = cmd("Gitsigns preview_hunk_inline"),
+      value = map.cmd("Gitsigns preview_hunk_inline"),
       desc = format("Popup", "Preview hunk inline"),
     },
     ["<leader>gn"] = {
-      value = cmd("Gitsigns next_hunk"),
+      value = map.cmd("Gitsigns next_hunk"),
       desc = format("Down", "Next hunk"),
     },
     ["<leader>gN"] = {
-      value = cmd("Gitsigns prev_hunk"),
+      value = map.cmd("Gitsigns prev_hunk"),
       desc = format("Up", "Previous hunk"),
     },
     ["<leader>gr"] = {
-      value = cmd("Gitsigns reset_hunk"),
+      value = map.cmd("Gitsigns reset_hunk"),
       desc = format("Restore", "Revert hunk"),
     },
     ["<leader>gs"] = {
-      value = cmd("Gitsigns stage_hunk"),
+      value = map.cmd("Gitsigns stage_hunk"),
       desc = format("Save", "Stage hunk"),
     },
     ["<leader>gv"] = {
-      value = cmd("Gitsigns select_hunk"),
+      value = map.cmd("Gitsigns select_hunk"),
       desc = format("Visual", "Select hunk"),
     },
     ["<leader>gw"] = {
-      value = cmd("Gitsigns toggle_word_diff"),
+      value = map.cmd("Gitsigns toggle_word_diff"),
       desc = format("GitDiff", "Toggle word diff"),
     },
 
     -- toggleterm
     ["<leader>th"] = {
-      value = cmd("ToggleTerm direction=horizontal"),
+      value = map.cmd("ToggleTerm direction=horizontal"),
       desc = format("Horizontal", "Horizontal terminal"),
     },
     ["<leader>tv"] = {
-      value = cmd("ToggleTerm direction=vertical size=60"),
+      value = map.cmd("ToggleTerm direction=vertical size=60"),
       desc = format("Vertical", "Vertical terminal"),
     },
     ["<leader>tf"] = {
-      value = cmd("ToggleTerm direction=float"),
+      value = map.cmd("ToggleTerm direction=float"),
       desc = format("Window", "Floating terminal"),
     },
     ["<leader>tl"] = {
-      value = lua("require('plugins.utils.terminal').lazygit:toggle()"),
+      value = map.lua("require('plugins.utils.terminal').lazygit:toggle()"),
       desc = format("GitBranch", "Lazygit terminal"),
     },
     ["<leader>tg"] = {
-      value = lua("require('plugins.utils.terminal').glow:toggle()"),
+      value = map.lua("require('plugins.utils.terminal').glow:toggle()"),
       desc = format("Markdown", "Glow terminal"),
     },
 
-    -- window navigation
-    ["<C-h>"] = { value = cmd("wincmd h"), desc = "Move right" },
-    ["<C-j>"] = { value = cmd("wincmd j"), desc = "Move down" },
-    ["<C-k>"] = { value = cmd("wincmd k"), desc = "Move up" },
-    ["<C-l>"] = { value = cmd("wincmd l"), desc = "Move left" },
+    -- wincmd
+    ["<C-h>"] = {
+      value = map.cmd("wincmd h"),
+      desc = "Move right",
+    },
+    ["<C-j>"] = {
+      value = map.cmd("wincmd j"),
+      desc = "Move down",
+    },
+    ["<C-k>"] = {
+      value = map.cmd("wincmd k"),
+      desc = "Move up",
+    },
+    ["<C-l>"] = {
+      value = map.cmd("wincmd l"),
+      desc = "Move left",
+    },
 
     -- telescope
     ["<leader>ff"] = {
-      value = cmd("Telescope find_files"),
+      value = map.cmd("Telescope find_files"),
       desc = format("FileSearch", "Find file"),
     },
     ["<leader>fF"] = {
-      value = cmd("Telescope find_files hidden=true"),
+      value = map.cmd("Telescope find_files hidden=true"),
       desc = format("FileSearch", "Find file (hidden)"),
     },
     ["<leader>fg"] = {
-      value = cmd("Telescope live_grep"),
+      value = map.cmd("Telescope live_grep"),
       desc = format("TextSearch", "Live grep"),
     },
-    ["<leader>fb"] = { value = cmd("Telescope buffers"), desc = format("TabSearch", "Find buffer") },
-    ["<leader>fh"] = { value = cmd("Telescope help_tags"), desc = format("Help", "Find help") },
+    ["<leader>fb"] = {
+      value = map.cmd("Telescope buffers"),
+      desc = format("TabSearch", "Find buffer"),
+    },
+    ["<leader>fh"] = {
+      value = map.cmd("Telescope help_tags"),
+      desc = format("Help", "Find help"),
+    },
     ["<leader>fd"] = {
-      value = cmd("Telescope diagnostics"),
+      value = map.cmd("Telescope diagnostics"),
       desc = format("Warn", "Find diagnostic"),
     },
     ["<leader>fs"] = {
-      value = lua("require('telescope').extensions.aerial.aerial()"),
+      value = map.cmd("Telescope lsp_document_symbols"),
       desc = format("Braces", "Find document symbol"),
     },
     ["<leader>fr"] = {
-      value = cmd("Telescope resume"),
+      value = map.cmd("Telescope resume"),
       desc = format("Run", "Resume search"),
     },
     ["<leader>fn"] = {
-      value = cmd("Telescope notify"),
+      value = map.cmd("Telescope notify"),
       desc = format("Notification", "Show notifications"),
     },
     ["<leader>fo"] = {
-      value = cmd("Telescope vim_options"),
+      value = map.cmd("Telescope vim_options"),
       desc = format("Config", "Vim options"),
     },
     ["<leader>f:"] = {
-      value = cmd("Telescope command_history"),
+      value = map.cmd("Telescope command_history"),
       desc = format("History", "Command history"),
     },
     ["<leader>fm"] = {
-      value = cmd("Telescope man_pages"),
+      value = map.cmd("Telescope man_pages"),
       desc = format("Info", "Search man"),
     },
     ["<leader>fR"] = {
-      value = cmd("Telescope reloader"),
+      value = map.cmd("Telescope reloader"),
       desc = format("Restore", "Reload module"),
     },
     ["<leader>fH"] = {
-      value = cmd("Telescope highlights"),
+      value = map.cmd("Telescope highlights"),
       desc = format("Color", "Highlight group"),
     },
     ["<leader>ft"] = {
-      value = cmd("Telescope treesitter"),
-      desc = format("Variable", "Treesitter"),
+      value = map.cmd("Telescope treesitter"),
+      desc = format("Symbol", "Treesitter"),
     },
     ["<leader>fz"] = {
-      value = cmd("Telescope current_buffer_fuzzy_find"),
+      value = map.cmd("Telescope current_buffer_fuzzy_find"),
       desc = format("Search", "Buffer fuzzy find"),
     },
     ["<leader>fp"] = {
-      value = cmd("Telescope registers"),
+      value = map.cmd("Telescope registers"),
       desc = format("Clipboard", "Registers"),
+    },
+    ["<leader>fq"] = {
+      value = map.cmd("Telescope quickfix"),
+      desc = format("Fix", "Quickfix"),
     },
 
     ["<leader>gc"] = {
-      value = cmd("Telescope git_bcommits"),
+      value = map.cmd("Telescope git_bcommits"),
       desc = format("GitCommit", "Find branch commit"),
     },
     ["<leader>gC"] = {
-      value = cmd("Telescope git_commits"),
+      value = map.cmd("Telescope git_commits"),
       desc = format("GitCommit", "Find commit"),
     },
     ["<leader>gB"] = {
-      value = cmd("Telescope git_branches"),
+      value = map.cmd("Telescope git_branches"),
       desc = format("GitBranch", "Find git branch"),
     },
 
-    -- packages
-    ["<leader>L"] = { value = cmd("Lazy"), desc = format("Package", "Plugin manager") },
-    ["<leader>M"] = { value = cmd("Mason"), desc = format("Package", "Mason") },
+    -- Lazy
+    ["<leader>L"] = {
+      value = map.cmd("Lazy"),
+      desc = format("Package", "Plugin manager"),
+    },
+
+    -- Mason
+    ["<leader>M"] = {
+      value = map.cmd("Mason"),
+      desc = format("Package", "Mason"),
+    },
 
     -- DAP
     ["<leader>do"] = {
-      value = lua("require('dapui').open()"),
+      value = map.lua("require('neo-tree').close_all() require('dapui').open()"),
       desc = format("Open", "Open debugger UI"),
     },
     ["<leader>dq"] = {
-      value = lua("require('dapui').close()"),
+      value = map.lua("require('neo-tree').show() require('dapui').close()"),
       desc = format("Close", "Close debugger UI"),
     },
     ["<leader>dt"] = {
-      value = lua("require('dapui').toggle()"),
+      value = map.lua("require('dapui').toggle()"),
       desc = format("Toggle", "Toggle debugger"),
     },
-    ["<leader>dc"] = { value = cmd("DapTerminate"), desc = format("Stop", "Terminate session") },
-    ["<leader>dr"] = { value = cmd("DapRestartFrame"), desc = format("Restart", "Restart frame") },
+    ["<leader>dc"] = {
+      value = map.cmd("DapTerminate"),
+      desc = format("Stop", "Terminate session"),
+    },
+    ["<leader>dr"] = {
+      value = map.cmd("DapRestartFrame"),
+      desc = format("Restart", "Restart frame"),
+    },
     ["<leader>db"] = {
-      value = cmd("DapToggleBreakpoint"),
+      value = map.cmd("DapToggleBreakpoint"),
       desc = format("Toggle", "Toggle breakpoint"),
     },
-    ["<leader>dl"] = { value = cmd("DapShowLog"), desc = format("DefaultFile", "Show logs") },
+    ["<leader>dl"] = {
+      value = map.cmd("DapShowLog"),
+      desc = format("DefaultFile", "Show logs"),
+    },
     ["<leader>dh"] = {
-      value = lua("require('dap.ui.widgets').hover()"),
+      value = map.lua("require('dap.ui.widgets').hover()"),
       desc = format("Popup", "Debugger hover"),
     },
-    ["<F5>"] = { value = cmd("DapContinue"), desc = "Continue session" },
-    ["<F9>"] = { value = cmd("DapToggleBreakpoint"), desc = "Toggle breakpoint" },
-    ["<F11>"] = { value = lua("require('dap').step_into()"), desc = "Step into" },
-    ["<F23>"] = { value = lua("require('dap').step_out()"), desc = "Step out" },
-    ["<F12>"] = { value = lua("require('dap').step_over()"), desc = "Step over" },
+    ["<F5>"] = {
+      value = map.cmd("DapContinue"),
+      desc = "Continue session",
+    },
+    ["<F9>"] = {
+      value = map.cmd("DapToggleBreakpoint"),
+      desc = "Toggle breakpoint",
+    },
+    ["<F11>"] = {
+      value = map.lua("require('dap').step_into()"),
+      desc = "Step into",
+    },
+    ["<F23>"] = {
+      value = map.lua("require('dap').step_out()"),
+      desc = "Step out",
+    },
+    ["<F12>"] = {
+      value = map.lua("require('dap').step_over()"),
+      desc = "Step over",
+    },
 
     -- telescope DAP
     ["<leader>dB"] = {
-      value = lua("require('telescope').extensions.dap.list_breakpoints()"),
+      value = map.lua("require('telescope').extensions.dap.list_breakpoints()"),
       desc = format("Breakpoint", "List breakpoints"),
     },
     ["<leader>dv"] = {
-      value = lua("require('telescope').extensions.dap.variables()"),
+      value = map.lua("require('telescope').extensions.dap.variables()"),
       desc = format("Variable", "List variables"),
     },
     ["<leader>df"] = {
-      value = lua("require('telescope').extensions.dap.frames()"),
+      value = map.lua("require('telescope').extensions.dap.frames()"),
       desc = format("Stack", "List frames"),
     },
     ["<leader>dF"] = {
-      value = lua("require('telescope').extensions.dap.configurations()"),
+      value = map.lua("require('telescope').extensions.dap.configurations()"),
       desc = format("Config", "List configurations"),
     },
     ["<leader>dC"] = {
-      value = lua("require('telescope').extensions.dap.commands()"),
+      value = map.lua("require('telescope').extensions.dap.commands()"),
       desc = format("Command", "List commands"),
     },
 
     -- session-manager
     ["<leader>Ss"] = {
-      value = cmd("SessionManager save_current_session"),
+      value = map.cmd("SessionManager save_current_session"),
       desc = format("Save", "Save session"),
     },
     ["<leader>Sl"] = {
-      value = cmd("SessionManager load_session"),
+      value = map.cmd("SessionManager load_session"),
       desc = format("Restore", "Load session"),
     },
     ["<leader>SL"] = {
-      value = cmd("SessionManager load_last_session"),
+      value = map.cmd("SessionManager load_last_session"),
       desc = format("Restore", "Load last session"),
     },
     ["<leader>Sd"] = {
-      value = cmd("SessionManager delete_session"),
+      value = map.cmd("SessionManager delete_session"),
       desc = format("Trash", "Delete session"),
     },
     ["<leader>SD"] = {
-      value = cmd("SessionManager load_current_dir_session"),
+      value = map.cmd("SessionManager load_current_dir_session"),
       desc = format("FolderClock", "Load current directory session"),
     },
 
     -- notify
     ["<leader>nn"] = {
-      value = lua("require('notify').dismiss()"),
+      value = map.lua("require('notify').dismiss()"),
       desc = format("NotificationDismiss", "Dismiss notifications"),
     },
     ["<leader>nl"] = {
-      value = cmd("Notifications"),
+      value = map.cmd("Notifications"),
       desc = format("NotificationLog", "Show logs"),
     },
 
     -- lspconfig
-    ["<leader>li"] = { value = cmd("LspInfo"), desc = format("Info", "Server info") },
-    ["<leader>lI"] = { value = cmd("LspLog"), desc = format("DefaultFile", "Server logs") },
-    ["<leader>lS"] = { value = ":LspStart ", desc = format("Run", "Start server") },
-    ["<leader>lq"] = { value = ":LspStop ", desc = format("Stop", "Stop server") },
-    ["<leader>lR"] = { value = cmd("LspRestart"), desc = format("Restart", "Restart server") },
-
-    -- sniprun
-    ["<leader>rr"] = { value = cmd("SnipRun"), desc = format("Run", "Run code") },
-    ["<leader>rR"] = { value = cmd("SnipReset"), desc = format("Restart", "Reset sniprun") },
-    ["<leader>ri"] = { value = cmd("SnipInfo"), desc = format("Info", "Show info") },
-    ["<leader>rq"] = { value = cmd("SnipClose"), desc = format("Close", "Clear output") },
+    ["<leader>li"] = {
+      value = map.cmd("LspInfo"),
+      desc = format("Info", "Server info"),
+    },
+    ["<leader>lI"] = {
+      value = map.cmd("LspLog"),
+      desc = format("DefaultFile", "Server logs"),
+    },
+    ["<leader>lS"] = {
+      value = ":LspStart ",
+      desc = format("Run", "Start server"),
+    },
+    ["<leader>lq"] = {
+      value = ":LspStop ",
+      desc = format("Stop", "Stop server"),
+    },
+    ["<leader>lR"] = {
+      value = map.cmd("LspRestart"),
+      desc = format("Restart", "Restart server"),
+    },
 
     -- dropbar
     ["<leader>oo"] = {
-      value = lua("require('dropbar.api').pick()"),
+      value = map.lua("require('dropbar.api').pick()"),
       desc = format("Check", "Pick node"),
     },
 
     -- DbUI
     ["<leader>Dd"] = {
-      value = cmd("DBUIToggle"),
+      value = map.cmd("DBUIToggle"),
       desc = format("Toggle", "Toggle DbUI"),
     },
     ["<leader>Da"] = {
-      value = cmd("DBUIAddConnection"),
+      value = map.cmd("DBUIAddConnection"),
       desc = format("Add", "Add connection"),
     },
 
     -- nvim-devdocs
     ["<leader>vv"] = {
-      value = cmd("DevdocsOpenFloat"),
+      value = map.cmd("DevdocsOpenFloat"),
       desc = format("BookmarkSearch", "Open in floating window"),
     },
     ["<leader>vV"] = {
-      value = cmd("DevdocsOpen"),
+      value = map.cmd("DevdocsOpen"),
       desc = format("BookmarkSearch", "Open in a normal buffer"),
     },
     ["<leader>vf"] = {
@@ -423,36 +541,116 @@ return {
       value = ":DevdocsUninstall ",
       desc = format("Trash", "Install documentation"),
     },
+
+    -- crates
+    ["<leader>Cv"] = {
+      value = map.lua("require('crates').show_versions_popup()"),
+      desc = format("Info", "Show versions popup"),
+    },
+    ["<leader>Cf"] = {
+      value = map.lua("require('crates').show_features_popup()"),
+      desc = format("Stack", "Show features popup"),
+    },
+    ["<leader>Cd"] = {
+      value = map.lua("require('crates').show_dependencies_popup()"),
+      desc = format("Dependencies", "Show dependencies popup"),
+    },
+    ["<leader>Cu"] = {
+      value = map.lua("require('crates').update_crate()"),
+      desc = format("Update", "Update crate"),
+    },
+    ["<leader>CU"] = {
+      value = map.lua("require('crates').update_all_crates()"),
+      desc = format("Update", "Update all crates"),
+    },
+    ["<leader>CD"] = {
+      value = map.lua("require('crates').open_documentation()"),
+      desc = format("DefaultFile", "Open documentation"),
+    },
+    ["<leader>Ch"] = {
+      value = map.lua("require('crates').open_homepage()"),
+      desc = format("Web", "Open homepage"),
+    },
+    ["<leader>Cc"] = {
+      value = map.lua("require('crates').open_crates_io()"),
+      desc = format("Package", "Open crates.io"),
+    },
+    ["<leader>Cr"] = {
+      value = map.lua("require('crates').open_repository()"),
+      desc = format("Github", "Open repository"),
+    },
   },
   v = {
     -- move.nvim
-    ["<A-k>"] = { value = cmd("MoveBlock(-1)"), desc = "Move line up" },
-    ["<A-j>"] = { value = cmd("MoveBlock(1)"), desc = "Move line down" },
-    ["<A-h>"] = { value = cmd("MoveHBlock(-1)"), desc = "Move character left" },
-    ["<A-l>"] = { value = cmd("MoveHBlock(1)"), desc = "Move character right" },
+    ["<A-k>"] = {
+      value = map.cmd_alt("MoveBlock(-1)"),
+      desc = "Move line up",
+    },
+    ["<A-j>"] = {
+      value = map.cmd_alt("MoveBlock(1)"),
+      desc = "Move line down",
+    },
+    ["<A-h>"] = {
+      value = map.cmd_alt("MoveHBlock(-1)"),
+      desc = "Move character left",
+    },
+    ["<A-l>"] = {
+      value = map.cmd_alt("MoveHBlock(1)"),
+      desc = "Move character right",
+    },
 
     -- utils
     ["q"] = { value = "<esc>" },
-    ["<leader>y"] = { value = '"+y', desc = format("Clipboard", "yank to clipboard") },
-    ["<leader>p"] = { value = '"+p', desc = format("Clipboard", "Paste from clipboard") },
-    ["<leader>P"] = { value = '"+P', desc = format("Clipboard", "Paste from clipboard") },
+    ["<leader>y"] = {
+      value = '"+y',
+      desc = format("Clipboard", "yank to clipboard"),
+    },
+    ["<leader>p"] = {
+      value = '"+p',
+      desc = format("Clipboard", "Paste from clipboard"),
+    },
+    ["<leader>P"] = {
+      value = '"+P',
+      desc = format("Clipboard", "Paste from clipboard"),
+    },
     ["<leader>;"] = {
       value = "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
       desc = format("Comment", "Comment selection"),
     },
 
-    -- sniprun
-    ["<leader>rr"] = { value = cmd("SnipRun"), desc = format("Run", "Run code") },
+    -- gitsigns
+    ["<leader>gr"] = {
+      value = map.cmd("Gitsigns reset_hunk"),
+      desc = format("Restore", "Revert hunk"),
+    },
+
+    -- crates
+    ["<leader>Cu"] = {
+      value = map.lua("require('crates').update_crates()"),
+      desc = format("Update", "Update crates"),
+    },
   },
 
   t = {
-    -- toggleterm normal mode
-    ["<esc>"] = { value = [[<C-\><C-n>]], desc = "Normal mode" },
+    -- toggleterm
+    ["<esc>"] = { value = [[<C-\><C-n>]] },
 
-    -- window navigation
-    ["<C-h>"] = { value = cmd("wincmd h"), desc = "Move right" },
-    ["<C-j>"] = { value = cmd("wincmd j"), desc = "Move down" },
-    ["<C-k>"] = { value = cmd("wincmd k"), desc = "Move up" },
-    ["<C-l>"] = { value = cmd("wincmd l"), desc = "Move left" },
+    -- wincmd
+    ["<C-h>"] = {
+      value = map.cmd("wincmd h"),
+      desc = "Move right",
+    },
+    ["<C-j>"] = {
+      value = map.cmd("wincmd j"),
+      desc = "Move down",
+    },
+    ["<C-k>"] = {
+      value = map.cmd("wincmd k"),
+      desc = "Move up",
+    },
+    ["<C-l>"] = {
+      value = map.cmd("wincmd l"),
+      desc = "Move left",
+    },
   },
 }
