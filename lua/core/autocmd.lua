@@ -12,6 +12,18 @@ return {
     },
   },
   {
+    event = { "VimEnter" },
+    opts = { command = "silent !tmux set status off" },
+  },
+  {
+    event = { "VimLeave" },
+    opts = { command = "silent !tmux set status on" },
+  },
+  {
+    event = { "BufEnter" },
+    opts = { command = "TwilightEnable" },
+  },
+  {
     event = { "FileType" },
     opts = {
       pattern = { "help" },

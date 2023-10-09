@@ -21,6 +21,7 @@ return {
     laststatus = 0,
     updatetime = 200,
     fillchars = "eob: ",
+    modeline = false,
     mouse = "",
   },
 

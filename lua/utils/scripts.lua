@@ -47,6 +47,7 @@ M.open_help_float = function()
     border = "rounded",
     relative = "editor",
     style = "minimal",
+    zindex = 10,
   })
 
   vim.api.nvim_create_autocmd("WinClosed", {
@@ -57,7 +58,10 @@ end
 
 M.diagnostics_float = function()
   local _, win = vim.diagnostic.open_float()
-  if win then vim.api.nvim_win_set_config(win, { border = "rounded" }) end
+  if win then
+    vim.api.nvim_win_set_config(win, { border = "rounded" })
+    vim.wo[win].signcolumn = "yes:1"
+  end
 end
 
 return M
