@@ -18,7 +18,7 @@ M.mode = {
       SELECT = icons.Visual,
     }
     local icon = map[name] and map[name] or icons.Vim
-    return string.format("%s (%s)", icon, name)
+    return icon .. " " .. name
   end,
   color = function()
     local colors = require("tokyonight.colors")
@@ -33,10 +33,9 @@ M.mode = {
       V = colors.default.magenta,
       s = colors.default.magenta,
       S = colors.default.magenta,
-      ["CTRL-V"] = colors.default.magenta,
     }
     return {
-      fg = map[mode],
+      fg = map[mode] or colors.default.magenta,
       bg = colors.night.bg,
     }
   end,
@@ -55,8 +54,8 @@ M.diff = {
   "diff",
   symbols = {
     added = format("Add", ""),
-    modified = format("Change", ""),
-    removed = format("Delete", ""),
+    modified = format("Modified", ""),
+    removed = format("Removed", ""),
   },
   color = function()
     local colors = require("tokyonight.colors")
