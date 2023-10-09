@@ -30,7 +30,7 @@ return {
   },
   ["textDocument/definition"] = {
     ["gd"] = {
-      value = map.lua("vim.lsp.buf.definition()"),
+      value = map.cmd("Telescope lsp_definitions"),
       desc = "Go to definition",
     },
   },
@@ -48,13 +48,13 @@ return {
   },
   ["textDocument/implementation"] = {
     ["gI"] = {
-      value = ":Telescope lsp_implementations<CR>",
+      value = map.cmd("Telescope lsp_implementations"),
       desc = "Symbol implementation",
     },
   },
   ["textDocument/references"] = {
     ["gr"] = {
-      value = ":Telescope lsp_references<CR>",
+      value = map.cmd("Telescope lsp_references"),
       desc = "Go to reference",
     },
   },
@@ -88,8 +88,8 @@ return {
   },
   ["workspace/symbol"] = {
     ["<leader>ls"] = {
-      value = map.lua("vim.lsp.buf.workspace_symbol()"),
-      desc = format("Variable", "Workspace symbols"),
+      value = map.cmd("Telescope lsp_workspace_symbols"),
+      desc = format("Symbol", "Workspace symbols"),
     },
   },
   ["workspace/inlayHint"] = {
