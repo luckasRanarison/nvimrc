@@ -37,22 +37,11 @@ return {
 
     vim.opt.showtabline = 2
     opts.highlights = {
-      background = {
-        bg = colors.night.bg,
-      },
-      close_button = {
-        bg = colors.night.bg,
-      },
-      separator = {
-        fg = colors.night.bg,
-        bg = colors.night.bg,
-      },
-      offset_separator = {
-        bg = colors.night.bg,
-      },
-      pick = {
-        bg = colors.night.bg,
-      },
+      background = { bg = colors.night.bg },
+      close_button = { bg = colors.night.bg },
+      separator = { fg = colors.night.bg, bg = colors.night.bg },
+      offset_separator = { bg = colors.night.bg },
+      pick = { bg = colors.night.bg },
     }
 
     require("bufferline").setup(opts)

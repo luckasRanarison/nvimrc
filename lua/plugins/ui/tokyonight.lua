@@ -15,116 +15,99 @@ return {
       return colors
     end,
     on_highlights = function(hl, c)
-      hl.WinSeparator = { fg = c.terminal_black }
-      hl.DiagnosticSignError = { fg = c.red }
-      hl.DiagnosticSignWarn = { fg = c.yellow }
-      hl.DiagnosticSignHint = { fg = c.blue }
-      hl.DiagnosticSignInfo = { fg = c.blue }
-      hl.DiagnosticError = { fg = c.red }
-      hl.DiagnosticWarn = { fg = c.yellow }
-      hl.DiagnosticHint = { fg = c.blue }
-      hl.DiagnosticInfo = { fg = c.blue }
-      hl.CursorLineNr = { fg = c.blue }
-      hl.Breakpoint = { fg = c.orange }
-      hl.BufferLineFill = { bg = c.bg }
-      hl.BufferLineCloseButtonSelected = { fg = c.red }
-      hl.BufferLineError = { fg = c.red, bg = c.bg, bold = true }
-      hl.BufferLineWarning = { fg = c.yellow, bg = c.bg, bold = true }
-      hl.BufferLineHint = { fg = c.blue, bg = c.bg, bold = true }
-      hl.BufferLineInfo = { fg = c.blue, bg = c.bg, bold = true }
-      hl.BufferLineModified = { fg = c.green, bg = c.bg }
-      hl.BufferLineDuplicate = { fg = c.comment, bg = c.bg, bold = true }
-      hl.BufferLineDuplicateSelected = { fg = c.fg, bg = c.bg, bold = true, italic = true }
-      hl.BufferLineTruncMarker = { bg = c.bg }
-      hl.NeoTreeDirectoryName = { fg = c.fg }
-      hl.NeoTreeNormalNC = { bg = c.bg }
-      hl.NeoTreeNormal = { bg = c.bg }
-      hl.NeoTreeGitUntracked = { fg = c.orange }
-      hl.NeoTreeGitUnstaged = { fg = c.cyan }
-      hl.LspInlayHint = { fg = c.comment }
-      hl.FlashLabel = { fg = c.red, bg = c.bg }
-      hl.FlashCurrent = { bg = c.fg }
-      hl.SniprunVirtualTextOk = { link = "Comment" }
-      hl.SniprunVirtualTextErr = { link = "Error" }
-      hl.FloatBorder = { fg = c.dark3 }
-      hl.FloatTitle = { fg = c.dark3 }
-      hl.NormalSB = { bg = c.bg }
-      hl.NormalFloat = { bg = c.bg }
-      hl.TelescopeNormal = { bg = c.bg }
-      hl.TelescopeBorder = { link = "FloatBorder" }
-      hl.TelescopePromptPrefix = { fg = c.dark3 }
-      hl.WhichKeyFloat = { bg = c.bg }
-      hl.NotifyINFOBorder = { fg = c.blue }
-      hl.NotifyINFOTitle = { fg = c.blue }
-      hl.NotifyINFOIcon = { fg = c.blue }
-      hl.NotifyERRORBorder = { fg = c.red }
-      hl.NotifyERRORTitle = { fg = c.red }
-      hl.NotifyERRORIcon = { fg = c.red }
-      hl.NotifyWARNBorder = { fg = c.yellow }
-      hl.NotifyWARNTitle = { fg = c.yellow }
-      hl.NotifyWARNIcon = { fg = c.yellow }
-      hl.ErrorMsg = { fg = c.red }
+      local highlights = {
+        NormalSB = { bg = c.bg },
+        NormalFloat = { bg = c.bg },
+        FloatBorder = { fg = c.dark3 },
+        FloatTitle = { fg = c.dark3 },
+        CursorLineNr = { fg = c.blue },
+        Breakpoint = { fg = c.orange },
+        WinSeparator = { fg = c.terminal_black },
+        LspInlayHint = { fg = c.comment },
 
-      hl.DropBarSeparator = { fg = c.dark3 }
-      hl.DropBarPick = { fg = c.red, bold = true, italic = true }
-      hl.DropBarKind = { fg = c.fg }
-      hl.DropBarIconUISeparator = { link = "DropBarSeparator" }
-      hl.DropBarIconUIPickPivot = { link = "DropBarPick" }
-      hl.DropBarKindArray = { link = "DropBarKind" }
-      hl.DropBarKindBoolean = { link = "DropBarKind" }
-      hl.DropBarKindBreakStatement = { link = "DropBarKind" }
-      hl.DropBarKindCall = { link = "DropBarKind" }
-      hl.DropBarKindCaseStatement = { link = "DropBarKind" }
-      hl.DropBarKindClass = { link = "DropBarKind" }
-      hl.DropBarKindConstant = { link = "DropBarKind" }
-      hl.DropBarKindConstructor = { link = "DropBarKind" }
-      hl.DropBarKindContinueStatement = { link = "DropBarKind" }
-      hl.DropBarKindDeclaration = { link = "DropBarKind" }
-      hl.DropBarKindDelete = { link = "DropBarKind" }
-      hl.DropBarKindDoStatement = { link = "DropBarKind" }
-      hl.DropBarKindElseStatement = { link = "DropBarKind" }
-      hl.DropBarKindEnum = { link = "DropBarKind" }
-      hl.DropBarKindEnumMember = { link = "DropBarKind" }
-      hl.DropBarKindEvent = { link = "DropBarKind" }
-      hl.DropBarKindField = { link = "DropBarKind" }
-      hl.DropBarKindFolder = { fg = c.dark5 }
-      hl.DropBarKindForStatement = { link = "DropBarKind" }
-      hl.DropBarKindFunction = { link = "DropBarKind" }
-      hl.DropBarKindIdentifier = { link = "DropBarKind" }
-      hl.DropBarKindIfStatement = { link = "DropBarKind" }
-      hl.DropBarKindInterface = { link = "DropBarKind" }
-      hl.DropBarKindKeyword = { link = "DropBarKind" }
-      hl.DropBarKindList = { link = "DropBarKind" }
-      hl.DropBarKindMacro = { link = "DropBarKind" }
-      hl.DropBarKindMarkdownH1 = { link = "DropBarKind" }
-      hl.DropBarKindMarkdownH2 = { link = "DropBarKind" }
-      hl.DropBarKindMarkdownH3 = { link = "DropBarKind" }
-      hl.DropBarKindMarkdownH4 = { link = "DropBarKind" }
-      hl.DropBarKindMarkdownH5 = { link = "DropBarKind" }
-      hl.DropBarKindMarkdownH6 = { link = "DropBarKind" }
-      hl.DropBarKindMethod = { link = "DropBarKind" }
-      hl.DropBarKindModule = { link = "DropBarKind" }
-      hl.DropBarKindNamespace = { link = "DropBarKind" }
-      hl.DropBarKindNull = { link = "DropBarKind" }
-      hl.DropBarKindNumber = { link = "DropBarKind" }
-      hl.DropBarKindObject = { link = "DropBarKind" }
-      hl.DropBarKindOperator = { link = "DropBarKind" }
-      hl.DropBarKindPackage = { link = "DropBarKind" }
-      hl.DropBarKindProperty = { link = "DropBarKind" }
-      hl.DropBarKindReference = { link = "DropBarKind" }
-      hl.DropBarKindRepeat = { link = "DropBarKind" }
-      hl.DropBarKindScope = { link = "DropBarKind" }
-      hl.DropBarKindSpecifier = { link = "DropBarKind" }
-      hl.DropBarKindStatement = { link = "DropBarKind" }
-      hl.DropBarKindString = { link = "DropBarKind" }
-      hl.DropBarKindStruct = { link = "DropBarKind" }
-      hl.DropBarKindSwitchStatement = { link = "DropBarKind" }
-      hl.DropBarKindType = { link = "DropBarKind" }
-      hl.DropBarKindTypeParameter = { link = "DropBarKind" }
-      hl.DropBarKindUnit = { link = "DropBarKind" }
-      hl.DropBarKindValue = { link = "DropBarKind" }
-      hl.DropBarKindVariable = { link = "DropBarKind" }
-      hl.DropBarKindWhileStatement = { link = "DropBarKind" }
+        DiagnosticSignError = { fg = c.red },
+        DiagnosticSignWarn = { fg = c.yellow },
+        DiagnosticSignHint = { fg = c.blue },
+        DiagnosticSignInfo = { fg = c.blue },
+        DiagnosticError = { fg = c.red },
+        DiagnosticWarn = { fg = c.yellow },
+        DiagnosticHint = { fg = c.blue },
+        DiagnosticInfo = { fg = c.blue },
+
+        BufferLineFill = { bg = c.bg },
+        BufferLineCloseButtonSelected = { fg = c.red },
+        BufferLineError = { fg = c.red, bg = c.bg, bold = true },
+        BufferLineWarning = { fg = c.yellow, bg = c.bg, bold = true },
+        BufferLineHint = { fg = c.blue, bg = c.bg, bold = true },
+        BufferLineInfo = { fg = c.blue, bg = c.bg, bold = true },
+        BufferLineModified = { fg = c.green, bg = c.bg },
+        BufferLineDuplicate = { fg = c.comment, bg = c.bg, bold = true },
+        BufferLineDuplicateSelected = { fg = c.fg, bg = c.bg, bold = true, italic = true },
+        BufferLineTruncMarker = { bg = c.bg },
+
+        NeoTreeDirectoryName = { fg = c.fg },
+        NeoTreeNormalNC = { bg = c.bg },
+        NeoTreeNormal = { bg = c.bg },
+        NeoTreeGitUntracked = { fg = c.orange },
+        NeoTreeGitUnstaged = { fg = c.cyan },
+
+        WhichKeyFloat = { bg = c.bg },
+        FlashLabel = { fg = c.red, bg = c.bg },
+        FlashCurrent = { bg = c.fg },
+
+        TelescopeNormal = { bg = c.bg },
+        TelescopePromptPrefix = { fg = c.dark3 },
+        TelescopeBorder = { link = "FloatBorder" },
+
+        NotifyINFOBorder = { fg = c.blue },
+        NotifyINFOTitle = { fg = c.blue },
+        NotifyINFOIcon = { fg = c.blue },
+        NotifyERRORBorder = { fg = c.red },
+        NotifyERRORTitle = { fg = c.red },
+        NotifyERRORIcon = { fg = c.red },
+        NotifyWARNBorder = { fg = c.yellow },
+        NotifyWARNTitle = { fg = c.yellow },
+        NotifyWARNIcon = { fg = c.yellow },
+        ErrorMsg = { fg = c.red },
+
+        diffAdded = { fg = c.green },
+        diffRemoved = { fg = c.red },
+        diffChanged = { fg = c.blue },
+        diffNewFile = { fg = c.cyan },
+        diffOldFile = { fg = c.comment },
+        DiffAdd = { fg = c.green },
+        DiffChange = { fg = c.blue },
+        DiffDelete = { fg = c.red },
+        DiffText = { fg = c.purple },
+
+        DropBarSeparator = { fg = c.dark3 },
+        DropBarPick = { fg = c.red, bold = true, italic = true },
+        DropBarKind = { fg = c.fg },
+        DropBarKindFolder = { fg = c.dark5 },
+        DropBarIconUIPickPivot = { link = "DropBarPick" },
+        DropBarIconUISeparator = { link = "DropBarSeparator" },
+      }
+
+      for key, value in pairs(highlights) do
+        hl[key] = value
+      end
+
+      -- stylua: ignore
+      local dropbar_hl = {
+        "Array", "Boolean", "Constant", "Constructor", "Enum", "EnumMember",
+        "Field", "Function", "Identifier", "List", "Macro", "Number", "Object",
+        "Operator", "Package", "Property", "Reference", "String", "Type",
+        "TypeParameter", "Unit", "Value", "Variable", "Null", "Specifier",
+        "BreakStatement", "CaseStatement", "ContinueStatement", "Declaration",
+        "Delete", "DoStatement", "ElseStatement", "ForStatement", "IfStatement",
+        "Repeat", "Scope", "Specifier", "Statement", "SwitchStatement", "WhileStatement",
+        "Class", "Event", "Interface", "Method", "Module", "Namespace",
+        "MarkdownH1", "MarkdownH2", "MarkdownH3", "MarkdownH4", "MarkdownH5", "MarkdownH6",
+      }
+
+      for _, value in pairs(dropbar_hl) do
+        hl["DropBarKind" .. value] = { link = "DropBarKind" }
+      end
     end,
   },
 }
