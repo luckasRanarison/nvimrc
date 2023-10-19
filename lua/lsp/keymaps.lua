@@ -10,7 +10,7 @@ return {
   },
   ["textDocument/publishDiagnostics"] = {
     ["<leader>ld"] = {
-      value = map.lua("require('utils.scripts').diagnostics_float()"),
+      value = map.lua("require('utils.win').diagnostics_float()"),
       desc = format("Warn", "Hover diagnostic"),
     },
     ["<A-i>"] = {

@@ -36,6 +36,10 @@ return {
       value = map.cmd("luafile %"),
       desc = format("Lua", "Luafile"),
     },
+    ["<leader>ù"] = {
+      value = map.lua("require('utils.win').open_lua_win()"),
+      desc = format("Window", "Switch window"),
+    },
     ["<leader>."] = {
       value = map.lua("require('utils.scripts').append_semicolon()"),
       desc = "; " .. "Append semicolon",
@@ -64,12 +68,16 @@ return {
       value = map.cmd("GuessIndent"),
       desc = format("Indent", "Guess indent"),
     },
+    ["<leader>uf"] = {
+      value = map.lua("require('utils.input').filetype()"),
+      desc = format("DefaultFile", "Set filetype"),
+    },
     ["<leader>ui"] = {
-      value = map.lua("require('utils.scripts').set_indent_input()"),
+      value = map.lua("require('utils.input').indent()"),
       desc = format("Indent", "Set indentation"),
     },
     ["<leader>uI"] = {
-      value = map.lua("require('utils.scripts').set_indent_type()"),
+      value = map.lua("require('utils.select').indent()"),
       desc = format("Indent", "Set indentation type"),
     },
     ["<leader>us"] = {
@@ -233,6 +241,10 @@ return {
     ["<leader>gw"] = {
       value = map.cmd("Gitsigns toggle_word_diff"),
       desc = format("GitDiff", "Toggle word diff"),
+    },
+    ["<leader>gg"] = {
+      value = map.cmd("Telescope git_status"),
+      desc = format("Git", "Git status"),
     },
 
     -- toggleterm

@@ -16,10 +16,6 @@ return {
     opts = { command = "silent !tmux set status off" },
   },
   {
-    event = { "VimLeave" },
-    opts = { command = "silent !tmux set status on" },
-  },
-  {
     event = { "BufEnter" },
     opts = { command = "TwilightEnable" },
   },
@@ -27,7 +23,7 @@ return {
     event = { "FileType" },
     opts = {
       pattern = { "help" },
-      callback = require("utils.scripts").open_help_float,
+      callback = require("utils.win").open_help_float,
     },
   },
 }
