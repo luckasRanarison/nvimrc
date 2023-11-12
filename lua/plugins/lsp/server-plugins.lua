@@ -25,10 +25,22 @@ return {
             auto = false,
           },
         },
+        server = {
+          settings = {
+            ["rust-analyzer"] = {
+              cargo = {
+                features = "all",
+              },
+              checkOnSave = {
+                features = "all",
+              },
+            },
+          },
+        },
         dap = {
           adapter = require("rust-tools.dap").get_codelldb_adapter(
-            "~/.local/share/nvim/mason/packages/codelldb/extension/adapter/codelldb",
-            "~/.local/share/nvim/mason/packages/codelldb/extension/lldb/lib/liblldb.so"
+            "/home/luckas/.local/share/nvim/mason/packages/codelldb/extension/adapter/codelldb",
+            "/home/luckas/.local/share/nvim/mason/packages/codelldb/extension/lldb/lib/liblldb.so"
           ),
         },
       })
