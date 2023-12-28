@@ -10,7 +10,7 @@ M.icons = {
   Command = "",
   Save = "󰳻",
   NotSaved = "󱙃",
-  Restore = "󰁯",
+  Restore = "",
   Trash = "",
   Fedora = "",
   Lua = "",
@@ -26,11 +26,13 @@ M.icons = {
   Error = "󰅚",
   Info = "󰋽",
   Warn = "",
+  Hint = "",
   Package = "󰏖",
   FileTree = "󰙅",
   Folder = "",
   EmptyFolder = "",
   FolderClock = "󰪻",
+  FolderOpened = "",
   File = "",
   NewFile = "",
   DefaultFile = "󰈙",
@@ -43,13 +45,13 @@ M.icons = {
   Window = "",
   Windows = "",
   Ellipsis = "…",
-  Search = "",
+  Search = "",
   TextSearch = "󱩾",
   TabSearch = "󱦞",
   FileSearch = "󰱼",
   Clear = "",
   Braces = "󰅩",
-  Exit = "󰗼",
+  Exit = "",
   Debugger = "",
   Breakpoint = "",
   History = "",
@@ -104,6 +106,6 @@ M.icons = {
   Download = "󰇚",
 }
 
-M.format = function(icon, text) return M.icons[icon] .. " " .. text end
+M.format = function(icon, text, space) return M.icons[icon] .. string.rep(" ", space or 1) .. text end
 
 return M

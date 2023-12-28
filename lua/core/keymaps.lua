@@ -4,6 +4,11 @@ local format = require("utils.icons").format
 return {
   n = {
     -- utils
+    ["ù"] = { value = "`" },
+    ["vv"] = {
+      value = "V",
+      desc = "Linewise visual",
+    },
     ["<leader>w"] = {
       value = map.cmd("w"),
       desc = format("Save", "Save file"),
@@ -517,6 +522,10 @@ return {
     },
 
     -- dropbar
+    ["<leader>ok"] = {
+      value = map.lua("require('dropbar.api').goto_context_start()"),
+      desc = format("Up", "Context start"),
+    },
     ["<leader>oo"] = {
       value = map.lua("require('dropbar.api').pick()"),
       desc = format("Check", "Pick node"),
@@ -533,6 +542,14 @@ return {
     },
 
     -- nvim-devdocs
+    ["<leader>v "] = {
+      value = map.cmd("DevdocsToggle"),
+      desc = format("Window", "Toggle floating window"),
+    },
+    ["<leader>vc"] = {
+      value = map.cmd("DevdocsOpenCurrentFloat"),
+      desc = format("BookmarkSearch", "Open current file docs"),
+    },
     ["<leader>vv"] = {
       value = map.cmd("DevdocsOpenFloat"),
       desc = format("BookmarkSearch", "Open in floating window"),

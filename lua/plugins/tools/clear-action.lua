@@ -9,6 +9,9 @@ return {
       show_label = true,
       combine = true,
     },
+    popup = {
+      hide_cursor = true,
+    },
     mappings = {
       code_action = { "<leader>la", format("Fix", "Code action") },
       apply_first = { "<leader>aa", format("Fix", "Apply") },

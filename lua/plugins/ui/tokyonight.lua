@@ -23,6 +23,8 @@ return {
         CursorLineNr = { fg = c.blue },
         Breakpoint = { fg = c.orange },
         WinSeparator = { fg = c.terminal_black },
+        WinBar = { bg = nil },
+        WinBarNC = { bg = nil },
         LspInlayHint = { fg = c.comment },
 
         DiagnosticSignError = { fg = c.red },
@@ -80,7 +82,7 @@ return {
         DiffDelete = { fg = c.red },
         DiffText = { fg = c.purple },
 
-        DropBarSeparator = { fg = c.dark3 },
+        DropBarSeparator = { fg = c.dark5 },
         DropBarPick = { fg = c.red, bold = true, italic = true },
         DropBarKind = { fg = c.fg },
         DropBarKindFolder = { fg = c.dark5 },

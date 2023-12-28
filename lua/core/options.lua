@@ -22,6 +22,7 @@ return {
     updatetime = 200,
     fillchars = "eob: ",
     modeline = false,
+    conceallevel = 2,
     mouse = "",
   },
 

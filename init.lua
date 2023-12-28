@@ -2,8 +2,6 @@ local filetypes = require("core.filetypes")
 local configurer = require("utils.configurer")
 local opts = {}
 
-vim.filetype.add(filetypes)
-
 if vim.g.vscode then
   -- VSCode Neovim
   opts.spec = "vscode.plugins"
@@ -19,3 +17,5 @@ else
 end
 
 configurer.setup(opts)
+
+vim.filetype.add(filetypes)

@@ -7,6 +7,7 @@ return {
   },
   opts = {
     expand = {
+      "object",
       "function_definition",
       "table_constructor",
     },
