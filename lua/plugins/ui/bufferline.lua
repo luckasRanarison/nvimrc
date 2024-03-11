@@ -1,4 +1,4 @@
-local format = require("utils.icons").format
+local format = require("utils.icons").fmt
 
 return {
   "akinsho/bufferline.nvim",

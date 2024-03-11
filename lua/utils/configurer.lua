@@ -11,7 +11,7 @@ end
 local set_keymaps = function(keymaps)
   for mode, maps in pairs(keymaps) do
     for key, map in pairs(maps) do
-      vim.keymap.set(mode, key, map.value, { desc = map.desc })
+      vim.keymap.set(mode, key, map[1], { desc = map[2] })
     end
   end
 end

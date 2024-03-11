@@ -106,6 +106,6 @@ M.icons = {
   Download = "󰇚",
 }
 
-M.format = function(icon, text, space) return M.icons[icon] .. string.rep(" ", space or 1) .. text end
+M.fmt = function(icon, text, space) return M.icons[icon] .. string.rep(" ", space or 1) .. text end
 
 return M

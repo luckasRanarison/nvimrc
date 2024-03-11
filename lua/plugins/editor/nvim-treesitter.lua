@@ -59,52 +59,7 @@ return {
         "rasi",
         "haskell",
         "ebnf",
-        "hypr",
-      },
-      playground = {
-        enable = true,
-        disable = {},
-        updatetime = 25,
-        persist_queries = false,
-        keybindings = {
-          toggle_query_editor = "o",
-          toggle_hl_groups = "i",
-          toggle_injected_languages = "t",
-          toggle_anonymous_nodes = "a",
-          toggle_language_display = "I",
-          focus_language = "f",
-          unfocus_language = "F",
-          update = "R",
-          goto_node = "<cr>",
-          show_help = "?",
-        },
       },
     },
-    config = function(_, opts)
-      local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-
-      parser_config.icelang = {
-        install_info = {
-          url = "https://github.com/luckasranarison/tree-sitter-icelang",
-          files = { "src/parser.c" },
-          branch = "master",
-        },
-        filetype = "icelang",
-      }
-
-      parser_config.hypr = {
-        install_info = {
-          url = "https://github.com/luckasranarison/tree-sitter-hypr",
-          files = { "src/parser.c" },
-          branch = "master",
-        },
-        filetype = "hypr",
-      }
-
-      require("nvim-treesitter.configs").setup(opts)
-    end,
   },
-  { "luckasRanarison/tree-sitter-hypr", ft = "hypr" },
-  { "luckasRanarison/tree-sitter-icelang", ft = "icelang" },
-  { "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" },
 }

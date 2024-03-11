@@ -1,58 +1,27 @@
 local M = {}
 
-M.custom = {
-  icelang_ls = {
-    default_config = {
-      root_dir = function() return vim.fn.getcwd(0) end,
-      name = "icelang-ls",
-      cmd = { "icelang-ls" },
-      filetypes = { "icelang" },
-    },
-  },
-}
+M.set_autocmd = function(client, bufnr)
+  local capability_map = require("lsp.autocmd")
 
-M.handlers = {
-  lua_ls = {
-    settings = {
-      Lua = {
-        hint = {
-          enable = true,
-        },
-        diagnostics = {
-          globals = { "vim" },
-        },
-      },
-    },
-  },
+  for capability, map in pairs(capability_map) do
+    if client.supports_method(capability) then
+      vim.api.nvim_clear_autocmds({ group = map.opts.group, buffer = bufnr })
+      map.opts.buffer = bufnr
+      vim.api.nvim_create_autocmd(map.event, map.opts)
+    end
+  end
+end
 
-  cssls = {
-    settings = {
-      css = {
-        validate = true,
-        lint = {
-          unknownAtRules = "ignore",
-        },
-      },
-    },
-  },
+M.set_keymaps = function(client, bufnr)
+  local capability_map = require("lsp.keymaps")
 
-  tailwindcss = {
-    on_attach = function()
-      local bufnr = vim.api.nvim_get_current_buf()
-      require("document-color").buf_attach(bufnr)
-    end,
-  },
-
-  bashls = {
-    filetypes = { "sh", "zsh" },
-  },
-
-  clangd = {
-    cmd = {
-      "clangd",
-      "--offset-encoding=utf-16",
-    },
-  },
-}
+  for capability, maps in pairs(capability_map) do
+    if client.supports_method(capability) then
+      for key, map in pairs(maps) do
+        vim.keymap.set("n", key, map[1], { desc = map[2], buffer = bufnr })
+      end
+    end
+  end
+end
 
 return M

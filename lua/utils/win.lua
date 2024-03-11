@@ -38,13 +38,14 @@ M.open_lua_win = function()
   local win = vim.api.nvim_open_win(buf, true, config)
 
   vim.bo[buf].ft = "lua"
-  vim.fn.writefile({}, temp)
+  vim.api.nvim_buf_set_name(buf, temp)
+  vim.cmd("silent w")
 
   vim.keymap.set("n", "<leader>w", function()
-    local text = vim.api.nvim_buf_get_lines(buf, 0, -1, true)
-    vim.fn.writefile(text, temp)
-    vim.cmd(":luafile " .. temp)
-  end, { buffer = buf })
+    vim.cmd("w")
+    vim.cmd("luafile %")
+    vim.lsp.buf.format({ async = true })
+  end, { buffer = buf, remap = true, silent = true })
 
   vim.api.nvim_create_autocmd("WinClosed", {
     pattern = tostring(win),
@@ -53,14 +54,6 @@ M.open_lua_win = function()
       vim.api.nvim_buf_delete(buf, { force = true })
     end,
   })
-end
-
-M.diagnostics_float = function()
-  local _, win = vim.diagnostic.open_float()
-  if win then
-    vim.api.nvim_win_set_config(win, { border = "rounded" })
-    vim.wo[win].signcolumn = "yes:1"
-  end
 end
 
 return M

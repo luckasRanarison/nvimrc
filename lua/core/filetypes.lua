@@ -5,6 +5,6 @@ return {
     ebnf = "ebnf",
   },
   pattern = {
-    ["~/.config/hypr/.*%.conf"] = "hypr",
+    [".*/hypr/.*%.conf"] = "hyprlang",
   },
 }

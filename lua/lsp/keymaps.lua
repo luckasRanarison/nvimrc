@@ -1,101 +1,52 @@
 local map = require("utils.mappings")
-local format = require("utils.icons").format
+local lsp = require("lsp.functions")
+local l, cmd = map.leader, map.cmd
+local fmt = require("utils.icons").fmt
 
 return {
   ["textDocument/formatting"] = {
-    ["<leader>lf"] = {
-      value = map.lua("require('lsp.utils').format_async(0)"),
-      desc = format("Format", "Format buffer"),
-    },
+    [l("lf")] = { lsp.format, fmt("Format", "Format buffer") },
   },
   ["textDocument/publishDiagnostics"] = {
-    ["<leader>ld"] = {
-      value = map.lua("require('utils.win').diagnostics_float()"),
-      desc = format("Warn", "Hover diagnostic"),
-    },
-    ["<A-i>"] = {
-      value = map.lua("vim.diagnostic.goto_next()"),
-      desc = "Next diagnostic",
-    },
-    ["<A-o>"] = {
-      value = map.lua("vim.diagnostic.goto_prev()"),
-      desc = "Previous diagnostic",
-    },
+    [l("ld")] = { lsp.diagnostics, fmt("Warn", "Hover diagnostic") },
+    ["<A-i>"] = { lsp.next_diagnostic, "Next diagnostic" },
+    ["<A-o>"] = { lsp.prev_diagnostic, "Previous diagnostic" },
   },
   ["textDocument/codeAction"] = {
-    ["<leader>a "] = {
-      value = map.cmd("CodeActionToggleLabel"),
-      desc = format("Toggle", "Toggle label"),
-    },
+    [l("a ")] = { cmd("CodeActionToggleLabel"), fmt("Toggle", "Toggle label") },
   },
   ["textDocument/definition"] = {
-    ["gd"] = {
-      value = map.cmd("Telescope lsp_definitions"),
-      desc = "Go to definition",
-    },
+    ["gd"] = { lsp.definitions, "Go to definition" },
   },
   ["textDocument/declaration"] = {
-    ["gD"] = {
-      value = map.lua("vim.lsp.buf.declaration()"),
-      desc = "Go to declaration",
-    },
+    ["gD"] = { lsp.declarations, "Go to declaration" },
   },
   ["textDocument/hover"] = {
-    ["K"] = {
-      value = map.lua("vim.lsp.buf.hover()"),
-      desc = "Hover info",
-    },
+    ["K"] = { lsp.hover, "Hover info" },
   },
   ["textDocument/implementation"] = {
-    ["gI"] = {
-      value = map.cmd("Telescope lsp_implementations"),
-      desc = "Symbol implementation",
-    },
+    ["gI"] = { lsp.implementations, "Symbol implementation" },
   },
   ["textDocument/references"] = {
-    ["gr"] = {
-      value = map.cmd("Telescope lsp_references"),
-      desc = "Go to reference",
-    },
+    ["gr"] = { lsp.references, "Go to reference" },
   },
   ["textDocument/rename"] = {
-    ["<leader>lr"] = {
-      value = map.lua("vim.lsp.buf.rename()"),
-      desc = format("Edit", "Rename symbol"),
-    },
+    ["<leader>lr"] = { lsp.rename, fmt("Edit", "Rename symbol") },
   },
   ["textDocument/signatureHelp"] = {
-    ["<leader>lH"] = {
-      value = map.lua("vim.lsp.buf.signature_help()"),
-      desc = format("Help", "Signature help"),
-    },
+    ["<leader>lH"] = { lsp.signature_help, fmt("Help", "Signature help") },
   },
   ["textDocument/typeDefinition"] = {
-    ["gT"] = {
-      value = map.lua("vim.lsp.buf.type_definition()"),
-      desc = "Go to type definition",
-    },
+    ["gT"] = { lsp.type_definition, "Go to type definition" },
   },
   ["textDocument/codeLens"] = {
-    ["<leader>ll"] = {
-      value = map.lua("vim.lsp.codelens.refresh() vim.lsp.codelens.run()"),
-      desc = format("Run", "Run codelens"),
-    },
-    ["<leader>lL"] = {
-      value = map.lua("vim.lsp.codelens.refresh()"),
-      desc = format("Restart", "Refresh codelens"),
-    },
+    ["<leader>ll"] = { lsp.run_codelens, fmt("Run", "Run codelens") },
+    ["<leader>lL"] = { lsp.refresh_codelens, fmt("Restart", "Refresh codelens") },
   },
   ["workspace/symbol"] = {
-    ["<leader>ls"] = {
-      value = map.cmd("Telescope lsp_workspace_symbols"),
-      desc = format("Symbol", "Workspace symbols"),
-    },
+    ["<leader>ls"] = { lsp.symbols, fmt("Symbol", "Workspace symbols") },
   },
   ["workspace/inlayHint"] = {
-    ["<leader>lh"] = {
-      value = map.lua("vim.lsp.inlay_hint(0, nil)"),
-      desc = format("Toggle", "Toggle inlay hint"),
-    },
+    ["<leader>lh"] = { lsp.toggle_inlay_hint, fmt("Toggle", "Toggle inlay hint") },
   },
 }

@@ -1,56 +1,50 @@
 local map = require("utils.mappings")
+local l, cmd, rcmd, notify = map.leader, map.cmd, map.rcmd, map.notify
 
 return {
   n = {
     -- utils
-    ["<leader>p"] = { value = '"+p' },
-    ["<leader>P"] = { value = '"+P' },
-    ["<leader>:"] = { value = ":lua " },
+    [l("p")] = { '"+p' },
+    [l("P")] = { '"+P' },
+    [l(":")] = { ":lua " },
 
-    ["<leader>us"] = { value = map.cmd("nohlsearch") },
-    ["<leader>;"] = { value = map.cmd("VSCodeCommentary") },
+    [l("us")] = { cmd("nohlsearch") },
+    [l(";")] = { cmd("VSCodeCommentary") },
 
     -- vscode actions
-    ["<leader>w"] = { value = map.notify("workbench.action.files.save") },
-    ["<leader>e"] = { value = map.notify("workbench.view.explorer") },
-    ["<leader>bq"] = { value = map.notify("workbench.action.closeActiveEditor") },
-    ["<leader>bn"] = { value = map.notify("workbench.action.nextEditorInGroup") },
-    ["<leader>bp"] = { value = map.notify("workbench.action.previousEditorInGroup") },
-    ["<leader>um"] = { value = map.notify("editor.action.toggleMinimap") },
-    ["<leader>ff"] = { value = map.notify("workbench.action.quickOpen") },
-    ["<leader>fs"] = { value = map.notify("workbench.action.gotoSymbol") },
-    ["<leader>nn"] = { value = map.notify("notifications.clearAll") },
-    ["<leader>nl"] = { value = map.notify("notifications.showList") },
+    [l("w")] = { notify("workbench.action.files.save") },
+    [l("e")] = { notify("workbench.view.explorer") },
+    [l("bq")] = { notify("workbench.action.closeActiveEditor") },
+    [l("bn")] = { notify("workbench.action.nextEditorInGroup") },
+    [l("bp")] = { notify("workbench.action.previousEditorInGroup") },
+    [l("um")] = { notify("editor.action.toggleMinimap") },
+    [l("ff")] = { notify("workbench.action.quickOpen") },
+    [l("fs")] = { notify("workbench.action.gotoSymbol") },
+    [l("nn")] = { notify("notifications.clearAll") },
+    [l("nl")] = { notify("notifications.showList") },
 
-    ["gr"] = { value = map.notify("editor.action.goToReferences") },
-    ["<leader>lr"] = { value = map.notify("editor.action.rename") },
+    ["gr"] = { notify("editor.action.goToReferences") },
+    [l("lr")] = { notify("editor.action.rename") },
 
     -- move.nvim
-    ["<A-j>"] = { value = map.cmd("MoveLine(1)") },
-    ["<A-k>"] = { value = map.cmd("MoveLine(-1)") },
-    ["<A-h>"] = { value = map.cmd("MoveHChar(-1)") },
-    ["<A-l>"] = { value = map.cmd("MoveHChar(1)") },
-
-    -- flash
-    ["s"] = { value = map.lua("require('flash').jump()") },
-    ["ß"] = { value = map.lua("require('flash').jump({ pattern = vim.fn.expand('<cword>') })") },
+    ["<A-j>"] = { cmd("MoveLine(1)") },
+    ["<A-k>"] = { cmd("MoveLine(-1)") },
+    ["<A-h>"] = { cmd("MoveHChar(-1)") },
+    ["<A-l>"] = { cmd("MoveHChar(1)") },
   },
   v = {
     -- utils
-    ["q"] = { value = "<esc>" },
-    ["<leader>y"] = { value = '"+y' },
-    ["<leader>p"] = { value = '"+p' },
-    ["<leader>P"] = { value = '"+P' },
+    ["q"] = { "<esc>" },
+    [l("y")] = { '"+y' },
+    [l("p")] = { '"+p' },
+    [l("P")] = { '"+P' },
 
-    ["<leader>;"] = { value = map.cmd("VSCodeCommentary") },
+    [l(";")] = { cmd("VSCodeCommentary") },
 
     -- move.nvim
-    ["<A-j>"] = { value = map.cmd_alt("MoveBlock(1)") },
-    ["<A-k>"] = { value = map.cmd_alt("MoveBlock(-1)") },
-    ["<A-h>"] = { value = map.cmd_alt("MoveHBlock(-1)") },
-    ["<A-l>"] = { value = map.cmd_alt("MoveHBlock(1)") },
-  },
-  o = {
-    ["o"] = { value = map.lua("require('flash').jump()") },
+    ["<A-j>"] = { rcmd("MoveBlock(1)") },
+    ["<A-k>"] = { rcmd("MoveBlock(-1)") },
+    ["<A-h>"] = { rcmd("MoveHBlock(-1)") },
+    ["<A-l>"] = { rcmd("MoveHBlock(1)") },
   },
 }

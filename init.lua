@@ -18,4 +18,5 @@ end
 
 configurer.setup(opts)
 
+-- vim.lsp.log.set_level(vim.lsp.log_levels.INFO)
 vim.filetype.add(filetypes)

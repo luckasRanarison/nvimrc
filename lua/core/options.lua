@@ -30,9 +30,4 @@ return {
     mapleader = " ",
     highlighturl_enabled = true,
   },
-
-  o = {
-    timeout = true,
-    timeoutlen = 200,
-  },
 }

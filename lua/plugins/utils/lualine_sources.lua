@@ -1,5 +1,5 @@
 local icons = require("utils.icons").icons
-local format = require("utils.icons").format
+local fmt = require("utils.icons").fmt
 local M = {}
 
 M.mode = {
@@ -53,9 +53,9 @@ M.branch = {
 M.diff = {
   "diff",
   symbols = {
-    added = format("Add", ""),
-    modified = format("Modified", ""),
-    removed = format("Removed", ""),
+    added = fmt("Add", ""),
+    modified = fmt("Modified", ""),
+    removed = fmt("Removed", ""),
   },
   color = function()
     local colors = require("tokyonight.colors")

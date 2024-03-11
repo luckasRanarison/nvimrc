@@ -12,12 +12,13 @@ return {
       colors.gitSigns.change = colors.blue
       colors.gitSigns.delete = colors.red
       colors.gitSigns.ignored = colors.bg
+      colors.status_line = colors.none
       return colors
     end,
     on_highlights = function(hl, c)
       local highlights = {
-        NormalSB = { bg = c.bg },
-        NormalFloat = { bg = c.bg },
+        NormalSB = { bg = nil },
+        NormalFloat = { bg = nil },
         FloatBorder = { fg = c.dark3 },
         FloatTitle = { fg = c.dark3 },
         CursorLineNr = { fg = c.blue },
@@ -57,7 +58,7 @@ return {
         FlashLabel = { fg = c.red, bg = c.bg },
         FlashCurrent = { bg = c.fg },
 
-        TelescopeNormal = { bg = c.bg },
+        TelescopeNormal = { bg = nil },
         TelescopePromptPrefix = { fg = c.dark3 },
         TelescopeBorder = { link = "FloatBorder" },
 
@@ -94,17 +95,59 @@ return {
         hl[key] = value
       end
 
-      -- stylua: ignore
       local dropbar_hl = {
-        "Array", "Boolean", "Constant", "Constructor", "Enum", "EnumMember",
-        "Field", "Function", "Identifier", "List", "Macro", "Number", "Object",
-        "Operator", "Package", "Property", "Reference", "String", "Type",
-        "TypeParameter", "Unit", "Value", "Variable", "Null", "Specifier",
-        "BreakStatement", "CaseStatement", "ContinueStatement", "Declaration",
-        "Delete", "DoStatement", "ElseStatement", "ForStatement", "IfStatement",
-        "Repeat", "Scope", "Specifier", "Statement", "SwitchStatement", "WhileStatement",
-        "Class", "Event", "Interface", "Method", "Module", "Namespace",
-        "MarkdownH1", "MarkdownH2", "MarkdownH3", "MarkdownH4", "MarkdownH5", "MarkdownH6",
+        "Array",
+        "Boolean",
+        "Constant",
+        "Constructor",
+        "Enum",
+        "EnumMember",
+        "Field",
+        "Function",
+        "Identifier",
+        "List",
+        "Macro",
+        "Number",
+        "Object",
+        "Operator",
+        "Package",
+        "Property",
+        "Reference",
+        "String",
+        "Type",
+        "TypeParameter",
+        "Unit",
+        "Value",
+        "Variable",
+        "Null",
+        "Specifier",
+        "BreakStatement",
+        "CaseStatement",
+        "ContinueStatement",
+        "Declaration",
+        "Delete",
+        "DoStatement",
+        "ElseStatement",
+        "ForStatement",
+        "IfStatement",
+        "Repeat",
+        "Scope",
+        "Specifier",
+        "Statement",
+        "SwitchStatement",
+        "WhileStatement",
+        "Class",
+        "Event",
+        "Interface",
+        "Method",
+        "Module",
+        "Namespace",
+        "MarkdownH1",
+        "MarkdownH2",
+        "MarkdownH3",
+        "MarkdownH4",
+        "MarkdownH5",
+        "MarkdownH6",
       }
 
       for _, value in pairs(dropbar_hl) do

@@ -1,12 +1,6 @@
-local format = require("utils.icons").format
+local format = require("utils.icons").fmt
 
 return {
-  {
-    "max397574/better-escape.nvim",
-    event = "InsertCharPre",
-    opts = {},
-  },
-
   {
     "psliwka/vim-smoothie",
     keys = { "<C-u>", "<C-d>", "zz" },
@@ -22,7 +16,6 @@ return {
     config = function()
       local ft = require("Comment.ft")
 
-      ft.icelang = { "-- %s" }
       ft.hypr = { "# %s" }
 
       require("Comment").setup({
