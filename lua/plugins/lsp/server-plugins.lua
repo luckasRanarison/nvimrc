@@ -1,11 +1,13 @@
+local capabilities = require("lsp.config").get_capabilities()
+
 return {
   { "folke/neodev.nvim", ft = "lua", opts = {} },
   {
     "b0o/schemastore.nvim",
     ft = "json",
+    capabilities = capabilities,
     config = function()
       require("lspconfig").jsonls.setup({
-        capabilities = require("lsp.capabilities"),
         settings = {
           json = {
             schemas = require("schemastore").json.schemas(),

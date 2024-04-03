@@ -1,26 +1,26 @@
-local format = require("utils.icons").fmt
+local fmt = require("utils.icons").fmt
 
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
   init = function()
     require("which-key").register({
-      a = { name = format("Fix", "Actions") },
-      c = { name = format("Color", "Color") },
-      b = { name = format("Windows", "Buffers") },
-      u = { name = format("Window", "UI") },
-      g = { name = format("Git", "Git") },
-      t = { name = format("Terminal", "Terminal") },
-      f = { name = format("Search", "Telescope") },
-      l = { name = format("Braces", "LSP") },
-      d = { name = format("Debugger", "Debugger") },
-      n = { name = format("Notification", "Notification") },
-      S = { name = format("FolderClock", "Session") },
-      r = { name = format("Code", "SnipRun") },
-      o = { name = format("DropDown", "Dropbar") },
-      v = { name = format("Book", "DevDocs") },
-      C = { name = format("Package", "Crates") },
-      D = { name = format("Database", "DbUI") },
+      a = { name = fmt("Fix", "Actions") },
+      c = { name = fmt("Color", "Color") },
+      b = { name = fmt("Windows", "Buffers") },
+      u = { name = fmt("Window", "UI") },
+      g = { name = fmt("Git", "Git") },
+      t = { name = fmt("Terminal", "Terminal") },
+      f = { name = fmt("Search", "Telescope") },
+      l = { name = fmt("Braces", "LSP") },
+      d = { name = fmt("Debugger", "Debugger") },
+      n = { name = fmt("Notification", "Notification") },
+      S = { name = fmt("FolderClock", "Session") },
+      r = { name = fmt("Code", "SnipRun") },
+      o = { name = fmt("DropDown", "Dropbar") },
+      v = { name = fmt("Book", "DevDocs") },
+      C = { name = fmt("Package", "Crates") },
+      D = { name = fmt("Database", "DbUI") },
     }, { prefix = "<leader>" })
   end,
   opts = {

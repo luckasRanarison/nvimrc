@@ -1,4 +1,4 @@
-local format = require("utils.icons").fmt
+local fmt = require("utils.icons").fmt
 
 return {
   {
@@ -13,7 +13,7 @@ return {
       defaults = {
         border = true,
         prompt_prefix = " ",
-        selection_caret = format("Right", ""),
+        selection_caret = fmt("Right", ""),
       },
       extensions = {
         fzf = {},

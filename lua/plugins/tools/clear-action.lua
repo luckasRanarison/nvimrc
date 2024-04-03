@@ -1,4 +1,4 @@
-local format = require("utils.icons").fmt
+local fmt = require("utils.icons").fmt
 
 return {
   "luckasRanarison/clear-action.nvim",
@@ -13,22 +13,22 @@ return {
       hide_cursor = true,
     },
     mappings = {
-      code_action = { "<leader>la", format("Fix", "Code action") },
-      apply_first = { "<leader>aa", format("Fix", "Apply") },
-      quickfix = { "<leader>aq", format("Fix", "Quickfix") },
-      quickfix_next = { "<leader>an", format("Fix", "Quickfix next") },
-      quickfix_prev = { "<leader>ap", format("Fix", "Quickfix prev") },
-      refactor = { "<leader>ar", format("Fix", "Refactor") },
-      refactor_inline = { "<leader>aR", format("Fix", "Refactor inline") },
+      code_action = { "<leader>la", fmt("Fix", "Code action") },
+      apply_first = { "<leader>aa", fmt("Fix", "Apply") },
+      quickfix = { "<leader>aq", fmt("Fix", "Quickfix") },
+      quickfix_next = { "<leader>an", fmt("Fix", "Quickfix next") },
+      quickfix_prev = { "<leader>ap", fmt("Fix", "Quickfix prev") },
+      refactor = { "<leader>ar", fmt("Fix", "Refactor") },
+      refactor_inline = { "<leader>aR", fmt("Fix", "Refactor inline") },
       actions = {
         ["rust_analyzer"] = {
-          ["Import"] = { "<leader>ai", format("Fix", "Import") },
-          ["Replace if"] = { "<leader>am", format("Fix", "Replace if with match") },
-          ["Fill match"] = { "<leader>af", format("Fix", "Fill match arms") },
-          ["Wrap"] = { "<leader>aw", format("Fix", "Wrap") },
-          ["Insert `mod"] = { "<leader>aM", format("Fix", "Insert mod") },
-          ["Insert `pub"] = { "<leader>aP", format("Fix", "Insert pub mod") },
-          ["Add braces"] = { "<leader>ab", format("Fix", "Add braces") },
+          ["Import"] = { "<leader>ai", fmt("Fix", "Import") },
+          ["Replace if"] = { "<leader>am", fmt("Fix", "Replace if with match") },
+          ["Fill match"] = { "<leader>af", fmt("Fix", "Fill match arms") },
+          ["Wrap"] = { "<leader>aw", fmt("Fix", "Wrap") },
+          ["Insert `mod"] = { "<leader>aM", fmt("Fix", "Insert mod") },
+          ["Insert `pub"] = { "<leader>aP", fmt("Fix", "Insert pub mod") },
+          ["Add braces"] = { "<leader>ab", fmt("Fix", "Add braces") },
         },
       },
     },

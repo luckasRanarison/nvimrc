@@ -1,4 +1,4 @@
-local format = require("utils.icons").fmt
+local fmt = require("utils.icons").fmt
 
 return {
   {
@@ -92,8 +92,8 @@ return {
     "Wansmer/treesj",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     keys = {
-      { "<leader>j", mode = { "n" }, ":TSJSplit<CR>", desc = format("Down", "Split node") },
-      { "<leader>J", mode = { "n" }, ":TSJJoin<CR>", desc = format("Up", "Join node") },
+      { "<leader>j", mode = { "n" }, ":TSJSplit<CR>", desc = fmt("Down", "Split node") },
+      { "<leader>J", mode = { "n" }, ":TSJJoin<CR>", desc = fmt("Up", "Join node") },
     },
     opts = {
       use_default_keymaps = false,

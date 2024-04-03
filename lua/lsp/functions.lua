@@ -24,19 +24,18 @@ M.next_diagnostic = function() vim.diagnostic.goto_next() end
 M.prev_diagnostic = function() vim.diagnostic.goto_prev() end
 
 M.format = function()
-  vim.api.nvim_create_autocmd("TextChanged", {
-    group = vim.api.nvim_create_augroup("ApplyFormattingEdit", {}),
-    buffer = vim.api.nvim_get_current_buf(),
-    callback = function()
-      vim.cmd("silent noautocmd update")
-      vim.diagnostic.show()
-      vim.api.nvim_del_augroup_by_name("ApplyFormattingEdit")
-    end,
-  })
-  vim.lsp.buf.format({
-    async = true,
-    filter = function(client) return client.name == "null-ls" end,
-  })
+  local bufnr = vim.api.nvim_get_current_buf()
+  local params = vim.lsp.util.make_formatting_params({})
+  vim.lsp.buf_request(bufnr, "textDocument/formatting", params, function(err, res, ctx, _)
+    if err then vim.notify(err.message, vim.log.levels.ERROR) end
+    if not res then return end
+
+    local client = vim.lsp.get_client_by_id(ctx.client_id)
+    local offset_encoding = client and client.offset_encoding or "utf-16"
+    vim.lsp.util.apply_text_edits(res, bufnr, offset_encoding)
+    vim.api.nvim_buf_call(bufnr, function() vim.cmd("silent noautocmd update") end)
+    pcall(vim.diagnostic.show)
+  end)
 end
 
 return M

@@ -1,4 +1,4 @@
-local format = require("utils.icons").fmt
+local fmt = require("utils.icons").fmt
 
 return {
   "akinsho/bufferline.nvim",
@@ -13,19 +13,19 @@ return {
       offsets = {
         {
           filetype = "neo-tree",
-          text = format("Folder", "NeoTree"),
+          text = fmt("Folder", "NeoTree"),
           text_align = "left",
           separator = "│",
         },
         {
           filetype = "dapui_watches",
-          text = format("Debugger", "DapUI"),
+          text = fmt("Debugger", "DapUI"),
           text_align = "left",
           separator = "│",
         },
         {
           filetype = "dbui",
-          text = format("Database", "DbUI"),
+          text = fmt("Database", "DbUI"),
           text_align = "left",
           separator = "│",
         },

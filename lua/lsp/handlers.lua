@@ -1,59 +1,62 @@
+local capabilities = require("lsp.config").get_capabilities()
+
 local M = {}
 
-local make_config = function(name, config)
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
-  capabilities.textDocument.colorProvider = { dynamicRegistration = true }
-  local extended_config = vim.tbl_extend("error", { capabilities = capabilities }, config)
-
-  return function() require("lspconfig")[name].setup(extended_config) end
+-- Default handler
+M[1] = function(server_name)
+  require("lspconfig")[server_name].setup({ capabilities = capabilities })
 end
 
--- Default handler
-M[1] = function(server_name) make_config(server_name, {})() end
-
-M.lua_ls = make_config("lua_ls", {
-  settings = {
-    Lua = {
-      hint = {
-        enable = true,
-      },
-      diagnostics = {
-        globals = { "vim" },
-      },
-      workspace = {
-        library = {
-          "/usr/local/share/nvim/runtime/lua",
-          "~/.local/share/nvim/lazy/neodev.nvim/types/stable",
+M.lua_ls = function()
+  require("lspconfig").lua_ls.setup({
+    capabilities = capabilities,
+    settings = {
+      Lua = {
+        hint = {
+          enable = true,
+        },
+        diagnostics = {
+          globals = { "vim" },
+        },
+        workspace = {
+          library = {
+            "/usr/local/share/nvim/runtime/lua",
+            "~/.local/share/nvim/lazy/neodev.nvim/types/stable",
+          },
         },
       },
     },
-  },
-})
+  })
+end
 
-M.cssls = make_config("cssls", {
-  settings = {
-    css = {
-      validate = true,
-      lint = {
-        unknownAtRules = "ignore",
+M.cssls = function()
+  require("lspconfig").cssls.setup({
+    capabilities = capabilities,
+    settings = {
+      css = {
+        validate = true,
+        lint = {
+          unknownAtRules = "ignore",
+        },
       },
     },
-  },
-})
+  })
+end
 
-M.tailwindcss = make_config("tailwindcss", {
-  on_attach = function()
-    local bufnr = vim.api.nvim_get_current_buf()
-    require("document-color").buf_attach(bufnr)
-  end,
-})
+M.tailwindcss = function()
+  require("lspconfig").tailwindcss.setup({
+    -- capabilities = capabilities,
+    -- on_attach = function() require("document-color").buf_attach(0) end,
+  })
+end
 
-M.clangd = make_config("clangd", {
-  cmd = {
-    "clangd",
-    "--offset-encoding=utf-16",
-  },
-})
+M.clangd = function()
+  require("lspconfig").clangd.setup({
+    cmd = {
+      "clangd",
+      "--offset-encoding=utf-16",
+    },
+  })
+end
 
 return M

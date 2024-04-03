@@ -1,5 +1,6 @@
 local map = require("utils.mappings")
 local f = require("utils.functions")
+local lsp = require("lsp.functions")
 local fmt = require("utils.icons").fmt
 local l, cmd, rcmd, lua = map.leader, map.cmd, map.rcmd, map.lua
 
@@ -10,7 +11,7 @@ return {
   n = {
     -- utils
     ["vv"] = { "V", "Linewise visual" },
-    [l("w")] = { cmd("w"), fmt("Save", "Save file") },
+    [l("w")] = { lsp.format, fmt("Save", "Save file") },
     [l("W")] = { cmd("w!"), fmt("Save", "Save file!") },
     [l("q")] = { cmd("q"), fmt("Exit", "Exit window") },
     [l("Q")] = { cmd("q!"), fmt("Exit", "Exit window!") },
@@ -231,6 +232,10 @@ return {
       lua("require('crates').open_repository()"),
       fmt("Github", "Open repository"),
     },
+
+    -- tailwind-tools.nvim
+    [l("Tt")] = { cmd("TailwindConcealToggle"), fmt("Ellipsis", "Toggle class conceal") },
+    [l("Ts")] = { cmd("TailwindSort"), fmt("Format", "Format classes") },
   },
   v = {
     -- move.nvim

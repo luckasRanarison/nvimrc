@@ -8,11 +8,4 @@ return {
       callback = lsp.refresh_codelens,
     },
   },
-  ["textDocument/formatting"] = {
-    event = "BufWritePost",
-    opts = {
-      group = vim.api.nvim_create_augroup("LspFormatting", {}),
-      callback = lsp.format,
-    },
-  },
 }

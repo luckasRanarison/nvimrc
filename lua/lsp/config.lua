@@ -1,5 +1,12 @@
 local M = {}
 
+M.get_capabilities = function()
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
+  capabilities.textDocument.colorProvider = { dynamicRegistration = true }
+  return capabilities
+end
+
 M.set_autocmd = function(client, bufnr)
   local capability_map = require("lsp.autocmd")
 

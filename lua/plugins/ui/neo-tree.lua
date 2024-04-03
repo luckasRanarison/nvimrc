@@ -1,6 +1,7 @@
 local icons = require("utils.icons").icons
 
 return {
+  "nvim-lua/plenary.nvim",
   {
     "nvim-neo-tree/neo-tree.nvim",
     dependencies = {
