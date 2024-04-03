@@ -1,4 +1,4 @@
 return {
-  dir = "luckasRanarison/tailwind-tools.nvim",
+  dir = "~/Projects/tailwind-tools.nvim",
   opts = {},
 }

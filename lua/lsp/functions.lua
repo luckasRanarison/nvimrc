@@ -26,16 +26,21 @@ M.prev_diagnostic = function() vim.diagnostic.goto_prev() end
 M.format = function()
   local bufnr = vim.api.nvim_get_current_buf()
   local params = vim.lsp.util.make_formatting_params({})
-  vim.lsp.buf_request(bufnr, "textDocument/formatting", params, function(err, res, ctx, _)
-    if err then vim.notify(err.message, vim.log.levels.ERROR) end
-    if not res then return end
+  local client = vim.lsp.get_clients({ name = "null-ls" })[1]
 
-    local client = vim.lsp.get_client_by_id(ctx.client_id)
-    local offset_encoding = client and client.offset_encoding or "utf-16"
-    vim.lsp.util.apply_text_edits(res, bufnr, offset_encoding)
-    vim.api.nvim_buf_call(bufnr, function() vim.cmd("silent noautocmd update") end)
-    pcall(vim.diagnostic.show)
-  end)
+  if not client then
+    vim.cmd.write()
+  else
+    client.request("textDocument/formatting", params, function(err, res, _, _)
+      if err then vim.notify(err.message, vim.log.levels.ERROR) end
+      if res then
+        local offset_encoding = client.offset_encoding or "utf-16"
+        vim.lsp.util.apply_text_edits(res, bufnr, offset_encoding)
+        pcall(vim.diagnostic.show)
+      end
+      vim.cmd.write()
+    end, bufnr)
+  end
 end
 
 return M
