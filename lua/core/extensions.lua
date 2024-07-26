@@ -1,4 +1,4 @@
-local filetypes = {
+vim.filetype.add({
   extension = {
     ic = "icelang",
     rasi = "rasi",
@@ -7,24 +7,25 @@ local filetypes = {
   pattern = {
     [".*/hypr/.*%.conf"] = "hyprlang",
   },
-}
+})
 
-vim.filetype.add(filetypes)
-
-local signs = {
+vim.fn.sign_define({
   { name = "DapBreakpoint", text = "", texthl = "Breakpoint" },
-  { name = "DiagnosticSignHint", text = "", texthl = "DiagnosticHint" },
-  { name = "DiagnosticSignError", text = "󰅚", texthl = "DiagnosticError" },
-  { name = "DiagnosticSignWarn", text = "", texthl = "DiagnosticWarn" },
-  { name = "DiagnosticSignInfo", text = "󰋽", texthl = "DiagnosticInfo" },
-}
+})
 
-vim.fn.sign_define(signs)
-
-local lsp = vim.lsp
-local ms = lsp.protocol.Methods
-
-lsp.handlers[ms.textDocument_hover] = lsp.with(lsp.handlers.hover, { border = "rounded" })
+vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.HINT] = "",
+      [vim.diagnostic.severity.INFO] = "󰋽",
+      [vim.diagnostic.severity.WARN] = "",
+      [vim.diagnostic.severity.ERROR] = "󰅚",
+    },
+  },
+})
 
 vim.wo.foldmethod = "expr"
 vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+
+vim.lsp.handlers["textDocument/hover"] =
+  vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })

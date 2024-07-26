@@ -44,6 +44,5 @@ require("lazy").setup({
     { import = "plugins.toggleterm" },
     { import = "plugins.conform" },
     { import = "plugins.dap" },
-    { import = "plugins.noice" },
   },
 })

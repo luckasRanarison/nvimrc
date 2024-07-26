@@ -5,6 +5,10 @@ local L, cmd = MP.leader, MP.cmd
 return {
   {
     "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope-fzf-native.nvim",
+    },
     keys = {
       { L "ff", cmd "Telescope find_files", desc = "Find files" },
       { L "fF", cmd "Telescope find_files hidden=true", desc = "Find all files" },
@@ -17,10 +21,6 @@ return {
       { L "fr", cmd "Telescope resume", desc = "Resume picker" },
       { L "fH", cmd "Telescope highlights", desc = "Highlight groups" },
       { L "fG", cmd "Telescope git_status", desc = "Git status" },
-    },
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope-fzf-native.nvim",
     },
     opts = {
       defaults = {

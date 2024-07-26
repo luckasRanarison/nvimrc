@@ -22,7 +22,14 @@ return {
       untracked = { text = "▎" },
       delete = { text = "▎" },
       topdelete = { text = "▎" },
-      changedelete = { text = "▎" },
+      changedelete = { text = "~" },
+    },
+    signs_staged = {
+      add = { text = "┃" },
+      change = { text = "┃" },
+      delete = { text = "┃" },
+      topdelete = { text = "┃" },
+      changedelete = { text = "~" },
     },
     preview_config = {
       border = "none",

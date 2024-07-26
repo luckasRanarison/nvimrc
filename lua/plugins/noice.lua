@@ -4,13 +4,13 @@ local L, lua = MP.leader, MP.lua
 
 return {
   "folke/noice.nvim",
+  dependencies = {
+    "MunifTanjim/nui.nvim",
+    "rcarriga/nvim-notify",
+  },
   event = "VeryLazy",
   keys = {
     { L "nn", lua "require('notify').dismiss()", desc = "Dismiss notifications" },
-  },
-  dependencies = {
-    "MunifTanjim/nui.nvim",
-    { "rcarriga/nvim-notify" },
   },
   opts = {
     lsp = {

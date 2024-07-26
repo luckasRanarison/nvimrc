@@ -19,13 +19,13 @@ local keymaps = {
     [L "p"] = { '"+p', "Paste from clipboard (down)" },
     [L "P"] = { '"+P', "Paste from clipboard (up)" },
     [L "us"] = { cmd "nohlsearch", "Clear search highlights" },
-    [L "ui"] = { prompt.set_indent, "Set indentation" },
-    [L "uI"] = { prompt.set_indent_type, "Set indentation type" },
-    [L "uf"] = { prompt.set_filetype, "Set filetype" },
     [C "h"] = { cmd "wincmd h", "Move to left window" },
     [C "j"] = { cmd "wincmd j", "Move to bottom window" },
     [C "k"] = { cmd "wincmd k", "Move to top window" },
     [C "l"] = { cmd "wincmd l", "Move to right window" },
+    [L "ui"] = { prompt.set_indent, "Set indentation" },
+    [L "uI"] = { prompt.set_indent_type, "Set indentation type" },
+    [L "uf"] = { prompt.set_filetype, "Set filetype" },
   },
   v = {
     ["q"] = { "<esc>" },
@@ -69,6 +69,14 @@ local lsp_keymaps = {
   },
 }
 
+local function regiser_core_keymaps()
+  for mode, mappings in pairs(keymaps) do
+    for lhs, mapping in pairs(mappings) do
+      vim.keymap.set(mode, lhs, mapping[1], { desc = mapping[2] })
+    end
+  end
+end
+
 local function register_lsp_keymaps(args)
   local client = vim.lsp.get_client_by_id(args.data.client_id)
 
@@ -83,10 +91,6 @@ local function register_lsp_keymaps(args)
   end
 end
 
-for mode, mappings in pairs(keymaps) do
-  for lhs, mapping in pairs(mappings) do
-    vim.keymap.set(mode, lhs, mapping[1], { desc = mapping[2] })
-  end
-end
+regiser_core_keymaps()
 
 vim.api.nvim_create_autocmd("LspAttach", { callback = register_lsp_keymaps })

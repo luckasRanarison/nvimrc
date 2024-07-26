@@ -8,6 +8,10 @@ local mode_color_map = {
   R = P.red.base,
 }
 
+local lualine_state = {
+  lsp_progress = nil,
+}
+
 local S = {
   mode = {
     "mode",
@@ -37,6 +41,17 @@ local S = {
     function() return vim.fn.reg_recording() end,
     icon = "REC:",
     color = function() return { fg = P.red.base, bg = P.black.base } end,
+  },
+  lsp_progress = {
+    function()
+      local status = lualine_state.lsp_progress or {}
+      local client = vim.lsp.get_clients({ id = status.client_id })[1]
+      if not client then return "" end
+      local value = status.params.value
+      if value.kind ~= "report" then return "" end
+      return string.format("[%s] %s (%s)", value.message, value.title, client.name)
+    end,
+    color = function() return { fg = P.gray.base, bg = P.black.base } end,
   },
   lsp = {
     function()
@@ -84,7 +99,12 @@ return {
   "nvim-lualine/lualine.nvim",
   event = { "BufReadPost", "BufNewFile" },
   dependencies = { "nvim-tree/nvim-web-devicons" },
-  init = function() vim.opt.laststatus = 3 end,
+  init = function()
+    vim.api.nvim_create_autocmd("LspProgress", {
+      callback = function(args) lualine_state.lsp_progress = args.data end,
+    })
+    vim.opt.laststatus = 3
+  end,
   opts = {
     options = {
       component_separators = { left = "", right = "" },
@@ -94,7 +114,7 @@ return {
       lualine_a = { S.mode },
       lualine_b = { S.branch, S.diff },
       lualine_c = { S.filename, S.macro },
-      lualine_x = { S.lsp, S.diagnostics },
+      lualine_x = { S.lsp_progress, S.lsp, S.diagnostics },
       lualine_y = { S.indentation, S.encoding, S.fileformat },
       lualine_z = { S.progress, S.location },
     },

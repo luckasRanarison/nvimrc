@@ -24,6 +24,7 @@ return {
         NeoTreeGitDeleted = { link = "GitSignsDelete" },
         NeoTreeGitAdded = { link = "GitSignsAdd" },
         NeoTreeDirectoryIcon = { link = "Constant" },
+        NeoTreeDotfile = { link = "Comment" },
         NotifyINFOBody = { link = "String" },
         NotifyINFOTitle = { link = "String" },
         NoiceFormatProgressDone = { bg = "palette.blue" },

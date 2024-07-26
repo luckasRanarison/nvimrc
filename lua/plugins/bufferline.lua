@@ -4,6 +4,7 @@ local L, cmd = MP.leader, MP.cmd
 
 return {
   "akinsho/bufferline.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
   event = { "BufReadPost", "BufNewFile" },
   keys = {
     { L "bb", cmd "BufferLinePick", desc = "Pick buffer" },
@@ -13,7 +14,6 @@ return {
     { L "bn", cmd "BufferLineCycleNext", desc = "Next buffer" },
     { L "bp", cmd "BufferLineCyclePrev", desc = "Prev buffer" },
   },
-  dependencies = "nvim-tree/nvim-web-devicons",
   opts = {
     options = {
       diagnostics = "nvim_lsp",

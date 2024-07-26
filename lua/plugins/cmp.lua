@@ -8,7 +8,6 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
-    event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
       "neovim/nvim-lspconfig",
       "hrsh7th/cmp-nvim-lsp",
@@ -19,8 +18,9 @@ return {
       "saadparwaiz1/cmp_luasnip",
       "onsails/lspkind-nvim",
       "windwp/nvim-autopairs",
-      { "luckasRanarison/tailwind-tools.nvim" },
+      "luckasRanarison/tailwind-tools.nvim",
     },
+    event = { "InsertEnter", "CmdlineEnter" },
     opts = function()
       local cmp = require "cmp"
       local cmp_autopairs = require "nvim-autopairs.completion.cmp"
