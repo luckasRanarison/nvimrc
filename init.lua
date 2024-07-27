@@ -1,4 +1,4 @@
 require "core.options"
 require "core.keymaps"
-require "core.extensions"
+require "core.patch"
 require "plugins"

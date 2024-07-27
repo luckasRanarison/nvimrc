@@ -17,7 +17,7 @@ return {
       { L "fb", cmd "Telescope buffers", desc = "Find buffer" },
       { L "fd", cmd "Telescope diagnostics", desc = "Find diagnostics" },
       { L "fs", cmd "Telescope lsp_document_symbols", desc = "LSP symbols" },
-      { L "fn", cmd "Telescope notify", desc = "Notifications" },
+      { L "ft", cmd "Telescope treesitter", desc = "Treesitter symbols" },
       { L "fr", cmd "Telescope resume", desc = "Resume picker" },
       { L "fH", cmd "Telescope highlights", desc = "Highlight groups" },
       { L "fG", cmd "Telescope git_status", desc = "Git status" },

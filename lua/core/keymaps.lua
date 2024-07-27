@@ -69,14 +69,6 @@ local lsp_keymaps = {
   },
 }
 
-local function regiser_core_keymaps()
-  for mode, mappings in pairs(keymaps) do
-    for lhs, mapping in pairs(mappings) do
-      vim.keymap.set(mode, lhs, mapping[1], { desc = mapping[2] })
-    end
-  end
-end
-
 local function register_lsp_keymaps(args)
   local client = vim.lsp.get_client_by_id(args.data.client_id)
 
@@ -91,6 +83,14 @@ local function register_lsp_keymaps(args)
   end
 end
 
-regiser_core_keymaps()
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = register_lsp_keymaps,
+  desc = "Dynamically registers LSP keymaps on server attach",
+})
 
-vim.api.nvim_create_autocmd("LspAttach", { callback = register_lsp_keymaps })
+--- Register core keymaps
+for mode, mappings in pairs(keymaps) do
+  for lhs, mapping in pairs(mappings) do
+    vim.keymap.set(mode, lhs, mapping[1], { desc = mapping[2] })
+  end
+end

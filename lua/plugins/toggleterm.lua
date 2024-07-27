@@ -18,7 +18,7 @@ end
 return {
   "akinsho/toggleterm.nvim",
   keys = {
-    { L "tg", open_lazygit, desc = "Open lazygit" },
+    { L "tl", open_lazygit, desc = "Open lazygit" },
     { L "tf", cmd "ToggleTerm", desc = "Open floating terminal" },
     { L "th", cmd "ToggleTerm direction=horizontal", desc = "Open horizontal terminal" },
     { L "tv", cmd "ToggleTerm direction=vertical size=60", desc = "Open vertical terminal" },

@@ -14,14 +14,14 @@ local select = function(prompt, callback, values)
 end
 
 M.set_filetype = function()
-  input("Set filetype: ", function(value)
+  input("Set filetype:", function(value)
     vim.bo[0].filetype = value
     vim.notify("Filetype set to " .. value)
   end)
 end
 
 M.set_indent = function()
-  input("Set indentation: ", function(value)
+  input("Set indentation:", function(value)
     local type = vim.bo[0].expandtab and "spaces" or "tabs"
     local parsed = tonumber(value)
 
@@ -33,7 +33,7 @@ M.set_indent = function()
 end
 
 M.set_indent_type = function()
-  select("Indent using: ", function(choice)
+  select("Indent using", function(choice)
     vim.o.expandtab = choice == "spaces"
     vim.notify("Indentation using " .. choice)
   end, { "tabs", "spaces" })
