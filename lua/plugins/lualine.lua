@@ -49,6 +49,7 @@ local S = {
       if not client then return "" end
       local value = status.params.value
       if value.kind ~= "report" then return "" end
+      if #value.message > 20 then value.message = value.message:sub(1, 20) .. "..." end
       return string.format("[%s] %s (%s)", value.message, value.title, client.name)
     end,
     color = function() return { fg = P.gray.base, bg = P.black.base } end,
