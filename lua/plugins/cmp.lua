@@ -14,6 +14,7 @@ return {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
+      "hrsh7th/cmp-nvim-lsp-signature-help",
       "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip",
       "onsails/lspkind-nvim",
@@ -52,9 +53,8 @@ return {
           documentation = win_conf,
         },
         sources = cmp.config.sources({
+          { name = "nvim_lsp_signature_help", priority = 1250 },
           { name = "nvim_lsp", priority = 1000 },
-          { name = "crates", priority = 1000 },
-          { name = "vim-dadbod-completion", priority = 1000 },
           { name = "luasnip", priority = 750 },
           { name = "buffer", priority = 500 },
           { name = "path", priority = 250 },
