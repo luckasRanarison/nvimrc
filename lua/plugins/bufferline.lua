@@ -1,4 +1,5 @@
 local MP = require "utils.mappings"
+local P = require("github-theme.palette").load "github_dark_default"
 
 local L, cmd = MP.leader, MP.cmd
 
@@ -28,6 +29,15 @@ return {
           separator = "│",
         },
       },
+    },
+    highlights = {
+      fill = { bg = P.black.base },
+      background = { bg = P.black.base },
+      close_button = { bg = P.black.base },
+      close_button_selected = { fg = P.red.base },
+      separator = { fg = P.black.base, bg = P.black.base },
+      offset_separator = { bg = P.black.base },
+      pick = { bg = P.black.base },
     },
   },
 }

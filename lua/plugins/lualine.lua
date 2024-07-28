@@ -99,12 +99,6 @@ return {
   "nvim-lualine/lualine.nvim",
   event = { "BufReadPost", "BufNewFile" },
   dependencies = { "nvim-tree/nvim-web-devicons" },
-  init = function()
-    vim.api.nvim_create_autocmd("LspProgress", {
-      callback = function(args) lualine_state.lsp_progress = args.data end,
-    })
-    vim.opt.laststatus = 3
-  end,
   opts = {
     options = {
       component_separators = { left = "", right = "" },
@@ -119,4 +113,11 @@ return {
       lualine_z = { S.progress, S.location },
     },
   },
+  config = function(_, opts)
+    vim.opt.laststatus = 3
+    vim.api.nvim_create_autocmd("LspProgress", {
+      callback = function(args) lualine_state.lsp_progress = args.data end,
+    })
+    require("lualine").setup(opts)
+  end,
 }

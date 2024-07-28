@@ -39,6 +39,7 @@ require("lazy").setup({
     { import = "plugins.telescope" },
     { import = "plugins.bufferline" },
     { import = "plugins.ibl" },
+    { import = "plugins.illuminate" },
     { import = "plugins.lualine" },
     { import = "plugins.neotree" },
     { import = "plugins.toggleterm" },

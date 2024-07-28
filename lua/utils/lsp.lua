@@ -1,11 +1,11 @@
 local M = {}
 
 M.show_diagnostics = function()
-  local _, win = vim.diagnostic.open_float()
-  if win then
-    vim.api.nvim_win_set_config(win, { border = "rounded" })
-    vim.wo[win].signcolumn = "yes:1"
-  end
+  vim.diagnostic.open_float({
+    border = "rounded",
+    header = " Diagnostics:",
+    prefix = function(_, i) return " " .. i .. " - ", "" end,
+  })
 end
 
 M.toggle_inlay_hints = function()

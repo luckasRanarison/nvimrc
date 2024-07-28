@@ -12,8 +12,6 @@ return {
     },
     groups = {
       all = {
-        BufferLineFill = { link = "BufferLineTab" },
-        BufferLineOffsetSeparator = { link = "FloatBorder" },
         NormalFloat = { link = "Normal" },
         TelescopeBorder = { link = "Comment" },
         LspInlayHint = { link = "LspCodeLens" },
@@ -25,10 +23,9 @@ return {
         NeoTreeGitAdded = { link = "GitSignsAdd" },
         NeoTreeDirectoryIcon = { link = "Constant" },
         NeoTreeDotfile = { link = "Comment" },
-        NotifyINFOBody = { link = "String" },
-        NotifyINFOTitle = { link = "String" },
-        NoiceFormatProgressDone = { bg = "palette.blue" },
-        lualine_c_normal = { link = "Normal" },
+        IlluminatedWordRead = { link = "PmenuSel" },
+        IlluminatedWordWrite = { link = "PmenuSel" },
+        IlluminatedWordText = { link = "MatchParen" },
       },
     },
   },

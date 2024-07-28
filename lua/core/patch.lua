@@ -20,6 +20,14 @@ vim.diagnostic.config({
   },
 })
 
+local ms = vim.lsp.protocol.Methods
+
+vim.lsp.handlers[ms.textDocument_hover] =
+  vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+
+vim.wo.foldmethod = "expr"
+vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+
 ---@diagnostic disable-next-line: duplicate-set-field
 vim.ui.select = function(items, opts, callback)
   local T = require "utils.telescope"
@@ -50,11 +58,3 @@ vim.ui.select = function(items, opts, callback)
 
   T.pickers.new(theme, picker_opts):find()
 end
-
-vim.wo.foldmethod = "expr"
-vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-
-local lsp = vim.lsp
-local ms = lsp.protocol.Methods
-
-lsp.handlers[ms.textDocument_hover] = lsp.with(lsp.handlers.hover, { border = "rounded" })
