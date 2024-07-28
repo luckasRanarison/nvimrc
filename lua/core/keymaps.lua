@@ -88,7 +88,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
   desc = "Dynamically registers LSP keymaps on server attach",
 })
 
---- Register core keymaps
 for mode, mappings in pairs(keymaps) do
   for lhs, mapping in pairs(mappings) do
     vim.keymap.set(mode, lhs, mapping[1], { desc = mapping[2] })

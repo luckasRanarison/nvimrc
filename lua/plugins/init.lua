@@ -43,5 +43,6 @@ require("lazy").setup({
     { import = "plugins.neotree" },
     { import = "plugins.toggleterm" },
     { import = "plugins.conform" },
+    { import = "plugins.tailwind" },
   },
 })
