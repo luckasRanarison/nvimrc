@@ -108,7 +108,7 @@ return {
     sections = {
       lualine_a = { S.mode },
       lualine_b = { S.branch, S.diff },
-      lualine_c = { S.filename, S.macro },
+      lualine_c = { S.filename, S.macro, "" },
       lualine_x = { S.lsp_progress, S.lsp, S.diagnostics },
       lualine_y = { S.indentation, S.encoding, S.fileformat },
       lualine_z = { S.progress, S.location },
@@ -119,6 +119,8 @@ return {
     vim.api.nvim_create_autocmd("LspProgress", {
       callback = function(args) lualine_state.lsp_progress = args.data end,
     })
+    opts.options.theme = require "lualine.themes.github_dark_default"
+    opts.options.theme.normal.c.bg = P.black.base
     require("lualine").setup(opts)
   end,
 }
