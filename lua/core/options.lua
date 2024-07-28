@@ -1,4 +1,4 @@
-local P, G = vim.opt, vim.g
+local P, G, W = vim.opt, vim.g, vim.wo
 
 G.mapleader = " "
 
@@ -26,3 +26,6 @@ P.laststatus = 0
 P.modeline = false
 P.conceallevel = 2
 P.mouse = ""
+
+W.foldmethod = "expr"
+W.foldexpr = "v:lua.vim.treesitter.foldexpr()"
