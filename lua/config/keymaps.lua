@@ -1,6 +1,6 @@
 local MP = require "utils.mappings"
-local prompt = require "utils.prompt"
-local lsp_utils = require "utils.lsp"
+local prompt = require "modules.prompt"
+local toggle = require "modules.toggle"
 
 local ms = vim.lsp.protocol.Methods
 local L, C, A, cmd = MP.leader, MP.ctrl, MP.alt, MP.cmd
@@ -24,6 +24,7 @@ local keymaps = {
     [L "ui"] = { prompt.set_indent, "Set indentation" },
     [L "uI"] = { prompt.set_indent_type, "Set indentation type" },
     [L "uf"] = { prompt.set_filetype, "Set filetype" },
+    [L "ut"] = { toggle.switch, "Toggle word" },
 
     [C "h"] = { cmd "wincmd h", "Move to left window" },
     [C "j"] = { cmd "wincmd j", "Move to bottom window" },
@@ -63,12 +64,12 @@ local lsp_keymaps = {
     [L "lL"] = { vim.lsp.codelens.refresh, "Refresh codelens" },
   },
   [ms.textDocument_inlayHint] = {
-    [L "lh"] = { lsp_utils.toggle_inlay_hints, "Toggle Inlay hints" },
+    [L "lh"] = { vim.lsp.inlay_hint.toggle, "Toggle Inlay hints" },
   },
   [ms.textDocument_publishDiagnostics] = {
     [A "i"] = { function() vim.diagnostic.jump({ count = 1 }) end, "Next diagnostic" },
     [A "o"] = { function() vim.diagnostic.jump({ count = -1 }) end, "Prev diagnostic" },
-    [L "ld"] = { lsp_utils.show_diagnostics, "Show diagnostics" },
+    [L "ld"] = { vim.diagnostic.open_float, "Show diagnostics" },
   },
 }
 
