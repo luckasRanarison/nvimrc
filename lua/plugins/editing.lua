@@ -1,6 +1,6 @@
-local MP = require "utils.mappings"
+local mp = require "utils.mappings"
 
-local A, cmd, rcmd = MP.alt, MP.cmd, MP.rcmd
+local A, cmd, rcmd = mp.alt, mp.cmd, mp.rcmd
 
 return {
   {

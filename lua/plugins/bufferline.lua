@@ -1,7 +1,7 @@
-local MP = require "utils.mappings"
-local P = require("github-theme.palette").load "github_dark_default"
+local mp = require "utils.mappings"
+local pal = require "plugins.modules.palette"
 
-local L, cmd = MP.leader, MP.cmd
+local L, cmd = mp.leader, mp.cmd
 
 return {
   "akinsho/bufferline.nvim",
@@ -31,13 +31,13 @@ return {
       },
     },
     highlights = {
-      fill = { bg = P.black.base },
-      background = { bg = P.black.base },
-      close_button = { bg = P.black.base },
-      close_button_selected = { fg = P.red.base },
-      separator = { fg = P.black.base, bg = P.black.base },
-      offset_separator = { bg = P.black.base },
-      pick = { bg = P.black.base },
+      fill = { bg = pal.black },
+      background = { bg = pal.black },
+      close_button = { bg = pal.black },
+      close_button_selected = { fg = pal.red },
+      separator = { fg = pal.black, bg = pal.black },
+      offset_separator = { bg = pal.black },
+      pick = { bg = pal.black },
     },
   },
 }

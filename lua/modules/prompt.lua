@@ -1,16 +1,16 @@
 local M = {}
 
-local U = require "utils.lib"
+local utils = require "utils.lib"
 
 M.set_filetype = function()
-  U.input("Set filetype: ", function(value)
+  utils.input("Set filetype: ", function(value)
     vim.bo[0].filetype = value
     vim.notify("Filetype set to " .. value)
   end)
 end
 
 M.set_indent = function()
-  U.input("Set indentation: ", function(value)
+  utils.input("Set indentation: ", function(value)
     local type = vim.bo[0].expandtab and "spaces" or "tabs"
     local parsed = tonumber(value)
 
@@ -24,7 +24,7 @@ M.set_indent = function()
 end
 
 M.set_indent_type = function()
-  U.select("Indent using", function(choice)
+  utils.select("Indent using", function(choice)
     vim.o.expandtab = choice == "spaces"
     vim.notify("Indentation using " .. choice)
   end, { "tabs", "spaces" })

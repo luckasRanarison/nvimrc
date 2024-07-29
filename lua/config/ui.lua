@@ -5,26 +5,30 @@ vim.ui.select = function(items, opts, callback)
 
   theme.layout_config.width = 50
 
-  local picker_opts = {
-    prompt_title = opts.prompt,
-    finder = T.finders.new_table({
-      results = items,
-      entry_maker = function(entry)
-        local display = opts.format_item and opts.format_item(entry) or entry
-        return { value = entry, display = display, ordinal = display }
-      end,
-    }),
-    sorter = T.config.values.generic_sorter(),
-    attach_mappings = function()
-      T.actions.select_default:replace(function(prompt_bufnr)
-        local selection = T.actions_state.get_selected_entry()
-        if not selection then return end
-        T.actions.close(prompt_bufnr)
-        callback(selection.value, selection.index)
-      end)
-      return true
+  local finder = T.finders.new_table({
+    results = items,
+    entry_maker = function(entry)
+      local display = opts.format_item and opts.format_item(entry) or entry
+      return { value = entry, display = display, ordinal = display }
     end,
-  }
+  })
 
-  T.pickers.new(theme, picker_opts):find()
+  local attach_mappings = function()
+    T.actions.select_default:replace(function(prompt_bufnr)
+      local selection = T.actions_state.get_selected_entry()
+      if not selection then return end
+      T.actions.close(prompt_bufnr)
+      callback(selection.value, selection.index)
+    end)
+    return true
+  end
+
+  T.pickers
+    .new(theme, {
+      prompt_title = opts.prompt,
+      finder = finder,
+      sorter = T.config.values.generic_sorter(),
+      attach_mappings = attach_mappings,
+    })
+    :find()
 end

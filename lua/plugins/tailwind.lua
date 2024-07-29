@@ -1,9 +1,9 @@
-local MP = require "utils.mappings"
+local mp = require "utils.mappings"
 
-local L, cmd = MP.leader, MP.cmd
+local L, cmd = mp.leader, mp.cmd
 
 return {
-  dir = "~/Projects/tailwind-tools.nvim",
+  "luckasRanarison/tailwind-tools.nvim",
   keys = {
     { L "Ts", cmd "TailwindSort", desc = "Sort classes" },
     { L "Tt", cmd "TailwindConcealToggle", desc = "Toggle conceal" },

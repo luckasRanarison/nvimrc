@@ -1,8 +1,8 @@
 local M = {}
 
-local U = require "utils.lib"
+local utils = require "utils.lib"
 
-local mappings = U.tbl_double_lookup({
+local mappings = utils.tbl_double_lookup({
   { "let", "let" },
   { "true", "false" },
   { "True", "False" },

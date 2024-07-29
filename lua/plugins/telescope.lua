@@ -1,6 +1,6 @@
-local MP = require "utils.mappings"
+local mp = require "utils.mappings"
 
-local L, cmd = MP.leader, MP.cmd
+local L, cmd = mp.leader, mp.cmd
 
 return {
   {
@@ -9,6 +9,7 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-fzf-native.nvim",
     },
+    cmd = { "Telescope" },
     keys = {
       { L "ff", cmd "Telescope find_files", desc = "Find files" },
       { L "fF", cmd "Telescope find_files hidden=true", desc = "Find all files" },
@@ -16,11 +17,13 @@ return {
       { L "fg", cmd "Telescope live_grep", desc = "Live grep" },
       { L "fb", cmd "Telescope buffers", desc = "Find buffer" },
       { L "fd", cmd "Telescope diagnostics", desc = "Find diagnostics" },
-      { L "fs", cmd "Telescope lsp_document_symbols", desc = "LSP symbols" },
+      { L "fs", cmd "Telescope lsp_document_symbols", desc = "Document symbols" },
+      { L "fS", cmd "Telescope lsp_workspace_symbols", desc = "Workspace symbols" },
       { L "ft", cmd "Telescope treesitter", desc = "Treesitter symbols" },
       { L "fr", cmd "Telescope resume", desc = "Resume picker" },
       { L "fH", cmd "Telescope highlights", desc = "Highlight groups" },
       { L "fG", cmd "Telescope git_status", desc = "Git status" },
+      { L "fo", cmd "Telescope vim_options", desc = "Vim options" },
     },
     opts = {
       defaults = {
@@ -30,7 +33,6 @@ return {
       extensions = {
         fzf = {},
         aerial = {},
-        dap = {},
       },
     },
   },

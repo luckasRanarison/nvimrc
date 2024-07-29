@@ -1,6 +1,6 @@
-local MP = require "utils.mappings"
+local mp = require "utils.mappings"
 
-local L, cmd = MP.leader, MP.cmd
+local L, cmd = mp.leader, mp.cmd
 
 return {
   "lewis6991/gitsigns.nvim",

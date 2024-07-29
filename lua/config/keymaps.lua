@@ -1,9 +1,9 @@
-local MP = require "utils.mappings"
+local mp = require "utils.mappings"
 local prompt = require "modules.prompt"
 local toggle = require "modules.toggle"
 
 local ms = vim.lsp.protocol.Methods
-local L, C, A, cmd = MP.leader, MP.ctrl, MP.alt, MP.cmd
+local L, C, A, cmd = mp.leader, mp.ctrl, mp.alt, mp.cmd
 
 local keymaps = {
   i = {
