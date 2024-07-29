@@ -17,8 +17,6 @@ return {
       { L "fg", cmd "Telescope live_grep", desc = "Live grep" },
       { L "fb", cmd "Telescope buffers", desc = "Find buffer" },
       { L "fd", cmd "Telescope diagnostics", desc = "Find diagnostics" },
-      { L "fs", cmd "Telescope lsp_document_symbols", desc = "Document symbols" },
-      { L "fS", cmd "Telescope lsp_workspace_symbols", desc = "Workspace symbols" },
       { L "ft", cmd "Telescope treesitter", desc = "Treesitter symbols" },
       { L "fr", cmd "Telescope resume", desc = "Resume picker" },
       { L "fH", cmd "Telescope highlights", desc = "Highlight groups" },

@@ -1,4 +1,5 @@
-vim.diagnostic.config({
+---@type vim.diagnostic.Opts
+local config = {
   float = {
     border = "rounded",
     header = " Diagnostics: ",
@@ -12,4 +13,13 @@ vim.diagnostic.config({
       [vim.diagnostic.severity.ERROR] = "󰅚",
     },
   },
+}
+
+vim.diagnostic.config(config)
+
+vim.fn.sign_define({
+  { name = "DiagnosticSignHint", text = "", texthl = "DiagnosticHint" },
+  { name = "DiagnosticSignInfo", text = "󰋽", texthl = "DiagnosticInfo" },
+  { name = "DiagnosticSignWarn", text = "", texthl = "DiagnosticWarn" },
+  { name = "DiagnosticSignError", text = "󰅚", texthl = "DiagnosticError" },
 })
