@@ -42,6 +42,7 @@ return {
       close_button = { bg = pal.black },
       close_button_selected = { fg = pal.red },
       offset_separator = { bg = pal.black },
+      duplicate = { bg = pal.black, bold = true },
       separator = { fg = pal.black, bg = pal.black },
       trunc_marker = { bg = pal.black },
     },

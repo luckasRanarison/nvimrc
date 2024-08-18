@@ -19,7 +19,6 @@ return {
       "saadparwaiz1/cmp_luasnip",
       "onsails/lspkind-nvim",
       "windwp/nvim-autopairs",
-      "luckasRanarison/tailwind-tools.nvim",
     },
     event = { "InsertEnter", "CmdlineEnter" },
     opts = function()

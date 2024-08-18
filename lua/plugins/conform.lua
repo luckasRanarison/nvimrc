@@ -5,7 +5,7 @@ return {
     formatters_by_ft = {
       lua = { "stylua" },
       rust = { "rustfmt" },
-      javacript = { "prettierd" },
+      javascript = { "prettierd" },
       typescript = { "prettierd" },
       javacriptreact = { "prettierd" },
       typescriptreact = { "prettierd" },

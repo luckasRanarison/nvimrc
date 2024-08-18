@@ -3,13 +3,18 @@ local mp = require "utils.mappings"
 local L, cmd = mp.leader, mp.cmd
 
 return {
-  "luckasRanarison/tailwind-tools.nvim",
+  dir = "~/Projects/tailwind-tools.nvim",
+  event = { "BufReadPost", "BufNewFile" },
+  name = "tailwind-tools",
   keys = {
-    { L "Ts", cmd "TailwindSort", desc = "Sort classes" },
-    { L "Tt", cmd "TailwindConcealToggle", desc = "Toggle conceal" },
-    { L "Tc", cmd "TailwindColorToggle", desc = "Toggle colors" },
-    { L "Tn", cmd "TailwindNextClass", desc = "Next class" },
-    { L "Tp", cmd "TailwindPrevClass", desc = "Prev class" },
+    { L "cs", cmd "TailwindSort", desc = "Sort classes" },
+    { L "cs", cmd "TailwindSortSelection", mode = { "v" }, desc = "Sort classes" },
+    { L "cc", cmd "TailwindConcealToggle", desc = "Toggle conceal" },
+    { L "ct", cmd "TailwindColorToggle", desc = "Toggle colors" },
+    { L "cn", cmd "TailwindNextClass", desc = "Next class" },
+    { L "cp", cmd "TailwindPrevClass", desc = "Prev class" },
   },
-  opts = {},
+  opts = {
+    telescope = {},
+  },
 }

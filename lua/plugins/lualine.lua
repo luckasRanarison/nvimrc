@@ -96,7 +96,7 @@ local S = {
 
 return {
   "nvim-lualine/lualine.nvim",
-  event = { "BufReadPost", "BufNewFile" },
+  event = { "InsertEnter", "BufReadPost", "BufNewFile" },
   dependencies = { "nvim-tree/nvim-web-devicons" },
   opts = {
     options = {

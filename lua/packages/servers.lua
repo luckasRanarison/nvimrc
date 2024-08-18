@@ -6,10 +6,11 @@ return {
   "html",
   "cssls",
   "emmet_ls",
-  "tailwindcss",
   "clangd",
   "vimls",
   "jsonls",
   "taplo",
   "jdtls",
+  "spelint",
+  -- "tailwindcss",
 }

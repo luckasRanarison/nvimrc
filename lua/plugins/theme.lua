@@ -1,9 +1,7 @@
 return {
   "projekt0n/github-nvim-theme",
-  main = "github-theme",
   lazy = false,
   priority = 1000,
-  init = function() vim.cmd.colorscheme "github_dark_default" end,
   opts = {
     options = {
       modules = {
@@ -29,4 +27,8 @@ return {
       },
     },
   },
+  config = function(_, opts)
+    require("github-theme").setup(opts)
+    vim.cmd.colorscheme "github_dark_default"
+  end,
 }

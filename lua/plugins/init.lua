@@ -33,7 +33,7 @@ require("lazy").setup({
     { import = "plugins.theme" },
     { import = "plugins.editing" },
     { import = "plugins.treesitter" },
-    { import = "plugins.lsp" },
+    { import = "plugins.lspconfig" },
     { import = "plugins.cmp" },
     { import = "plugins.gitsigns" },
     { import = "plugins.telescope" },
