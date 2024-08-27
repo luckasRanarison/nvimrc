@@ -38,6 +38,12 @@ M.filetype = {
   color = { fg = pal.white, bg = pal.black },
 }
 
+M.filesize = {
+  "filesize",
+  fmt = function(str) return str ~= "" and "(" .. str .. ")" end,
+  color = { fg = pal.gray, bg = pal.black },
+}
+
 M.macro = {
   function() return vim.fn.reg_recording() end,
   icon = "REC:",

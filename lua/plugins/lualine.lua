@@ -13,7 +13,7 @@ return {
     sections = {
       lualine_a = { comp.mode },
       lualine_b = { comp.branch, comp.diff },
-      lualine_c = { comp.filetype, comp.macro },
+      lualine_c = { comp.filetype, comp.filesize, comp.macro },
       lualine_x = { comp.lsp_progress, comp.lsp, comp.diagnostics },
       lualine_y = { comp.indentation, comp.encoding, comp.fileformat },
       lualine_z = { comp.progress, comp.location },
