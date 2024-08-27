@@ -13,7 +13,6 @@ return {
     keys = {
       { "gr", cmd "Telescope lsp_references", desc = "Symbol references" },
       { "gd", cmd "Telescope lsp_definitions", desc = "Symbol definitions" },
-      { L "fe", cmd "Telescope file_browser path=%:p:h select_buffer=true", desc = "File browser" },
       { L "ff", cmd "Telescope find_files", desc = "Find files" },
       { L "fF", cmd "Telescope find_files hidden=true", desc = "Find all files" },
       { L "fh", cmd "Telescope help_tags", desc = "Help tags" },
@@ -29,6 +28,7 @@ return {
       { L "fo", cmd "Telescope vim_options", desc = "Vim options" },
       { L "fs", cmd "Telescope lsp_document_symbols", desc = "Document symbols" },
       { L "fS", cmd "Telescope lsp_workspace_symbols", desc = "Workspace symbols" },
+      { L "fe", cmd "Telescope file_browser path=%:p:h select_buffer=true", desc = "File browser" },
     },
     opts = {
       defaults = {
@@ -36,7 +36,9 @@ return {
         selection_caret = "",
       },
       extensions = {
-        file_browser = {},
+        file_browser = {
+          hijack_netrw = true,
+        },
       },
     },
   },

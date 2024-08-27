@@ -1,5 +1,5 @@
 local lsp = vim.lsp
-local ms = vim.lsp.protocol.Methods
+local ms = lsp.protocol.Methods
 
 lsp.handlers[ms.textDocument_hover] = lsp.with(lsp.handlers.hover, { border = "rounded" })
 

@@ -1,9 +1,11 @@
----@diagnostic disable-next-line: duplicate-set-field
-vim.ui.select = function(items, opts, callback)
+local function select(items, opts, callback)
   local T = require "plugins.modules.telescope"
-  local theme = T.themes.get_dropdown()
 
-  theme.layout_config.width = 50
+  local theme = T.themes.get_dropdown({
+    layout_config = {
+      width = 50,
+    },
+  })
 
   local finder = T.finders.new_table({
     results = items,
@@ -15,10 +17,9 @@ vim.ui.select = function(items, opts, callback)
 
   local attach_mappings = function()
     T.actions.select_default:replace(function(prompt_bufnr)
-      local selection = T.actions_state.get_selected_entry()
-      if not selection then return end
       T.actions.close(prompt_bufnr)
-      callback(selection.value, selection.index)
+      local selection = T.actions_state.get_selected_entry()
+      if selection then callback(selection.value, selection.index) end
     end)
     return true
   end
@@ -32,3 +33,5 @@ vim.ui.select = function(items, opts, callback)
     })
     :find()
 end
+
+vim.ui.select = select
