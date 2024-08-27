@@ -11,6 +11,5 @@ return {
   "jsonls",
   "taplo",
   "jdtls",
-  "spelint",
   -- "tailwindcss",
 }

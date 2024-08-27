@@ -10,6 +10,8 @@ return {
     },
     groups = {
       all = {
+        WinBar = { link = "Normal" },
+        WinBarNC = { link = "Comment" },
         NormalFloat = { link = "Normal" },
         TelescopeBorder = { link = "Comment" },
         LspInlayHint = { link = "LspCodeLens" },
@@ -24,6 +26,7 @@ return {
         IlluminatedWordRead = { link = "MatchParen" },
         IlluminatedWordWrite = { link = "MatchParen" },
         IlluminatedWordText = { link = "MatchParen" },
+        DropBarIconUIPickPivot = { link = "BufferLinePick" },
       },
     },
   },

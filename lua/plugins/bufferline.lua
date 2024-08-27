@@ -20,15 +20,6 @@ return {
       diagnostics = "nvim_lsp",
       diagnostics_indicator = nil,
       indicator = "none",
-      offsets = {
-        {
-          filetype = "neo-tree",
-          text = " NeoTree",
-          text_align = "left",
-          highlight = "Bold",
-          separator = "│",
-        },
-      },
     },
     highlights = {
       fill = { bg = pal.black },

@@ -1,39 +1,31 @@
-local helpers = require "config.helpers"
+local g, opt, wo = vim.g, vim.opt, vim.wo
 
-local options = {
-  g = {
-    mapleader = " ",
-  },
-  opt = {
-    fileencoding = "utf-8",
-    cmdheight = 0,
-    number = true,
-    relativenumber = true,
-    history = 100,
-    termguicolors = true,
-    filetype = "on",
-    cursorline = true,
-    foldenable = true,
-    foldlevel = 99,
-    foldlevelstart = 99,
-    ignorecase = true,
-    shiftwidth = 2,
-    tabstop = 2,
-    expandtab = true,
-    wrap = false,
-    writebackup = false,
-    swapfile = false,
-    updatetime = 200,
-    fillchars = "eob: ",
-    laststatus = 0,
-    modeline = false,
-    conceallevel = 2,
-    mouse = "",
-  },
-  wo = {
-    foldmethod = "expr",
-    foldexpr = "v:lua.vim.treesitter.foldexpr()",
-  },
-}
+g.mapleader = " "
 
-helpers.set_options(options)
+opt.fileencoding = "utf-8"
+opt.cmdheight = 0
+opt.number = true
+opt.relativenumber = true
+opt.history = 100
+opt.termguicolors = true
+opt.filetype = "on"
+opt.cursorline = true
+opt.foldenable = true
+opt.foldlevel = 99
+opt.foldlevelstart = 99
+opt.ignorecase = true
+opt.shiftwidth = 2
+opt.tabstop = 2
+opt.expandtab = true
+opt.wrap = false
+opt.writebackup = false
+opt.swapfile = false
+opt.updatetime = 200
+opt.fillchars = "eob: "
+opt.laststatus = 0
+opt.modeline = false
+opt.conceallevel = 2
+opt.mouse = ""
+
+wo.foldmethod = "expr"
+wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
