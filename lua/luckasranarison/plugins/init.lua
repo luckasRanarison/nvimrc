@@ -37,7 +37,6 @@ require("lazy").setup({
     { import = "luckasranarison.plugins.colorscheme" },
     { import = "luckasranarison.plugins.dropbar" },
     { import = "luckasranarison.plugins.edit" },
-    { import = "luckasranarison.plugins.fidget" },
     { import = "luckasranarison.plugins.ibl" },
     { import = "luckasranarison.plugins.gitsigns" },
     { import = "luckasranarison.plugins.mason" },

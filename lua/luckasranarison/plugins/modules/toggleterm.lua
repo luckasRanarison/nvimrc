@@ -5,7 +5,7 @@ return {
     Terminal():new({
       cmd = "lazygit",
       hidden = true,
-      float_opts = { width = 90, height = 20 },
+      float_opts = { width = 90, height = 23 },
     }):open()
   end,
 }

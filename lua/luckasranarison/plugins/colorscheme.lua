@@ -20,7 +20,6 @@ return {
         IlluminatedWordRead = { link = "PmenuSel" },
         IlluminatedWordWrite = { link = "PmenuSel" },
         IlluminatedWordText = { link = "PmenuSel" },
-        DropBarIconUIPickPivot = { link = "BufferLinePick" },
       },
     },
   },

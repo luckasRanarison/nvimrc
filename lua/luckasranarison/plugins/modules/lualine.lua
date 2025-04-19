@@ -48,6 +48,21 @@ return {
     color = function() return { fg = palette.red, bg = palette.white } end,
   },
 
+  lsp_progress = function(state)
+    return {
+      function()
+        local status = state.lsp_progress or {}
+        local client = vim.lsp.get_clients({ id = status.client_id })[1]
+        if not client then return "" end
+        local value = status.params.value
+        if value.kind ~= "report" then return "" end
+        if #value.message > 20 then value.message = value.message:sub(1, 20) .. "..." end
+        return string.format("[%s] %s (%s)", value.message, value.title, client.name)
+      end,
+      color = function() return { fg = palette.gray, bg = palette.white } end,
+    }
+  end,
+
   lsp = {
     function()
       local clients = vim.lsp.get_clients({ bufnr = 0 })
