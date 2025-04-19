@@ -1,0 +1,10 @@
+require("luckasranarison.options")
+require("luckasranarison.keymaps")
+require("luckasranarison.autocmd")
+require("luckasranarison.plugins")
+require("luckasranarison.filetypes")
+require("luckasranarison.diagnostics")
+require("luckasranarison.ui")
+require("luckasranarison.lsp")
+
+vim.cmd.colorscheme("github_light")
