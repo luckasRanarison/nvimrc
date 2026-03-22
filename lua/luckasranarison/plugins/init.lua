@@ -32,7 +32,6 @@ require("lazy").setup({
   spec = {
     { "neovim/nvim-lspconfig" },
     { import = "luckasranarison.plugins.blink" },
-    { import = "luckasranarison.plugins.bufferline" },
     { import = "luckasranarison.plugins.conform" },
     { import = "luckasranarison.plugins.colorscheme" },
     { import = "luckasranarison.plugins.dropbar" },

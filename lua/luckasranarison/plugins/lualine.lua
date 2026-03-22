@@ -12,17 +12,29 @@ return {
     options = {
       component_separators = { left = "", right = "" },
       section_separators = { left = "", right = "" },
+      always_divide_middle = false,
     },
     sections = {
       lualine_a = { comp.mode },
       lualine_b = { comp.branch, comp.diff },
-      lualine_c = { comp.filetype, comp.filesize, comp.macro },
+      lualine_c = { comp.filetype, comp.filesize, comp.macro, { color = { bg = "NONE" } } },
+
       lualine_x = { comp.lsp_progress(state), comp.lsp, comp.diagnostics },
       lualine_y = { comp.indentation, comp.encoding, comp.fileformat },
       lualine_z = { comp.progress, comp.location },
     },
   },
   config = function(_, opt)
+    local auto = require("lualine.themes.auto")
+
+    local lualine_modes =
+      { "insert", "normal", "visual", "command", "replace", "inactive", "terminal" }
+    for _, field in ipairs(lualine_modes) do
+      if auto[field] and auto[field].c then auto[field].c.bg = "NONE" end
+    end
+
+    opt.options.theme = auto
+
     ---@diagnostic disable-next-line: different-requires
     require("lualine").setup(opt)
 

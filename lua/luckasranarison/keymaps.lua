@@ -7,6 +7,10 @@ local L, C, A, cmd, map = km.L, km.C, km.A, km.cmd, km.map
 
 map("i", "jj", "<esc>", { desc = "Quick escape" })
 
+map("n", "bn", cmd("bn"), { desc = "Next Buffer" })
+map("n", "bp", cmd("bp"), { desc = "Previous Buffer" })
+map("n", "bd", cmd("bd"), { desc = "Delete Buffer" })
+
 map("n", L("w"), cmd("w"), { desc = "Save file" })
 map("n", L("W"), cmd("w!"), { desc = "Save file!" })
 map("n", L("q"), cmd("q"), { desc = "Exit window" })

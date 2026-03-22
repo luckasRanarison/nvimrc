@@ -6,6 +6,11 @@ return {
   opts = {
     groups = {
       all = {
+        FloatBorder = { fg = "#262626" },
+        Normal = { bg = "NONE" },
+        NormalNC = { bg = "NONE" },
+        NormalFloat = { bg = "NONE" },
+        Normal = { bg = "NONE" },
         Folded = { link = "Comment" },
         WinBar = { link = "Normal" },
         WinBarNC = { link = "Comment" },
@@ -16,10 +21,11 @@ return {
         BlinkCmpMenuBorder = { link = "FloatBorder" },
         BlinkCmpSignatureHelpBorder = { link = "FloatBorder" },
         BlinkCmpDocBorder = { link = "FloatBorder" },
-        TelescopeBorder = { link = "Comment" },
+        TelescopeBorder = { link = "FloatBorder" },
         IlluminatedWordRead = { link = "PmenuSel" },
         IlluminatedWordWrite = { link = "PmenuSel" },
         IlluminatedWordText = { link = "PmenuSel" },
+        BufferLineFill = { bg = "NONE" },
       },
     },
   },

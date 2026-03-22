@@ -22,4 +22,6 @@ lsp.enable({
   "ts_ls",
   "rust_analyzer",
   "yamlls",
+  "tailwindcss",
+  "emmet_language_server",
 })

@@ -7,4 +7,4 @@ require("luckasranarison.filetypes")
 require("luckasranarison.diagnostics")
 require("luckasranarison.lsp")
 
-vim.cmd.colorscheme("github_light")
+vim.cmd.colorscheme("github_dark")
